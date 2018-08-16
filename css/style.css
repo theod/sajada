@@ -1,0 +1,73 @@
+/* ---------------------------------------------
+Author: Théo de la Hogue
+Website: http://theod.fr
+-----------------------------------------------*/
+/* ---------------------------------------------
+CONTENTS:
+menu
+view
+info
+-----------------------------------------------*/
+
+.no-scroll {
+    overflow: hidden;
+}
+
+/********* menu *********/
+#menu {
+    z-index: 0;
+    position: absolute;
+    display: block;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-image: url("../images/menu-tapis.png");
+    
+    animation: fadeInUp 1s;
+    -webkit-animation: fadeInUp 1s; /* For Safari 3.1 to 6.0 */
+}
+.menu-zone {
+    fill: white;
+    fill-opacity: 0.0;
+    transition: fill-opacity 1s;
+    -webkit-transition: fill-opacity 1s; /* For Safari 3.1 to 6.0 */
+    stroke-width: 2;
+    stroke: grey;
+    stroke-opacity: 0.0;
+    transition: stroke-opacity 1s;
+    -webkit-transition: stroke-opacity 1s; /* For Safari 3.1 to 6.0 */
+}
+.menu-zone:hover {
+    fill-opacity: 0.3;
+    stroke-opacity: 1.0;
+}
+
+/********* view *********/
+#view {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding: 0%;
+    margin: 0;
+    width: 50%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    background-color: white;
+    background-size: cover;
+    background-color: transparent;
+}
+
+/********* info *********/
+#info {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    padding: 0%;
+    margin: 0;
+    width: 50%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    background-color: rgba(50, 50, 50, 0.7);
+}
