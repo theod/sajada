@@ -9,9 +9,9 @@ tapis-view
 tapis-info
 -----------------------------------------------*/
 
-.no-scroll {
-    overflow: hidden;
-}
+ body, html {
+	overflow:hidden; 
+ }
 
 /********* menu *********/
 #menu {
@@ -89,8 +89,24 @@ tapis-info
     line-height: 2vw;
 }
 
+.play p, a, a:hover {
+    padding: 0% 2%;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 100;
+	font-size: 2vw;
+    color: lightgray;
+    line-height: 2vw;
+    text-decoration: none;
+}
+
+.play svg {
+
+}
+    
 /********* player *********/
 #tapis-player {
     position: fixed;
     z-index: 3;
+    bottom: 1%;
+    left: 1%;
 }

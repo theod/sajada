@@ -10,7 +10,6 @@
     -o-font-smoothing      : antialiased;
     font-smoothing         : antialiased;
     text-rendering         : optimizeLegibility;
-
 }
 
 .mediPlayer .control {
@@ -21,16 +20,15 @@
 
 .mediPlayer .not-started .play, .mediPlayer .paused .play {
     opacity : 1;
-
 }
 
 .mediPlayer .playing .pause {
     opacity : 1;
-
 }
 
 .mediPlayer .playing .play {
     opacity : 0;
+    fill: red;
 }
 
 .mediPlayer .ended .stop {
@@ -52,8 +50,8 @@
 
 .mediPlayer .progress-bar,
 .mediPlayer .precache-bar {
+    -webkit-transition   : stroke-dashoffset 500ms;
     transition        : stroke-dashoffset 500ms;
-
     stroke-dasharray  : 298.1371428256714;
     stroke-dashoffset : 298.1371428256714;
 }
