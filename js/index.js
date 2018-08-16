@@ -1,49 +1,45 @@
 /*jslint browser: true*/
-/*global $, jQuery, alert*/
+/*global $*/
 
 $(document).ready(function () {
     
     "use strict";
+    
+    $('#tapis-player').mediaPlayer();
 
-    /******************************
-    * Main
-    *******************************/
-    
-    localStorage.clear();
-    
     // zoom into a part of the background
     
-    $('#tapis-01').on('click', function (e) {
+    $('#tapis-maha').on('click', function (e) {
         e.preventDefault();
         $('.menu-zone').hide();
-        $('#view').show();
-        $('#info').fadeIn(1000);
+        $('.tapis-view').show();
+        $('#tapis-maha-info').fadeIn(1000);
         $('#menu').animate({    backgroundSize : '210%',
-                                    backgroundPositionX : -450,
-                                    backgroundPositionY : -85
+                                backgroundPositionX : -450,
+                                backgroundPositionY : -85
                                }, 1000, $.bez([0.3, 0.75, 0.4, 1])); /* http://cubic-bezier.com */
     });
     
-    $('#tapis-02').on('click', function (e) {
+    $('#tapis-chadia').on('click', function (e) {
         e.preventDefault();
         $('.menu-zone').hide();
-        $('#view').show();
-        $('#info').fadeIn(1000);
+        $('.tapis-view').show();
+        $('#tapis-chadia-info').fadeIn(1000);
         $('#menu').animate({    backgroundSize : '200%',
-                                    backgroundPositionX : -1100,
-                                    backgroundPositionY : -85
+                                backgroundPositionX : -1060,
+                                backgroundPositionY : -85
                                }, 1000, $.bez([0.3, 0.75, 0.4, 1])); /* http://cubic-bezier.com */
     });
 
     // zoom back
-    $('#view').on('click', function (e) {
+    $('.tapis-view').on('click', function (e) {
         e.preventDefault();
         $('#menu').animate({    backgroundSize : '100%',
-                                    backgroundPositionX : 0,
-                                    backgroundPositionY : 0
+                                backgroundPositionX : 0,
+                                backgroundPositionY : 0
                                }, 1000, $.bez([0.3, 0.75, 0.4, 1]));
-        $('#view').hide();
-        $('#info').fadeOut(1000);
+        $('.tapis-view').hide();
+        $('.tapis-info').fadeOut(1000);
         $('.menu-zone').fadeIn(1000);
     });
 });

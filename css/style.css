@@ -5,8 +5,8 @@ Website: http://theod.fr
 /* ---------------------------------------------
 CONTENTS:
 menu
-view
-info
+tapis-view
+tapis-info
 -----------------------------------------------*/
 
 .no-scroll {
@@ -42,7 +42,7 @@ info
 }
 
 /********* view *********/
-#view {
+.tapis-view {
     display: none;
     position: fixed;
     z-index: 1;
@@ -58,11 +58,11 @@ info
 }
 
 /********* info *********/
-#info {
+.tapis-info {
     display: none;
     position: fixed;
     z-index: 2;
-    padding: 0%;
+    padding: 10% 5%;
     margin: 0;
     width: 50%;
     height: 100%;
@@ -70,4 +70,27 @@ info
     bottom: 0;
     left: 50%;
     background-color: rgba(50, 50, 50, 0.7);
+}
+
+.tapis-info h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+	font-size: 3vw;
+    color: lightgray;
+    line-height: 3vw;
+}
+
+.tapis-info p {
+    padding: 10% 0%;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 100;
+	font-size: 2vw;
+    color: lightgray;
+    line-height: 2vw;
+}
+
+/********* player *********/
+#tapis-player {
+    position: fixed;
+    z-index: 3;
 }
