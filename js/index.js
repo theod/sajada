@@ -11,7 +11,7 @@ $(document).ready(function () {
 
     // zoom into a part of the background
   /*    
-    $('#tapis-maha').on('click', function (e) {
+    $('#zone-maha').on('click', function (e) {
         e.preventDefault();
         
         console.log('coucou');
@@ -24,7 +24,7 @@ $(document).ready(function () {
                                }, 1000, $.bez([0.3, 0.75, 0.4, 1])); 
     });
   
-    $('#tapis-chadia').on('click', function (e) {
+    $('#zone-chadia').on('click', function (e) {
         e.preventDefault();
         $('.menu-zone').hide();
         $('.tapis-view').show();

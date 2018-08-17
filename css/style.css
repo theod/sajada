@@ -2,20 +2,9 @@
 Author: Théo de la Hogue
 Website: http://theod.fr
 -----------------------------------------------*/
-/* ---------------------------------------------
-CONTENTS:
-menu
-tapis-view
-tapis-info
------------------------------------------------*/
-/*
- body, html {
-	overflow:hidden; 
- }
-*/
 
 body {
-    background-color: black;
+    background-color: gray;
 }
 
 /********* menu *********/
@@ -47,6 +36,37 @@ body {
 .menu-zone:hover {
     fill-opacity: 0.3;
     stroke-opacity: 1.0;
+}
+
+/********* info *********/
+.info {
+    /*display: none;*/
+    z-index: 2;
+    position: fixed;
+    width: 50%;
+    height: 80%;
+    top: 10%;
+    padding: 2% 5% 10% 5%;
+
+    background-size: cover;
+    background-color: rgba(0.3, 0.3, 0.3, 0.5);
+}
+
+.info h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+	font-size: 3vw;
+    color: lightgray;
+    line-height: 3vw;
+}
+
+.info p {
+    padding: 10% 0%;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+	font-size: 2vw;
+    color: lightgray;
+    line-height: 2vw;
 }
 
 /********* view ********
