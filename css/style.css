@@ -21,9 +21,6 @@ tapis-info
     background-size: 100% auto;
     background-repeat: no-repeat;
     background-image: url("../images/menu-tapis.png");
-    
-    animation: fadeInUp 1s;
-    -webkit-animation: fadeInUp 1s; /* For Safari 3.1 to 6.0 */
 }
 .menu-zone {
     fill: white;
@@ -62,19 +59,19 @@ tapis-info
     display: none;
     position: fixed;
     z-index: 2;
-    padding: 10% 5%;
+    padding: 2% 5% 10% 5%;
     margin: 0;
     width: 50%;
     height: 100%;
     top: 0;
     bottom: 0;
     left: 50%;
-    background-color: rgba(50, 50, 50, 0.7);
+    background-color: rgba(0.3, 0.3, 0.3, 0.5);
 }
 
 .tapis-info h1 {
     font-family: 'Montserrat', sans-serif;
-    font-weight: 200;
+    font-weight: 300;
 	font-size: 3vw;
     color: lightgray;
     line-height: 3vw;
@@ -83,30 +80,71 @@ tapis-info
 .tapis-info p {
     padding: 10% 0%;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 100;
+    font-weight: 200;
 	font-size: 2vw;
     color: lightgray;
     line-height: 2vw;
 }
 
-.play p, a, a:hover {
-    padding: 0% 2%;
+.tapis-retour p, a, a:hover, a:active, a:visited, a:focus  {
+    padding: 0% 0%;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 100;
+    font-weight: 200;
+	font-size: 1.5vw;
+    color: lightgray;
+    line-height: 1.5vw;
+}
+
+.tapis-play p, a, a:hover, a:active, a:visited, a:focus {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
 	font-size: 2vw;
     color: lightgray;
     line-height: 2vw;
     text-decoration: none;
 }
 
-.play svg {
-
+.tapis-play svg {
+    margin: 2% 4%;
+    float: left;
 }
     
 /********* player *********/
-#tapis-player {
+#tapis-player-panel {
+    display: none;
     position: fixed;
     z-index: 3;
-    bottom: 1%;
+    bottom: 3%;
     left: 1%;
 }
+
+#tapis-player {
+    margin: -2% 0%;
+}
+
+#tapis-player-label {
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+	font-size: 1.5vw;
+    color: lightgray;
+    background-color: rgba(0.3, 0.3, 0.3, 0.5);
+}
+
+/********* à propos ********
+#tapis-apropos {
+    display: fixed;
+    z-index: 4;
+    bottom: 2%;
+    right: 1%;
+}
+
+#tapis-apropos p, a, a:hover, a:active, a:visited, a:focus {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+	font-size: 2vw;
+    color: lightgray;
+    line-height: 2vw;
+    text-decoration: none;
+}
+*/

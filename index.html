@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/progres-bar.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300" rel="stylesheet">
 
     <script language="JavaScript" type="text/javascript"src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script language="JavaScript" type="text/javascript" src="js/jquery.bez.min.js"></script>
@@ -27,6 +27,10 @@
 
   <body>
       
+<!--      
+    <div class="container">
+        <div class="row">
+--!> 
         <!-- MENU !-->
         <svg id="menu" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5184 3456">
             <a id="tapis-maha">
@@ -77,31 +81,53 @@
         <div class="tapis-view col-md-6"></div>
       
         <!-- INFO !-->
-        <div id="tapis-maha-info" class="tapis-info col-xs-8 col-md-6">
-            <div class="col-xs-12 col-md-12">
+        <div id="tapis-maha-info" class="tapis-info col-md-6">
+            <div class="tapis-description col-md-12">
                 <h1>Tapis de prière et interview donnés par Maha Ben Ali</h1>
-                <p>Maha est directrice de Dar Belhaj, centre culturel à Marrakech.<br>Elle est née en 1987 à Casablanca et vit à Marrakech.</p>
+                <p>Maha est directrice de Dar Belhaj, centre culturel à Marrakech. Elle est née en 1987 à Casablanca et vit à Marrakech.</p>
             </div>
-            <div class="play" src="sounds/maha.mp3">
-                <a href=""><p>Ecouter l'entretien de Maha<br>(~14 minutes)</p></a>
+            <div class="tapis-play" src="sounds/maha.mp3" label="Entretien de Maha">
+                <a href=""><p>Ecouter l'entretien de Maha<br>~14 minutes</p></a>
             </div>
         </div>
-      
-        <div id="tapis-chadia-info" class="tapis-info col-xs-6 col-md-6">
-            <div class="col-xs-12 col-md-12">
+        
+        <div id="tapis-chadia-info" class="tapis-info col-md-6">
+            <div class="tapis-description col-md-12">
                 <h1>Tapis de prière et interview donnés par Chadia Ben Ali en mars 2018</h1>
-                <p>Chadia est femme d'ouvrage dans un ryad.<br>Elle vit à Marrakech depuis sa naissance en 1978.</p>
+                <p>Chadia est femme d'ouvrage dans un ryad. Elle vit à Marrakech depuis sa naissance en 1978.</p>
             </div>
-            <div class="play" src="sounds/chadia.mp3">
-                <a href="">Ecouter l'entretien</a>
+            <div class="tapis-play" src="sounds/chadia.mp3" label="Entretien de Chatia">
+                <a href=""><p>Ecouter l'entretien de Maha<br>~7 minutes</p></a>
+            </div>
+        </div>
+        
+        <!-- PLAYER !-->
+        <div id="tapis-player-panel" class="container">
+            <div class="col-md-6">
+                <div class="row">
+                    <div id="tapis-player" class="mediPlayer col-md-1">
+                        <audio class="listen" preload="none" data-size="100" src="sounds/test.mp3"></audio>
+                    </div>
+                    <div id="tapis-player-label" class="col-md-4 col-md-offset-2">
+                        <p>Aucun entretien</p>
+                    </div>
+                </div>
             </div>
         </div>
       
-        <!-- PLAYER !-->
-        <div id="tapis-player" class="mediPlayer">
-            <audio class="listen" preload="none" data-size="100" src="sounds/test.mp3"></audio>
+<!-- A PROPOS 
+        <div id="tapis-apropos" class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <a href=""><p>A propos</p></a>
+                </div>
+            </div>
         </div>
-
+!-->
+<!--       
+        </div>
+    </div>
+ !-->   
   </body>
 
 </html>
