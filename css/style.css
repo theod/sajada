@@ -14,7 +14,7 @@ tapis-info
  }
 */
 
-body, html {
+body {
     background-color: black;
 }
 
@@ -23,11 +23,12 @@ body, html {
     z-index: 0;
 }
 #menu img, svg {
-    position: absolute;
+    position: fixed;
+    top: 50%;
+    bottom: 50%;
     width: 100%;
 	height: auto;
     margin: auto;
-    top: 0; left: 0; bottom: 0; right: 0;
 }
 #menu svg {
     z-index: 1;

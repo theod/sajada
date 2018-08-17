@@ -1,25 +1,29 @@
 /*jslint browser: true*/
 /*global $*/
 
+/* note : to edit bezier parameters got to http://cubic-bezier.com */
+
 $(document).ready(function () {
     
     "use strict";
     
-    $('#tapis-player').mediaPlayer();
+    //$('#tapis-player').mediaPlayer();
 
     // zoom into a part of the background
-    
+  /*    
     $('#tapis-maha').on('click', function (e) {
         e.preventDefault();
+        
+        console.log('coucou');
+             
         $('.menu-zone').hide();
-        $('.tapis-view').show();
-        $('#tapis-maha-info').fadeIn(1000);
-        $('#menu').animate({    backgroundSize : '210%',
-                                backgroundPositionX : '20%',
-                                backgroundPositionY : '0%'
-                               }, 1000, $.bez([0.3, 0.75, 0.4, 1])); /* http://cubic-bezier.com */
+        //$('.tapis-view').show();
+        //$('#tapis-maha-info').fadeIn(1000);
+        $('#background').animate({size : '210%',
+                                translate : '20% 0%',
+                               }, 1000, $.bez([0.3, 0.75, 0.4, 1])); 
     });
-    
+  
     $('#tapis-chadia').on('click', function (e) {
         e.preventDefault();
         $('.menu-zone').hide();
@@ -28,7 +32,7 @@ $(document).ready(function () {
         $('#menu').animate({    backgroundSize : '210%',
                                 backgroundPositionX : '50%',
                                 backgroundPositionY : '0%'
-                               }, 1000, $.bez([0.3, 0.75, 0.4, 1])); /* http://cubic-bezier.com */
+                               }, 1000, $.bez([0.3, 0.75, 0.4, 1]));
     });
 
     // insert "Retour" button
@@ -86,4 +90,5 @@ $(document).ready(function () {
         // set player label
         $('#tapis-player-label').text(label);
     });
+*/
 });
