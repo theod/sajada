@@ -8,19 +8,29 @@ menu
 tapis-view
 tapis-info
 -----------------------------------------------*/
-
+/*
  body, html {
 	overflow:hidden; 
  }
+*/
+
+body, html {
+    background-color: black;
+}
 
 /********* menu *********/
 #menu {
     z-index: 0;
+}
+#menu img, svg {
     position: absolute;
-    display: block;
-    background-size: 100% auto;
-    background-repeat: no-repeat;
-    background-image: url("../images/menu-tapis.png");
+    width: 100%;
+	height: auto;
+    margin: auto;
+    top: 0; left: 0; bottom: 0; right: 0;
+}
+#menu svg {
+    z-index: 1;
 }
 .menu-zone {
     fill: white;
@@ -38,7 +48,7 @@ tapis-info
     stroke-opacity: 1.0;
 }
 
-/********* view *********/
+/********* view ********
 .tapis-view {
     display: none;
     position: fixed;
@@ -54,7 +64,7 @@ tapis-info
     background-color: transparent;
 }
 
-/********* info *********/
+/********* info ********
 .tapis-info {
     display: none;
     position: fixed;
@@ -109,7 +119,7 @@ tapis-info
     float: left;
 }
     
-/********* player *********/
+/********* player ********
 #tapis-player-panel {
     display: none;
     position: fixed;
