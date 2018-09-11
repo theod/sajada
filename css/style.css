@@ -13,11 +13,13 @@ body {
 }
 #menu img, svg {
     position: fixed;
-    top: 50%;
-    bottom: 50%;
-    width: 100%;
-	height: auto;
-    margin: auto;
+    top: 50vw;
+    left: 50vh;
+    width: 100vw;
+    height: auto;
+    margin-top: -50vw;
+    margin-left: -50vh;
+    overflow: hidden;
 }
 #menu svg {
     z-index: 1;
@@ -44,8 +46,8 @@ body {
     z-index: 2;
     position: fixed;
     width: 50%;
-    height: 80%;
-    top: 10%;
+    height: 100%;
+    top: 0%;
     padding: 2% 5% 10% 5%;
 
     background-size: cover;
