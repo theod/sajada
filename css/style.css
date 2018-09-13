@@ -10,16 +10,38 @@ body {
 /********* menu *********/
 #menu {
     z-index: 0;
+    background-color: red;
+    float: left;
+}
+#background {
+    position: fixed;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0;
 }
 #menu img, svg {
-    position: fixed;
-    top: 50vw;
-    left: 50vh;
+    padding: 0;
+}
+@media screen and (orientation: landscape) {
+#background {
+    overflow-x: hidden;
+    overflow-y: visible;
+}
+#menu img, svg {
     width: 100vw;
     height: auto;
-    margin-top: -50vw;
-    margin-left: -50vh;
-    overflow: hidden;
+}
+}
+@media screen and (orientation: portrait) {
+#background {
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+#menu img, svg {
+    width: auto;
+    height: 100vh;
+}
 }
 #menu svg {
     z-index: 1;
@@ -45,32 +67,59 @@ body {
     /*display: none;*/
     z-index: 2;
     position: fixed;
-    width: 50%;
-    height: 100%;
-    top: 0%;
+    display: block;
     padding: 2% 5% 10% 5%;
-
     background-size: cover;
     background-color: rgba(0.3, 0.3, 0.3, 0.5);
 }
-
+@media screen and (orientation: landscape) {
+.info {
+    width: 50vw;
+    height: 100vh;
+    top: 0vh;
+    left: 50vw;
+}
+}
+@media screen and (orientation: portrait) {
+.info {
+    width: 100vw;
+    height: 50vh;
+    top: 50vh;
+    left: 0vw;
+}
+}
 .info h1 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
-	font-size: 3vw;
     color: lightgray;
-    line-height: 3vw;
 }
-
 .info p {
-    padding: 10% 0%;
     font-family: 'Montserrat', sans-serif;
     font-weight: 200;
-	font-size: 2vw;
     color: lightgray;
+}
+@media screen and (orientation: landscape) {
+.info h1 {
+	font-size: 3vw;
+    line-height: 3vw;
+}
+.info p {
+    padding: 10% 0%;
+	font-size: 2vw;
     line-height: 2vw;
 }
-
+}
+@media screen and (orientation: portrait) {
+.info h1 {
+	font-size: 8vw;
+    line-height: 8vw;
+}
+.info p {
+    padding: 5% 0%;
+	font-size: 5vw;
+    line-height: 5vw;
+}
+}
 /********* view ********
 .tapis-view {
     display: none;

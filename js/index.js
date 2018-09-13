@@ -7,6 +7,42 @@ $(document).ready(function () {
     
     "use strict";
     
+    /******************************
+    * Definitions
+    *******************************/
+
+    /** check orientation to display hint or not **/
+    function checkOrientation(orientation) {
+
+        //console.log("Device held " + (orientation.matches ? "horizontally" : "vertically"));
+        
+        // scroll image to center on start
+        var background = $('#background'),
+            image = $('#background > img');
+
+        if (orientation.matches) {
+            background.scrollTop((image.height() - background.height()) / 2);
+        } else {
+            background.scrollLeft((image.width() - background.width()) / 2);
+        }
+    }
+    
+    function attachToEvents() {
+
+        var query = window.matchMedia("(orientation:landscape)");
+        
+        // check orientation and attach to orientation change 
+        checkOrientation(query);
+        query.addListener(checkOrientation);
+    }
+    
+    /******************************
+    * Main
+    *******************************/
+    
+    // attach functions to events
+    attachToEvents();
+   
     //$('#tapis-player').mediaPlayer();
 
     // zoom into a part of the background
