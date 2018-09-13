@@ -7,24 +7,58 @@ $(document).ready(function () {
     
     "use strict";
     
+    sessionStorage.clear();
+    
     /******************************
     * Definitions
     *******************************/
-
+    
+    function backgroundSetup() {
+        
+        // get zoom and scroll position to reach
+        var zoom = sessionStorage.getItem("zoom"),
+            scrollLeft = sessionStorage.getItem("scrollLeft"),
+            scrollTop = sessionStorage.getItem("scrollTop");
+        
+        console.log('backgroundSetup: zoom = ', zoom);
+        console.log('backgroundSetup: scrollLeft = ', scrollLeft);
+        console.log('backgroundSetup: scrollTop = ', scrollTop);
+        
+        $('#background').animate({zoom: zoom,
+                           scrollLeft: scrollLeft,
+                           scrollTop: scrollTop
+                           }, 1000, $.bez([0.3, 0.75, 0.4, 1]));
+    }
+    
+    function backgroundInit() {
+        
+        var image = $('#background > img');
+        
+        // store zoom and scroll position to reach
+        sessionStorage.setItem("zoom", 1.0);
+        
+        if ($(window).height() < $(window).width())
+        {
+            sessionStorage.setItem("scrollLeft", 0);
+            sessionStorage.setItem("scrollTop", (image.height() - $(window).height()) / 2);
+        }
+        else{
+            sessionStorage.setItem("scrollLeft", (image.width() - $(window).width()) / 2);
+            sessionStorage.setItem("scrollTop", 0);
+        }
+        
+        backgroundSetup();
+    }
+    
     /** check orientation to display hint or not **/
     function checkOrientation(orientation) {
 
-        //console.log("Device held " + (orientation.matches ? "horizontally" : "vertically"));
-        
-        // scroll image to center on start
-        var background = $('#background'),
-            image = $('#background > img');
+        console.log("Device held " + (orientation.matches ? "horizontally" : "vertically"));
 
-        if (orientation.matches) {
-            background.scrollTop((image.height() - background.height()) / 2);
-        } else {
-            background.scrollLeft((image.width() - background.width()) / 2);
-        }
+        if (sessionStorage.getItem("zoom") == 1.0)
+            backgroundInit();
+        else
+            backgroundSetup();
     }
     
     function attachToEvents() {
@@ -40,64 +74,61 @@ $(document).ready(function () {
     * Main
     *******************************/
     
+    // center the background
+    backgroundInit();
+    
     // attach functions to events
     attachToEvents();
-   
-    //$('#tapis-player').mediaPlayer();
+    
+    $('#player').mediaPlayer();
 
     // zoom into a part of the background
-  /*    
-    $('#zone-maha').on('click', function (e) {
+    $('.tapis').on('click', function (e) {
         e.preventDefault();
         
-        console.log('coucou');
-             
-        $('.menu-zone').hide();
-        //$('.tapis-view').show();
-        //$('#tapis-maha-info').fadeIn(1000);
-        $('#background').animate({size : '210%',
-                                translate : '20% 0%',
-                               }, 1000, $.bez([0.3, 0.75, 0.4, 1])); 
-    });
-  
-    $('#zone-chadia').on('click', function (e) {
-        e.preventDefault();
-        $('.menu-zone').hide();
-        $('.tapis-view').show();
-        $('#tapis-chadia-info').fadeIn(1000);
-        $('#menu').animate({    backgroundSize : '210%',
-                                backgroundPositionX : '50%',
-                                backgroundPositionY : '0%'
-                               }, 1000, $.bez([0.3, 0.75, 0.4, 1]));
+        // focus on the "tapis" zone
+        var image = $('#background > img'),
+            info = $(this).attr('info'),
+            zoom = $(this).attr('zoom'),
+            scrollLeft = $(this).attr('scrollLeft') * image.width(),
+            scrollTop = $(this).attr('scrollTop') * image.height();
+        
+        // store zoom and scroll position to reach
+        sessionStorage.setItem("zoom", zoom);
+        sessionStorage.setItem("scrollLeft", scrollLeft);
+        sessionStorage.setItem("scrollTop", scrollTop);
+        
+        backgroundSetup();
+        
+        $('#view').show();
+        $(info).fadeIn(1000);
     });
 
     // insert "Retour" button
-    $('.tapis-description').before('<div class="tapis-retour col-md-1 col-md-offset-11"><a href=""><p>Retour</p></a></div>');
+    $('.description').before('<div class="tapis-retour col-md-1 col-md-offset-11"><a href=""><p>Retour</p></a></div>');
     
-    // insert play button
-    $('.tapis-play p').before('<svg viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" width="50" height="50"><g><polygon points="0,0 100,50 0,100" fill="#009EF8" stroke-width="0"></polygon></g></svg>');
+    // insert Play button
+    $('.entretien p').before('<svg viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" width="50" height="50"><g><polygon points="0,0 100,50 0,100" fill="#009EF8" stroke-width="0"></polygon></g></svg>');
     
     // zoom back
-    $('.tapis-view, .tapis-retour').on('click', function (e) {
+    $('#view, .retour').on('click', function (e) {
         e.preventDefault();
-        $('#menu').animate({    backgroundSize : '100%',
-                                backgroundPositionX : '0%',
-                                backgroundPositionY : '0%'
-                               }, 1000, $.bez([0.3, 0.75, 0.4, 1]));
-        $('.tapis-view').hide();
-        $('.tapis-info').fadeOut(1000);
-        $('.menu-zone').fadeIn(1000);
+        
+        backgroundInit();
+        
+        $('.info').fadeOut(1000);
+        $('#view').hide();
     });
     
     // play
-    $('.tapis-play').on('click', function (e) {
+    $('.entretien').on('click', function (e) {
         e.preventDefault();
         
         // get player controls
-        var controls = $('#tapis-player').find('.controls');
+        var controls = $('#player').find('.controls');
         
         // if playing, stop the player
-        var status = $('#tapis-player').find('svg').attr('class');
+        var status = $('#player').find('svg').attr('class');
         status = status.replace('playable', '').trim();
         console.log('status', status);
         
@@ -110,21 +141,21 @@ $(document).ready(function () {
         console.log('src', src);
         
         // set player source
-        var audio = $('#tapis-player').find('audio');
+        var audio = $('#player').find('audio');
         audio.attr('src', src);
         
         // click on player to play
         controls.click();
         
         // show player panel
-        $('#tapis-player-panel').fadeIn(1000);
+        $('#player-panel').fadeIn(1000);
         
         // get label
         var label = $(this).attr('label');
         console.log('label', label);
         
         // set player label
-        $('#tapis-player-label').text(label);
+        $('#player-label').text(label);
     });
-*/
+
 });
