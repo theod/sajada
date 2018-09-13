@@ -12,6 +12,7 @@ body {
     z-index: 0;
     background-color: red;
     float: left;
+    padding: 0;
 }
 #background {
     position: fixed;
@@ -20,7 +21,12 @@ body {
     height: 100%;
     padding: 0;
 }
-#menu img, svg {
+#menu img {
+    position: absolute;
+    padding: 0;
+}
+#menu svg {
+    position: relative;
     padding: 0;
 }
 @media screen and (orientation: landscape) {
