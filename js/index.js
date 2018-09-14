@@ -1,5 +1,5 @@
 /*jslint browser: true*/
-/*global $*/
+/*global $, document, window, sessionStorage*/
 
 /* note : to edit bezier parameters got to http://cubic-bezier.com */
 
@@ -20,9 +20,9 @@ $(document).ready(function () {
             scrollLeft = sessionStorage.getItem("scrollLeft"),
             scrollTop = sessionStorage.getItem("scrollTop");
         
-        console.log('backgroundSetup: zoom = ', zoom);
-        console.log('backgroundSetup: scrollLeft = ', scrollLeft);
-        console.log('backgroundSetup: scrollTop = ', scrollTop);
+        //console.log('backgroundSetup: zoom = ', zoom);
+        //console.log('backgroundSetup: scrollLeft = ', scrollLeft);
+        //console.log('backgroundSetup: scrollTop = ', scrollTop);
         
         $('#background').animate({zoom: zoom,
                            scrollLeft: scrollLeft,
@@ -32,17 +32,15 @@ $(document).ready(function () {
     
     function backgroundInit() {
         
-        var image = $('#background > img');
+        var image = $('#background > picture > img');
         
         // store zoom and scroll position to reach
         sessionStorage.setItem("zoom", 1.0);
         
-        if ($(window).height() < $(window).width())
-        {
+        if ($(window).height() < $(window).width()) {
             sessionStorage.setItem("scrollLeft", 0);
             sessionStorage.setItem("scrollTop", (image.height() - $(window).height()) / 2);
-        }
-        else{
+        } else {
             sessionStorage.setItem("scrollLeft", (image.width() - $(window).width()) / 2);
             sessionStorage.setItem("scrollTop", 0);
         }
@@ -51,23 +49,23 @@ $(document).ready(function () {
     }
     
     /** check orientation to display hint or not **/
-    function checkOrientation(orientation) {
+    function onOrientationChange() {
 
-        console.log("Device held " + (orientation.matches ? "horizontally" : "vertically"));
+        //console.log("Orientation changed");
 
-        if (sessionStorage.getItem("zoom") == 1.0)
+        if (sessionStorage.getItem("zoom") == 1.0) {
             backgroundInit();
-        else
+        } else {
             backgroundSetup();
+        }
     }
     
     function attachToEvents() {
 
+        // attach to orientation change 
         var query = window.matchMedia("(orientation:landscape)");
         
-        // check orientation and attach to orientation change 
-        checkOrientation(query);
-        query.addListener(checkOrientation);
+        query.addListener(onOrientationChange);
     }
     
     /******************************
@@ -87,7 +85,7 @@ $(document).ready(function () {
         e.preventDefault();
         
         // focus on the "tapis" zone
-        var image = $('#background > img'),
+        var image = $('#background > picture > img'),
             info = $(this).attr('info'),
             zoom = $(this).attr('zoom'),
             scrollLeft = $(this).attr('scrollLeft') * image.width(),
@@ -125,24 +123,25 @@ $(document).ready(function () {
         e.preventDefault();
         
         // get player controls
-        var controls = $('#player').find('.controls');
-        
         // if playing, stop the player
-        var status = $('#player').find('svg').attr('class');
+        var controls = $('#player').find('.controls'),
+            status = $('#player').find('svg').attr('class');
+        
         status = status.replace('playable', '').trim();
-        console.log('status', status);
+        //console.log('status', status);
         
         // if playing, click on player to stop
-        if (status == 'playing')
+        if (status == 'playing') {
             controls.click();
+        }
         
         // get source to play
-        var src = $(this).attr('src');
-        console.log('src', src);
-        
         // set player source
-        var audio = $('#player').find('audio');
+        var src = $(this).attr('src'),
+            audio = $('#player').find('audio');
+        
         audio.attr('src', src);
+        //console.log('src', src);
         
         // click on player to play
         controls.click();
@@ -152,7 +151,7 @@ $(document).ready(function () {
         
         // get label
         var label = $(this).attr('label');
-        console.log('label', label);
+        //console.log('label', label);
         
         // set player label
         $('#player-label').text(label);
