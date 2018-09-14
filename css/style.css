@@ -5,12 +5,13 @@ Website: http://theod.fr
 
 body {
     background-color: gray;
+    margin: 0;
 }
 
 /********* menu *********/
 #menu {
     z-index: 0;
-    background-color: red;
+    background-color: transparent;
     float: left;
     padding: 0;
 }

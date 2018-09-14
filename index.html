@@ -5,7 +5,7 @@
       
     <meta charset="utf-8">
     <title>sajada - le lien</title>
-    <meta name="description" content="">
+    <meta name="description" content="Sajada - le lien">
     <meta name="author" content="Théo de la Hogue">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, follow" />
@@ -13,31 +13,45 @@
 
     <link rel="icon" type="image/png" href="images/icons/icon-xs.png"/>
     <link rel="image_src" href="_">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/progres-bar.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300" rel="stylesheet">
-
-    <script language="JavaScript" type="text/javascript"src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-    <script language="JavaScript" type="text/javascript" src="js/jquery.bez.min.js"></script>
-    <script language="JavaScript" type="text/javascript" src="js/player.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:200,300" >
+    
+    <style>
+        /* Style that have to be loaded first */
+        body {background-color: gray;margin: 0;}
+        #menu {z-index: 0;background-color: transparent;float: left;padding: 0;}
+        #background {position: fixed;display: block;width: 100%;height: 100%;padding: 0;}
+        #menu img {z-index: 1;position: absolute;padding: 0;}
+        #menu svg {z-index: 2;position: relative;padding: 0;}
+        @media screen and (orientation: landscape) {
+        #background {overflow-x: hidden;overflow-y: visible;}
+        #menu img, svg {width: 100vw;height: auto;}}
+        @media screen and (orientation: portrait){
+        #background {overflow-x: scroll;overflow-y: hidden;}
+        #menu img, svg {width: auto;height: 100vh;}}
+        .info {display: none;}
+    </style>
+      
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  crossorigin="anonymous"></script>
     <script language="JavaScript" type="text/javascript" src="js/index.js"></script>
+    <script language="JavaScript" type="text/javascript" src="js/player.js" defer></script>
     
   </head>
 
   <body>
     
     <!-- MENU !-->
-    <div class="container-fluid">
+    <div>
         
-        <div id="menu" class="row">
+        <div id="menu">
             
             <div id="background" class="container">
                 
                 <picture>
                     <source srcset="images/menu-test-half.png" media="(max-width: 960px)">
                     <source srcset="images/menu-test-full.png" media="(min-width: 960px)">
-                    <img src="">
+                    <img src="images/menu-test-half.png" alt="Background Menu">
                 </picture>
             
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5000 5000">
@@ -93,15 +107,15 @@
             <!-- MAHA !-->
             <div id="maha" class="info">
 
-                <div class="description row">
-                    <div class="col-md-12">
+                <div class="description">
+                    <div>
                         <h1>Tapis de prière et interview donné par Maha Ben Ali</h1>
                         <p>Maha est directrice de Dar Belhaj, centre culturel à Marrakech. Elle est née en 1987 à Casablanca et vit à Marrakech.</p>
                     </div>
                 </div>
 
-                <div class="entretien row" src="sounds/maha.mp3" label="Entretien de Maha">
-                    <div class="col-md-12">
+                <div class="entretien " src="sounds/maha.mp3" label="Entretien de Maha">
+                    <div>
                         <a href=""><p>Ecouter l'entretien de Maha<br>~14 minutes</p></a>
                     </div>
                 </div>
@@ -111,15 +125,15 @@
             <!-- CHADIA !-->
             <div id="chadia" class="info">
 
-                <div class="description row">
-                    <div class="col-md-12">
+                <div class="description">
+                    <div>
                         <h1>Tapis de prière et interview donné par Chadia Ben Ali en mars 2018</h1>
                         <p>Chadia est femme d'ouvrage dans un ryad. Elle vit à Marrakech depuis sa naissance en 1978.</p>
                     </div>
                 </div>
 
                 <div class="entretien row" src="sounds/chadia.mp3" label="Entretien de Chadia">
-                    <div class="col-md-12">
+                    <div>
                         <a href=""><p>Ecouter l'entretien de Chadia<br>~7 minutes</p></a>
                     </div>
                 </div>
@@ -131,13 +145,13 @@
     </div>
       
     <!-- PLAYER !-->
-    <div id="player-panel" class="container">
-        <div class="col-md-6">
-            <div class="row">
-                <div id="player" class="mediPlayer col-md-1">
-                    <audio class="listen" preload="none" data-size="100" src="sounds/test.mp3"></audio>
+    <div id="player-panel">
+        <div>
+            <div>
+                <div id="player" class="mediPlayer">
+                    <audio class="listen" preload="none" data-size="100" src=""></audio>
                 </div>
-                <div id="player-label" class="col-md-4 col-md-offset-2">
+                <div id="player-label">
                     <p>Aucun entretien</p>
                 </div>
             </div>
@@ -154,6 +168,32 @@
     </div>
     !-->
 
-  </body>
+    </body>
+
+    <footer>
+        
+        <script type="text/javascript" defer>
+            /* Defer style.css loading */
+            var deferedLink = document.createElement('link');
+            deferedLink.rel = 'stylesheet';
+            deferedLink.href = 'css/style.css';
+            deferedLink.type = 'text/css';
+            var linkList = document.getElementsByTagName('link')[0];
+            linkList.parentNode.insertBefore(deferedLink, linkList);
+            /* Defer progres-bar.css loading */
+            var deferedLink = document.createElement('link');
+            deferedLink.rel = 'stylesheet';
+            deferedLink.href = 'css/progres-bar.css';
+            deferedLink.type = 'text/css';
+            var linkList = document.getElementsByTagName('link')[0];
+            linkList.parentNode.insertBefore(deferedLink, linkList);
+        </script>
+    
+        <noscript>
+        <link rel="stylesheet" href="css/style.css" type="text/css">
+        <link rel="stylesheet" href="css/progres-bar.css" type="text/css">
+        </noscript>
+        
+    </footer>
 
 </html>

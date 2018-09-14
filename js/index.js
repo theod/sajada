@@ -20,14 +20,14 @@ $(document).ready(function () {
             scrollLeft = sessionStorage.getItem("scrollLeft"),
             scrollTop = sessionStorage.getItem("scrollTop");
         
-        //console.log('backgroundSetup: zoom = ', zoom);
-        //console.log('backgroundSetup: scrollLeft = ', scrollLeft);
-        //console.log('backgroundSetup: scrollTop = ', scrollTop);
+        console.log('backgroundSetup: zoom = ', zoom);
+        console.log('backgroundSetup: scrollLeft = ', scrollLeft);
+        console.log('backgroundSetup: scrollTop = ', scrollTop);
         
         $('#background').animate({zoom: zoom,
                            scrollLeft: scrollLeft,
                            scrollTop: scrollTop
-                           }, 1000, $.bez([0.3, 0.75, 0.4, 1]));
+                           }, 1000); // , $.bez([0.3, 0.75, 0.4, 1])
     }
     
     function backgroundInit() {
