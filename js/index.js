@@ -34,12 +34,6 @@ $(document).ready(function () {
         
         var image = $('#background > picture > img');
         
-        if (sessionStorage.getItem("scrollLeft") == 0)
-            $('#background').scrollLeft(0);
-        
-        if (sessionStorage.getItem("scrollTop") == 0)
-            $('#background').scrollTop(0);
-        
         // store zoom and scroll position to reach
         sessionStorage.setItem("zoom", 1.0);
         
@@ -58,8 +52,16 @@ $(document).ready(function () {
     function onOrientationChange() {
 
         //console.log("Orientation changed");
-
-        if (sessionStorage.getItem("zoom") == 1.0) {
+        var zoom = sessionStorage.getItem("zoom");
+        
+        if (zoom == 1.0) {
+            if ($(window).height() < $(window).width()) {
+                $('#background').scrollLeft(0);
+                sessionStorage.setItem("scrollLeft", 0);
+            } else {
+                $('#background').scrollTop(0);
+                sessionStorage.setItem("scrollTop", 0);
+            }
             backgroundInit();
         } else {
             backgroundSetup();
