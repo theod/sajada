@@ -128,16 +128,36 @@ body.loaded {
     font-weight: 300;
     color: lightgray;
 }
-@media screen and (orientation: landscape) {
+@media screen and (orientation: landscape) and (max-width: 1024px) {
 .info h1 {
-	font-size: 3vw;
-    line-height: 3vw;
+    margin: 0% 0%;
+    padding: 0% 0%;
+	font-size: 5vh;
+    line-height: 5vh;
 }
 }
-@media screen and (orientation: portrait) {
+@media screen and (orientation: portrait) and (max-width: 1024px) {
 .info h1 {
-	font-size: 8vw;
-    line-height: 8vw;
+    margin: 0% 0%;
+    padding: 0% 0%;
+	font-size: 5vh;
+    line-height: 5vh;
+}
+}
+@media screen and (orientation: landscape) and (max-width: 768px) {
+.info h1 {
+    margin: 0% 0%;
+    padding: 0% 0%;
+	font-size: 7vh;
+    line-height: 7vh;
+}
+}
+@media screen and (orientation: portrait) and (max-width: 768px) {
+.info h1 {
+    margin: 0% 0%;
+    padding: 0% 0%;
+	font-size: 4vh;
+    line-height: 4vh;
 }
 }
 
@@ -146,46 +166,121 @@ body.loaded {
     font-family: 'Montserrat', sans-serif;
     font-weight: 200;
     color: lightgray;
+   
 }
-@media screen and (orientation: landscape) {
+@media screen and (orientation: landscape) and (max-width: 1024px) {
 .info p {
+    margin: 0% 0%;
     padding: 10% 0%;
-	font-size: 2vw;
-    line-height: 2vw;
+	font-size: 3vh;
+    line-height: 3vh;
 }
 }
-@media screen and (orientation: portrait) {
+@media screen and (orientation: portrait) and (max-width: 1024px) {
 .info p {
-    padding: 5% 0%;
-	font-size: 5vw;
-    line-height: 5vw;
+    margin: 0% 0%;
+    padding: 10% 0%;
+	font-size: 3vh;
+    line-height: 3vh;
+}
+}
+@media screen and (orientation: landscape) and (max-width: 768px) {
+.info p {
+    margin: 0% 0%;
+    padding: 10% 0%;
+	font-size: 5vh;
+    line-height: 5vh;
+}
+}
+@media screen and (orientation: portrait) and (max-width: 768px) {
+.info p {
+    margin: 0% 0%;
+    padding: 5% 0% 10% 0%;
+	font-size: 3vh;
+    line-height: 3vh;
 }
 }
 
 /********* retour *********/
 .retour p, a, a:hover, a:active, a:visited, a:focus  {
-    padding: 0% 0%;
     font-family: 'Montserrat', sans-serif;
     font-weight: 200;
-	font-size: 1.5vw;
     color: lightgray;
-    line-height: 1.5vw;
+    text-decoration: none;
+    margin: 0% 0%;
+    padding: 0% 0% 5% 0%;
+}
+@media screen and (orientation: landscape) and (max-width: 1024px) {
+.retour p, a, a:hover, a:active, a:visited, a:focus  {
+    font-size: 3vh;
+    line-height: 2vh;
+}
+}
+@media screen and (orientation: portrait) and (max-width: 1024px) {
+.retour p, a, a:hover, a:active, a:visited, a:focus  {
+    font-size: 3vh;
+    line-height: 2vh;
+}
+}
+@media screen and (orientation: landscape) and (max-width: 768px) {
+.retour p, a, a:hover, a:active, a:visited, a:focus  {
+    font-size: 4vh;
+    line-height: 3vh;
+}
+}
+@media screen and (orientation: portrait) and (max-width: 768px) {
+.retour p, a, a:hover, a:active, a:visited, a:focus  {
+    font-size: 2.5vh;
+    line-height: 1.5vh;
+}
 }
 
 /********* entretien *********/
 .entretien p, a, a:hover, a:active, a:visited, a:focus {
     font-family: 'Montserrat', sans-serif;
     font-weight: 200;
-	font-size: 2vw;
     color: lightgray;
-    line-height: 2vw;
     text-decoration: none;
+    margin: 0 0;
+    padding: 0 0;
+}
+@media screen and (orientation: landscape) and (max-width: 1024px) {
+.entretien p, a, a:hover, a:active, a:visited, a:focus {
+    margin: 0% 0%;
+    padding: 0% 0%;
+    font-size: 4vh;
+    line-height: 4vh;
+}
+}
+@media screen and (orientation: portrait) and (max-width: 1024px) {
+.entretien p, a, a:hover, a:active, a:visited, a:focus {
+    margin: 0% 0%;
+    padding: 0% 0%;
+    font-size: 4vh;
+    line-height: 4vh;
+}
+}
+@media screen and (orientation: landscape) and (max-width: 768px) {
+.entretien p, a, a:hover, a:active, a:visited, a:focus {
+    margin: 0% 0%;
+    padding: 0% 0%;
+    font-size: 6vh;
+    line-height: 6vh;
+}
+}
+@media screen and (orientation: portrait) and (max-width: 768px) {
+.entretien p, a, a:hover, a:active, a:visited, a:focus {
+    margin: 0% 0%;
+    padding: 0% 0%;
+    font-size: 3.5vh;
+    line-height: 3.5vh;
+}
 }
 
 .entretien svg {
     width: 10%;
     height: auto;
-    margin: 2% 4%;
+    margin: 2% 4% 2% 0%;
     float: left;
 }
     
@@ -213,7 +308,7 @@ body.loaded {
     display: inline-block;
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
-	font-size: 1.5vw;
+	font-size: 1.5vh;
     color: lightgray;
     background-color: rgba(0.3, 0.3, 0.3, 0.5);
 }

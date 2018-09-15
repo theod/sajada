@@ -115,7 +115,7 @@ $(document).ready(function () {
     });
 
     // insert "Retour" button
-    $('.description').before('<div class="tapis-retour col-md-1 col-md-offset-11"><a href=""><p>Retour</p></a></div>');
+    $('.description').before('<div class="retour col-md-1 col-md-offset-11"><a href=""><p>Retour</p></a></div>');
     
     // insert Play button
     $('.entretien p').before('<svg viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" width="50" height="50"><g><polygon points="0,0 100,50 0,100" fill="#009EF8" stroke-width="0"></polygon></g></svg>');
