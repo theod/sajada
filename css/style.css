@@ -4,14 +4,13 @@ Website: http://theod.fr
 -----------------------------------------------*/
 
 body {
-    background-color: gray;
+    background-color: black;
     margin: 0;
 }
 
 /********* menu *********/
 #menu {
     z-index: 0;
-    background-color: transparent;
     float: left;
     padding: 0;
 }

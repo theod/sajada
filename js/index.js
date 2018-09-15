@@ -20,9 +20,9 @@ $(document).ready(function () {
             scrollLeft = sessionStorage.getItem("scrollLeft"),
             scrollTop = sessionStorage.getItem("scrollTop");
         
-        console.log('backgroundSetup: zoom = ', zoom);
-        console.log('backgroundSetup: scrollLeft = ', scrollLeft);
-        console.log('backgroundSetup: scrollTop = ', scrollTop);
+        //console.log('backgroundSetup: zoom = ', zoom);
+        //console.log('backgroundSetup: scrollLeft = ', scrollLeft);
+        //console.log('backgroundSetup: scrollTop = ', scrollTop);
         
         $('#background').animate({zoom: zoom,
                            scrollLeft: scrollLeft,
@@ -33,6 +33,12 @@ $(document).ready(function () {
     function backgroundInit() {
         
         var image = $('#background > picture > img');
+        
+        if (sessionStorage.getItem("scrollLeft") == 0)
+            $('#background').scrollLeft(0);
+        
+        if (sessionStorage.getItem("scrollTop") == 0)
+            $('#background').scrollTop(0);
         
         // store zoom and scroll position to reach
         sessionStorage.setItem("zoom", 1.0);
