@@ -3,6 +3,10 @@
 
 /* note : to edit bezier parameters got to http://cubic-bezier.com */
 
+$(window).load(function() {
+    $("body").addClass('loaded');
+});
+
 $(document).ready(function () {
     
     "use strict";
