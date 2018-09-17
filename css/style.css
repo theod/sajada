@@ -2,28 +2,61 @@
 Author: Théo de la Hogue
 Website: http://theod.fr
 -----------------------------------------------*/
-/* ---------------------------------------------
-CONTENTS:
-menu
-tapis-view
-tapis-info
------------------------------------------------*/
 
- body, html {
-	overflow:hidden; 
- }
+body {
+    margin: 0;
+}
+body.loaded {
+    opacity: 1;
+    -webkit-transition: opacity 2s;
+    transition: opacity 2s;
+}
 
 /********* menu *********/
 #menu {
     z-index: 0;
-    position: absolute;
-    display: block;
-    background-size: 100% auto;
-    background-repeat: no-repeat;
-    background-image: url("../images/menu-tapis.png");
+    float: left;
+    padding: 0;
 }
-.menu-zone {
-    fill: white;
+#background {
+    position: fixed;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+}
+#menu img {
+    z-index: 1;
+    position: absolute;
+    padding: 0;
+}
+#menu svg {
+    z-index: 2;
+    position: relative;
+    padding: 0;
+}
+@media screen and (orientation: landscape) {
+#background {
+    overflow-x: hidden;
+    overflow-y: visible;
+}
+#menu img, svg {
+    width: 100vw;
+    height: auto;
+}
+}
+@media screen and (orientation: portrait) {
+#background {
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+#menu img, svg {
+    width: auto;
+    height: 100vh;
+}
+}
+.zone path {
+    fill: grey;
     fill-opacity: 0.0;
     transition: fill-opacity 1s;
     -webkit-transition: fill-opacity 1s; /* For Safari 3.1 to 6.0 */
@@ -33,84 +66,277 @@ tapis-info
     transition: stroke-opacity 1s;
     -webkit-transition: stroke-opacity 1s; /* For Safari 3.1 to 6.0 */
 }
-.menu-zone:hover {
+.zone path:hover {
     fill-opacity: 0.3;
     stroke-opacity: 1.0;
 }
 
 /********* view *********/
-.tapis-view {
+#view {
     display: none;
+    z-index: 3;
     position: fixed;
-    z-index: 1;
-    padding: 0%;
-    margin: 0;
-    width: 50%;
-    height: 100%;
-    top: 0;
-    bottom: 0;
-    background-color: white;
     background-size: cover;
     background-color: transparent;
 }
+@media screen and (orientation: landscape) {
+#view {
+    width: 50vw;
+    height: 100vh;
+    top: 0vh;
+    left: 0vw;
+}
+}
+@media screen and (orientation: portrait) {
+#view {
+    width: 100vw;
+    height: 50vh;
+    top: 0vh;
+    left: 0vw;
+}
+}
 
 /********* info *********/
-.tapis-info {
+.info {
     display: none;
+    z-index: 3;
     position: fixed;
-    z-index: 2;
-    padding: 2% 5% 10% 5%;
-    margin: 0;
-    width: 50%;
-    height: 100%;
-    top: 0;
-    bottom: 0;
-    left: 50%;
+    
+    background-size: cover;
     background-color: rgba(0.3, 0.3, 0.3, 0.5);
 }
+@media screen and (orientation: landscape) {
+.info {
+    width: 50vw;
+    height: 100vh;
+    top: 0vh;
+    left: 50vw;
+    padding: 2.5% 5% 0% 5%;
+}
+}
+@media screen and (orientation: portrait) {
+.info {
+    width: 100vw;
+    height: 50vh;
+    top: 50vh;
+    left: 0vw;
+    padding: 5% 10% 0% 10%;
+}
+}
 
-.tapis-info h1 {
+/********* info h1 *********/
+.info h1 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
-	font-size: 3vw;
     color: lightgray;
-    line-height: 3vw;
+}
+@media screen and (orientation: landscape) and (max-width: 1024px) {
+.info h1 {
+    margin: 0% 0%;
+    padding: 10% 0% 0% 0%;
+	font-size: 5vh;
+    line-height: 5vh;
+}
+}
+@media screen and (orientation: portrait) and (max-width: 1024px) {
+.info h1 {
+    margin: 0% 0%;
+    padding: 10% 0% 0% 0%;
+	font-size: 5vh;
+    line-height: 5vh;
+}
+}
+@media screen and (orientation: landscape) and (max-width: 768px) {
+.info h1 {
+    margin: 0% 0%;
+    padding: 5% 0% 0% 0%;
+	font-size: 7vh;
+    line-height: 7vh;
+}
+}
+@media screen and (orientation: portrait) and (max-width: 768px) {
+.info h1 {
+    margin: 0% 0%;
+    padding: 5% 0% 0% 0%;
+	font-size: 4vh;
+    line-height: 4vh;
+}
 }
 
-.tapis-info p {
+/********* info p *********/
+.info p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+    color: lightgray;
+   
+}
+@media screen and (orientation: landscape) and (max-width: 1024px) {
+.info p {
+    margin: 0% 0%;
     padding: 10% 0%;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 200;
-	font-size: 2vw;
-    color: lightgray;
-    line-height: 2vw;
+	font-size: 3vh;
+    line-height: 3vh;
+}
+}
+@media screen and (orientation: portrait) and (max-width: 1024px) {
+.info p {
+    margin: 0% 0%;
+    padding: 10% 0%;
+	font-size: 3vh;
+    line-height: 3vh;
+}
+}
+@media screen and (orientation: landscape) and (max-width: 768px) {
+.info p {
+    margin: 0% 0%;
+    padding: 10% 0%;
+	font-size: 5vh;
+    line-height: 5vh;
+}
+}
+@media screen and (orientation: portrait) and (max-width: 768px) {
+.info p {
+    margin: 0% 0%;
+    padding: 5% 0%;
+	font-size: 3vh;
+    line-height: 3vh;
+}
 }
 
-.tapis-retour p, a, a:hover, a:active, a:visited, a:focus  {
-    padding: 0% 0%;
+/********* retour *********/
+.retour a, 
+.retour a:hover, 
+.retour a:active, 
+.retour a:visited, 
+.retour a:focus {
+    position: fixed;
+    right: 10px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 200;
-	font-size: 1.5vw;
     color: lightgray;
-    line-height: 1.5vw;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+}
+@media screen and (orientation: landscape) and (max-width: 1024px) {
+.retour a {
+    font-size: 3vh;
+    line-height: 2vh;
+}
+}
+@media screen and (orientation: portrait) and (max-width: 1024px) {
+.retour a {
+    font-size: 3vh;
+    line-height: 2vh;
+}
+}
+@media screen and (orientation: landscape) and (max-width: 768px) {
+.retour a {
+    font-size: 4vh;
+    line-height: 3vh;
+}
+}
+@media screen and (orientation: portrait) and (max-width: 768px) {
+.retour a {
+    font-size: 2.5vh;
+    line-height: 1.5vh;
+}
 }
 
-.tapis-play p, a, a:hover, a:active, a:visited, a:focus {
+/********* entretien *********/
+.entretien a, 
+.entretien a:hover, 
+.entretien a:active, 
+.entretien a:visited, 
+.entretien a:focus {
     font-family: 'Montserrat', sans-serif;
     font-weight: 200;
-	font-size: 2vw;
     color: lightgray;
-    line-height: 2vw;
     text-decoration: none;
 }
+@media screen and (orientation: landscape) and (max-width: 1024px) {
+.entretien a {
+    margin: 0% 0%;
+    padding: 0% 0%;
+    font-size: 4vh;
+    line-height: 4vh;
+}
+}
+@media screen and (orientation: portrait) and (max-width: 1024px) {
+.entretien a {
+    margin: 0% 0%;
+    padding: 0% 0%;
+    font-size: 4vh;
+    line-height: 4vh;
+}
+}
+@media screen and (orientation: landscape) and (max-width: 768px) {
+.entretien a {
+    margin: 0% 0%;
+    padding: 0% 0%;
+    font-size: 6vh;
+    line-height: 6vh;
+}
+}
+@media screen and (orientation: portrait) and (max-width: 768px) {
+.entretien a {
+    margin: 0% 0%;
+    padding: 0% 0%;
+    font-size: 3.5vh;
+    line-height: 3.5vh;
+}
+}
 
-.tapis-play svg {
-    margin: 2% 4%;
+.entretien svg {
+    width: 10%;
+    height: auto;
+    margin: 2% 4% 2% 0%;
     float: left;
+}
+
+/********* suivant *********/
+.suivant a, 
+.suivant a:hover, 
+.suivant a:active, 
+.suivant a:visited, 
+.suivant a:focus{
+    position: fixed;
+    right: 10px;
+    bottom: 15px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+    color: lightgray;
+    text-decoration: none;
+    margin: 0%;
+    padding: 0%;
+}
+@media screen and (orientation: landscape) and (max-width: 1024px) {
+.suivant a {
+    font-size: 3vh;
+    line-height: 2vh;
+}
+}
+@media screen and (orientation: portrait) and (max-width: 1024px) {
+.suivant a {
+    font-size: 3vh;
+    line-height: 2vh;
+}
+}
+@media screen and (orientation: landscape) and (max-width: 768px) {
+.suivant a {
+    font-size: 4vh;
+    line-height: 3vh;
+}
+}
+@media screen and (orientation: portrait) and (max-width: 768px) {
+.suivant a {
+    font-size: 2.5vh;
+    line-height: 1.5vh;
+}
 }
     
 /********* player *********/
-#tapis-player-panel {
+#player-panel {
     display: none;
     position: fixed;
     z-index: 3;
@@ -118,15 +344,22 @@ tapis-info
     left: 1%;
 }
 
-#tapis-player {
+#player {
+    width: 10%;
+    height: auto;
     margin: -2% 0%;
 }
 
-#tapis-player-label {
+#player svg {
+    width: 500%;
+    height: auto;
+}
+
+#player-label {
     display: inline-block;
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
-	font-size: 1.5vw;
+	font-size: 1.5vh;
     color: lightgray;
     background-color: rgba(0.3, 0.3, 0.3, 0.5);
 }

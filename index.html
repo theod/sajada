@@ -5,129 +5,35 @@
       
     <meta charset="utf-8">
     <title>sajada - le lien</title>
-    <meta name="description" content="">
-    <meta name="author" content="Théo de la Hogue">
+    <meta name="description" content="Site de l'exposition Sajada - le lien">
+    <meta name="author" content="Salim Djaferi">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, follow" />
     <meta name="googlebot" content="index, follow" />
-
+      
     <link rel="icon" type="image/png" href="images/icons/icon-xs.png"/>
     <link rel="image_src" href="_">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/progres-bar.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300" rel="stylesheet">
+      
+    <style>
+      /* Style that have to be loaded first */
+      div {z-index: 0;width: 100%;height: 100%;cursor: pointer;}
+      img {z-index: 1;width: 50%;height: auto;position: absolute;top: 50%;left: 50%;-webkit-transform: translate(-50%,-50%);transform: translate(-50%,-50%);}
+    </style>
 
-    <script language="JavaScript" type="text/javascript"src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-    <script language="JavaScript" type="text/javascript" src="js/jquery.bez.min.js"></script>
-    <script language="JavaScript" type="text/javascript" src="js/player.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  crossorigin="anonymous"></script>
     <script language="JavaScript" type="text/javascript" src="js/index.js"></script>
     
   </head>
 
   <body>
-      
-<!--      
-    <div class="container">
-        <div class="row">
---!> 
-        <!-- MENU !-->
-        <svg id="menu" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5184 3456">
-            <a id="tapis-maha">
-                <path class="menu-zone" d="M773,179L1444,208L1403,1285L756,1257"/>
-            </a>
-            <a id="tapis-chadia">
-                <path class="menu-zone" d="M1604,196L2295,214L2280,1333L1599,1322"/>
-            </a>
-            <a id="tapis-zina">
-                <path class="menu-zone" d="M2373,208L2925,207L2943,1299L2443,1300"/>
-            </a>
-            <a id="tapis-souleyma">
-                <path class="menu-zone" d="M3751,190L4380,139L4456,1240L3822,1272"/>
-            </a>
-            <a id="tapis-abdelaziz">
-                <path class="menu-zone" d="M527,1135L720,1129L741,1270L1221,1319L1248,2241L572,2262"/>
-            </a>
-            <a id="tapis-aziz">
-                <path class="menu-zone" d="M1424,1116L1588,1104L1588,1321L1794,1332L1769,2173L1321,2182L1340,1308L1422,1291"/>
-            </a>
-            <a id="tapis-adnane">
-                <path class="menu-zone" d="M1849,1346L2305,1350L2304,1088L2418,1088L2434,1320L2504,1343L2449,2247L1805,2232"/>
-            </a>
-            <a id="tapis-touria">
-                <path class="menu-zone" d="M2617,1335L2956,1314L2958,1090L3290,1086L3287,2192L2623,2176"/>
-            </a>
-            <a id="tapis-samia">
-                <path class="menu-zone" d="M3324,1085L3653,1073L3683,1661L3339,1678"/>
-            </a>
-            <a id="tapis-moulay-zahloul">
-                <path class="menu-zone" d="M3672,1074L3784,1078L3821,1301L4323,1272L4351,2155L3663,2153"/>
-            </a>
-            <a id="tapis-mohamed">
-                <path class="menu-zone" d="M917,2296L1260,2281L1265,2166L1315,2162L1319,2195L1632,2221L1619,3300L930,3262"/>
-            </a>
-            <a id="tapis-morabiti">
-                <path class="menu-zone" d="M1738,3223L1714,2208L1758,2198L1785,2159L1811,2251L2415,2290L2418,3205"/>
-            </a>
-            <a id="tapis-rachida">
-                <path class="menu-zone" d="M2944,2223L3300,2220L3311,2143L3650,2135L3626,3199L2948,3193"/>
-            </a>
-            <a id="tapis-zina">
-                <path class="menu-zone" d="M3665,2176L4223,2189L4263,3173L3776,3213"/>
-            </a>
-            </svg>
-      
-        <!-- VIEW !-->
-        <div class="tapis-view col-md-6"></div>
-      
-        <!-- INFO !-->
-        <div id="tapis-maha-info" class="tapis-info col-md-6">
-            <div class="tapis-description col-md-12">
-                <h1>Tapis de prière et interview donnés par Maha Ben Ali</h1>
-                <p>Maha est directrice de Dar Belhaj, centre culturel à Marrakech. Elle est née en 1987 à Casablanca et vit à Marrakech.</p>
-            </div>
-            <div class="tapis-play" src="sounds/maha.mp3" label="Entretien de Maha">
-                <a href=""><p>Ecouter l'entretien de Maha<br>~14 minutes</p></a>
-            </div>
-        </div>
-        
-        <div id="tapis-chadia-info" class="tapis-info col-md-6">
-            <div class="tapis-description col-md-12">
-                <h1>Tapis de prière et interview donnés par Chadia Ben Ali en mars 2018</h1>
-                <p>Chadia est femme d'ouvrage dans un ryad. Elle vit à Marrakech depuis sa naissance en 1978.</p>
-            </div>
-            <div class="tapis-play" src="sounds/chadia.mp3" label="Entretien de Chatia">
-                <a href=""><p>Ecouter l'entretien de Maha<br>~7 minutes</p></a>
-            </div>
-        </div>
-        
-        <!-- PLAYER !-->
-        <div id="tapis-player-panel" class="container">
-            <div class="col-md-6">
-                <div class="row">
-                    <div id="tapis-player" class="mediPlayer col-md-1">
-                        <audio class="listen" preload="none" data-size="100" src="sounds/test.mp3"></audio>
-                    </div>
-                    <div id="tapis-player-label" class="col-md-4 col-md-offset-2">
-                        <p>Aucun entretien</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-      
-<!-- A PROPOS 
-        <div id="tapis-apropos" class="container">
-            <div class="row">
-                <div class="col-md-2">
-                    <a href=""><p>A propos</p></a>
-                </div>
-            </div>
-        </div>
-!-->
-<!--       
-        </div>
+    
+    <!-- LOADER !-->
+    <div>
+        <img src="images/intro-temp.png"/>
     </div>
- !-->   
+
   </body>
 
 </html>
