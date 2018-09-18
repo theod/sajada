@@ -23,13 +23,15 @@
         #background {position: fixed;display: block;width: 100%;height: 100%;padding: 0;}
         #menu img {z-index: 1;position: absolute;padding: 0;}
         #menu svg {z-index: 2;position: relative;padding: 0;}
+        #background .locked {overflow-x: hidden;overflow-y: hidden;}
         @media screen and (orientation: landscape) {
-        #background {overflow-x: hidden;overflow-y: visible;}
+        #background .unlocked {overflow-x: hidden;overflow-y: visible;}
         #menu img, svg {width: 100vw;height: auto;}}
         @media screen and (orientation: portrait){
-        #background {overflow-x: scroll;overflow-y: hidden;}
+        #background .unlocked {overflow-x: scroll;overflow-y: hidden;}
         #menu img, svg {width: auto;height: 100vh;}}
         .info {display: none;}
+        #apropos {display: none;}
     </style>
       
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"
@@ -66,63 +68,77 @@
         
         <div id="menu">
             
-            <div id="background" class="container">
+            <div id="background" class="container unlocked">
                 
                 <picture>
-                    <source srcset="images/menu-test-half.png" media="(max-width: 960px)">
-                    <source srcset="images/menu-test-full.png" media="(min-width: 960px)">
-                    <img src="images/menu-test-half.png" alt="Background Menu">
+                    <source srcset="images/menu-final-half.png" media="(max-width: 960px)">
+                    <source srcset="images/menu-final-full.png" media="(min-width: 960px)">
+                    <img src="images/menu-final-half.png" alt="Background Menu">
                 </picture>
             
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5000 5000">
-                    <a id="maha-zone" class="zone" info="#maha" zoom="2.1" scrollTop="0.15" scrollLeft="0.1" next="#chadia-zone">
-                        <path d="M868,897L1466,885L1488,1453L910,1519L868,897Z"/>
+                    <a id="maha-zone" class="zone" info="#maha" zoom="2.5" scrollTop="0.25" scrollLeft="0.19" next="#chadia-zone">
+                        <path d="M1205,1362L1694,1362L1665,2162L1219,2157L1175,2125L1205,1362Z"/>
                     </a>
-                    <a id="chadia-zone" class="zone" info="#chadia" zoom="2.1" scrollTop="0.15" scrollLeft="0.3" next="#zina-zone">
-                        <path d="M1794,885L1766,1621L2454,1642L2250,885L1794,885Z"/>
+                    <a id="chadia-zone" class="zone" info="#chadia" zoom="3.0" scrollTop="0.27" scrollLeft="0.33" next="#zina1-zone">
+                        <path d="M1823,1358L2337,1360L2336,2164L1823,2181L1823,1358Z"/>
                     </a>
-                    <a id="zina-zone" class="zone" info="#zina" zoom="2.1" scrollTop="0.15" scrollLeft="0.5" next="">
-                        <path d="M2551,885L2574,1437L2998,1443L2945,885L2551,885Z"/>
+                    <a id="zina1-zone" class="zone" info="#zina1" zoom="2.5" scrollTop="0.25" scrollLeft="0.425" next="#naima-zone">
+                        <path d="M2411,1355L2808,1361L2828,2184L2428,2182L2411,1355Z"/>
                     </a>
-                    <a class="zone" info="#souleyma" zoom="1." scrollTop="0." scrollLeft="0." next="">
-                        <path d="M3138,855L3112,1544L3685,1584L3593,857L3138,855Z"/>
+                    <a id="naima-zone" class="zone" info="#naima" zoom="2.7" scrollTop="0.27" scrollLeft="0.52" next="#nouredine-zone">
+                        <path d="M2856,1471L3066,1481L3122,1945L2861,1970L2856,1471Z"/>
                     </a>
-                    <a id="-zone" class="zone" info="#abdelaziz" zoom="1." scrollTop="0." scrollLeft="0." next="">
-                        <path d="M986,1851L1382,1865L1401,2541L994,2538L986,1851Z"/>
+                    <a id="nouredine-zone" class="zone" info="#nouredine" zoom="2.6" scrollTop="0.26" scrollLeft="0.57" next="#souleyma-zone">
+                        <path d="M3131,1436L3363,1423L3431,1931L3142,1925L3131,1436Z"/>
                     </a>
-                    <a id="-zone" class="zone" info="#aziz" zoom="1." scrollTop="0." scrollLeft="0." next="">
-                        <path d="M1677,1853L2204,1861L2178,2534L1693,2522L1677,1853Z"/>
+                    <a id="souleyma-zone" class="zone" info="#souleyma" zoom="2.8" scrollTop="0.25" scrollLeft="0.7" next="#abdelaziz-zone">
+                        <path d="M3433,1350L3898,1320L3958,2132L3491,2172L3433,1350Z"/>
                     </a>
-                    <a id="-zone" class="zone" info="#adnane" zoom="1." scrollTop="0." scrollLeft="0." next="">
-                        <path d="M2417,1783L2956,1790L2957,2479L2491,2462L2417,1783Z"/>
+                    <a id="abdelaziz-zone" class="zone" info="#abdelaziz" zoom="1." scrollTop="0." scrollLeft="0." next="#aziz-zone">
+                        <path d="M1019,2042L1156,2055L1169,2143L1208,2155L1207,2189L1528,2224L1567,2944L1055,2959L1019,2042Z"/>
                     </a>
-                    <a class="zone" info="#touria" zoom="1." scrollTop="0." scrollLeft="0." next="">
-                        <path d="M3201,1782L3753,1777L3764,2576L3270,2571L3201,1782Z"/>
+                    <a id="aziz-zone" class="zone" info="#aziz" zoom="1." scrollTop="0." scrollLeft="0." next="#adnane-zone">
+                        <path d="M1685,2040L1816,2035L1798,2230L1975,2240L1955,2761L1921,2861L1616,2852L1629,2224L1676,2227L1685,2040Z"/>
                     </a>
-                    <a id="-zone" class="zone" info="#samia" zoom="1." scrollTop="0." scrollLeft="0." next="">
-                        <path d="M951,2883L1502,2923L1474,3696L938,3699L951,2883Z"/>
+                    <a id="adnane-zone" class="zone" info="#adnane" zoom="1." scrollTop="0." scrollLeft="0." next="#touria-zone">
+                        <path d="M2004,2244L2341,2229L2355,2022L2416,2026L2419,2210L2499,2216L2444,2930L1984,2914L2004,2244Z"/>
                     </a>
-                    <a id="-zone" class="zone" info="#moulay-zahloul" zoom="1." scrollTop="0." scrollLeft="0." next="">
-                        <path d="M1748,2840L2358,2819L2337,3617L1833,3680L1748,2840Z"/>
+                    <a id="touria-zone" class="zone" info="#touria" zoom="1." scrollTop="0." scrollLeft="0." next="#samia-zone">
+                        <path d="M2585,2223L2849,2219L2836,2020L3087,2012L3084,2879L2587,2876L2585,2223Z"/>
                     </a>
-                    <a id="-zone" class="zone" info="#mohamed" zoom="1." scrollTop="0." scrollLeft="0." next="">
-                        <path d="M2522,2889L3066,2868L3076,3707L2665,3732L2522,2889Z"/>
+                    <a id="samia-zone" class="zone" info="#samia" zoom="1." scrollTop="0." scrollLeft="0." next="#moulay-zahloul-zone">
+                        <path d="M3115,2018L3356,2014L3376,2513L3236,2521L3221,2471L3137,2468L3115,2018Z"/>
                     </a>
-                    <a id="-zone" class="zone" info="#morabiti" zoom="1." scrollTop="0." scrollLeft="0." next="">
-                        <path d="M3336,2848L3892,2867L3724,3706L3354,3714L3336,2848Z"/>
+                    <a id="moulay-zahloul-zone" class="zone" info="#moulay-zahloul" zoom="1." scrollTop="0." scrollLeft="0." next="#mourad-zone">
+                        <path d="M3457,2006L3483,2193L3865,2159L3879,2820L3367,2819L3396,2463L3371,2010L3457,2006Z"/>
                     </a>
-                    <a id="-zone" class="zone" info="#rachida" zoom="1." scrollTop="0." scrollLeft="0." next="">
-                        
+                    <a id="mourad-zone" class="zone" info="#mourad" zoom="1." scrollTop="0." scrollLeft="0." next="#kamal-zone">
+                        <path d="M3924,2194L4161,2147L4202,2737L3915,2757L3924,2194Z"/>
                     </a>
-                    <a id="-zone" class="zone" info="#zina" zoom="1." scrollTop="0." scrollLeft="0." next="">
-                        
+                    <a id="kamal-zone" class="zone" info="#kamal" zoom="1." scrollTop="0." scrollLeft="0." next="#mohamed-zone">
+                        <path d="M825,2998L1258,3004L1261,3657L851,3654L825,2998Z"/>
                     </a>
-
+                    <a id="mohamed-zone" class="zone" info="#mohamed" zoom="1." scrollTop="0." scrollLeft="0." next="#tamarzit-zone">
+                        <path d="M1308,2970L1572,2960L1565,2832L1606,2834L1609,2876L1838,2869L1828,3704L1322,3697L1308,2970Z"/>
+                    </a>
+                    <a id="morabiti-zone" class="zone" info="#morabiti" zoom="1." scrollTop="0." scrollLeft="0." next="#tamarzit-zone">
+                        <path d="M1920,2878L1970,2856L1974,2939L2425,2939L2425,3662L1925,3675L1920,2878Z"/>
+                    </a>
+                    <a id="tamarzit-zone" class="zone" info="#tamarzit" zoom="1." scrollTop="0." scrollLeft="0." next="#zina2-zone">
+                        <path d="M2475,2916L2787,2922L2802,3647L2461,3655L2475,2916Z"/>
+                    </a>
+                    <a id="rachida-zone" class="zone" info="#rachida" zoom="1." scrollTop="0." scrollLeft="0." next="#maha-zone">
+                        <path d="M2827,2910L3095,2903L3099,2818L3353,2805L3335,3640L2834,3600L2827,2910Z"/>
+                    </a>
+                    <a id="zina2-zone" class="zone" info="#zina2" zoom="1." scrollTop="0." scrollLeft="0." next="#souhaib-zone">
+                        <path d="M3376,2849L3790,2861L3819,3589L3459,3601L3376,2849Z"/>
+                    </a>
+                    <a id="souhaib-zone" class="zone" info="#souhaib" zoom="1." scrollTop="0." scrollLeft="0." next="#rachida-zone">
+                        <path d="M3837,2899L4203,2877L4220,3610L3863,3610L3837,2899Z"/>
+                    </a>
                 </svg>
             </div>
-            
-            <!-- VIEW !-->
-            <div id="view"></div>
             
             <!-- MAHA !-->
             <div id="maha" class="info">
@@ -160,6 +176,330 @@
 
             </div>
             
+            <!-- ZINA 1 !-->
+            <div id="zina1" class="info">
+
+                <div class="description">
+                    <div>
+                        <h1>Zina 1</h1>
+                        <p>DESCRIPTION</p>
+                    </div>
+                </div>
+
+                <div class="entretien row" src="sounds/.mp3" label="Entretien de ?">
+                    <div>
+                        <a href="">Ecouter l'entretien de ?<br>~? minutes</a>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- NAIMA !-->
+            <div id="naima" class="info">
+
+                <div class="description">
+                    <div>
+                        <h1>Naima</h1>
+                        <p>DESCRIPTION</p>
+                    </div>
+                </div>
+
+                <div class="entretien row" src="sounds/.mp3" label="Entretien de ?">
+                    <div>
+                        <a href="">Ecouter l'entretien de ?<br>~? minutes</a>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- NOUREDINE !-->
+            <div id="nouredine" class="info">
+
+                <div class="description">
+                    <div>
+                        <h1>Nouredine</h1>
+                        <p>DESCRIPTION</p>
+                    </div>
+                </div>
+
+                <div class="entretien row" src="sounds/.mp3" label="Entretien de ?">
+                    <div>
+                        <a href="">Ecouter l'entretien de ?<br>~? minutes</a>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- SOULEYMA !-->
+            <div id="souleyma" class="info">
+
+                <div class="description">
+                    <div>
+                        <h1>Souleyma</h1>
+                        <p>DESCRIPTION</p>
+                    </div>
+                </div>
+
+                <div class="entretien row" src="sounds/.mp3" label="Entretien de ?">
+                    <div>
+                        <a href="">Ecouter l'entretien de ?<br>~? minutes</a>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- ABDELAZIZ !-->
+            <div id="abdelaziz" class="info">
+
+                <div class="description">
+                    <div>
+                        <h1>Abdelaziz</h1>
+                        <p>DESCRIPTION</p>
+                    </div>
+                </div>
+
+                <div class="entretien row" src="sounds/.mp3" label="Entretien de ?">
+                    <div>
+                        <a href="">Ecouter l'entretien de ?<br>~? minutes</a>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- AZIZ !-->
+            <div id="aziz" class="info">
+
+                <div class="description">
+                    <div>
+                        <h1>Aziz</h1>
+                        <p>DESCRIPTION</p>
+                    </div>
+                </div>
+
+                <div class="entretien row" src="sounds/.mp3" label="Entretien de ?">
+                    <div>
+                        <a href="">Ecouter l'entretien de ?<br>~? minutes</a>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- ADNANE !-->
+            <div id="adnane" class="info">
+
+                <div class="description">
+                    <div>
+                        <h1>Adnane</h1>
+                        <p>DESCRIPTION</p>
+                    </div>
+                </div>
+
+                <div class="entretien row" src="sounds/.mp3" label="Entretien de ?">
+                    <div>
+                        <a href="">Ecouter l'entretien de ?<br>~? minutes</a>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- TOURIA !-->
+            <div id="touria" class="info">
+
+                <div class="description">
+                    <div>
+                        <h1>Touria</h1>
+                        <p>DESCRIPTION</p>
+                    </div>
+                </div>
+
+                <div class="entretien row" src="sounds/.mp3" label="Entretien de ?">
+                    <div>
+                        <a href="">Ecouter l'entretien de ?<br>~? minutes</a>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- SAMIA !-->
+            <div id="samia" class="info">
+
+                <div class="description">
+                    <div>
+                        <h1>Samia</h1>
+                        <p>DESCRIPTION</p>
+                    </div>
+                </div>
+
+                <div class="entretien row" src="sounds/.mp3" label="Entretien de ?">
+                    <div>
+                        <a href="">Ecouter l'entretien de ?<br>~? minutes</a>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- MOULAY-ZAHLOUL !-->
+            <div id="moulay-zahloul" class="info">
+
+                <div class="description">
+                    <div>
+                        <h1>Moulay-Zahloul</h1>
+                        <p>DESCRIPTION</p>
+                    </div>
+                </div>
+
+                <div class="entretien row" src="sounds/.mp3" label="Entretien de ?">
+                    <div>
+                        <a href="">Ecouter l'entretien de ?<br>~? minutes</a>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- MOURAD !-->
+            <div id="mourad" class="info">
+
+                <div class="description">
+                    <div>
+                        <h1>Mourad</h1>
+                        <p>DESCRIPTION</p>
+                    </div>
+                </div>
+
+                <div class="entretien row" src="sounds/.mp3" label="Entretien de ?">
+                    <div>
+                        <a href="">Ecouter l'entretien de ?<br>~? minutes</a>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- KAMAL !-->
+            <div id="kamal" class="info">
+
+                <div class="description">
+                    <div>
+                        <h1>Kamal</h1>
+                        <p>DESCRIPTION</p>
+                    </div>
+                </div>
+
+                <div class="entretien row" src="sounds/.mp3" label="Entretien de ?">
+                    <div>
+                        <a href="">Ecouter l'entretien de ?<br>~? minutes</a>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- MOHAMED !-->
+            <div id="mohamed" class="info">
+
+                <div class="description">
+                    <div>
+                        <h1>Mohamed</h1>
+                        <p>DESCRIPTION</p>
+                    </div>
+                </div>
+
+                <div class="entretien row" src="sounds/.mp3" label="Entretien de ?">
+                    <div>
+                        <a href="">Ecouter l'entretien de ?<br>~? minutes</a>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- MORABITI !-->
+            <div id="morabiti" class="info">
+
+                <div class="description">
+                    <div>
+                        <h1>Morabiti</h1>
+                        <p>DESCRIPTION</p>
+                    </div>
+                </div>
+
+                <div class="entretien row" src="sounds/.mp3" label="Entretien de ?">
+                    <div>
+                        <a href="">Ecouter l'entretien de ?<br>~? minutes</a>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- TAMARZIT !-->
+            <div id="tamarzit" class="info">
+
+                <div class="description">
+                    <div>
+                        <h1>Tamarzit</h1>
+                        <p>DESCRIPTION</p>
+                    </div>
+                </div>
+
+                <div class="entretien row" src="sounds/.mp3" label="Entretien de ?">
+                    <div>
+                        <a href="">Ecouter l'entretien de ?<br>~? minutes</a>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- ZINA 2 !-->
+            <div id="zina2" class="info">
+
+                <div class="description">
+                    <div>
+                        <h1>zina 2</h1>
+                        <p>DESCRIPTION</p>
+                    </div>
+                </div>
+
+                <div class="entretien row" src="sounds/.mp3" label="Entretien de ?">
+                    <div>
+                        <a href="">Ecouter l'entretien de ?<br>~? minutes</a>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- SOUHAIB !-->
+            <div id="souhaib" class="info">
+
+                <div class="description">
+                    <div>
+                        <h1>Souhaib</h1>
+                        <p>DESCRIPTION</p>
+                    </div>
+                </div>
+
+                <div class="entretien row" src="sounds/.mp3" label="Entretien de ?">
+                    <div>
+                        <a href="">Ecouter l'entretien de ?<br>~? minutes</a>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- RACHIDA !-->
+            <div id="rachida" class="info">
+
+                <div class="description">
+                    <div>
+                        <h1>Rachida</h1>
+                        <p>DESCRIPTION</p>
+                    </div>
+                </div>
+
+                <div class="entretien row" src="sounds/.mp3" label="Entretien de ?">
+                    <div>
+                        <a href="">Ecouter l'entretien de ?<br>~? minutes</a>
+                    </div>
+                </div>
+
+            </div>
+            
         </div>
         
     </div>
@@ -178,15 +518,10 @@
         </div>
     </div>
       
-    <!-- A PROPOS 
-    <div id="tapis-apropos" class="container">
-        <div class="row">
-            <div class="col-md-2">
-                <a href=""><p>A propos</p></a>
-            </div>
-        </div>
+    <!-- A PROPOS !-->
+    <div id="apropos">
+        <a href="">A propos</a>
     </div>
-    !-->
 
     </body>
 

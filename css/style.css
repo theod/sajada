@@ -35,8 +35,12 @@ body.loaded {
     position: relative;
     padding: 0;
 }
+#background.locked {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
 @media screen and (orientation: landscape) {
-#background {
+#background.unlocked {
     overflow-x: hidden;
     overflow-y: visible;
 }
@@ -46,7 +50,7 @@ body.loaded {
 }
 }
 @media screen and (orientation: portrait) {
-#background {
+#background.unlocked {
     overflow-x: scroll;
     overflow-y: hidden;
 }
@@ -55,13 +59,14 @@ body.loaded {
     height: 100vh;
 }
 }
+
 .zone path {
-    fill: grey;
+    fill: transparent;
     fill-opacity: 0.0;
     transition: fill-opacity 1s;
     -webkit-transition: fill-opacity 1s; /* For Safari 3.1 to 6.0 */
     stroke-width: 2;
-    stroke: grey;
+    stroke: transparent;
     stroke-opacity: 0.0;
     transition: stroke-opacity 1s;
     -webkit-transition: stroke-opacity 1s; /* For Safari 3.1 to 6.0 */
@@ -69,31 +74,6 @@ body.loaded {
 .zone path:hover {
     fill-opacity: 0.3;
     stroke-opacity: 1.0;
-}
-
-/********* view *********/
-#view {
-    display: none;
-    z-index: 3;
-    position: fixed;
-    background-size: cover;
-    background-color: transparent;
-}
-@media screen and (orientation: landscape) {
-#view {
-    width: 50vw;
-    height: 100vh;
-    top: 0vh;
-    left: 0vw;
-}
-}
-@media screen and (orientation: portrait) {
-#view {
-    width: 100vw;
-    height: 50vh;
-    top: 0vh;
-    left: 0vw;
-}
 }
 
 /********* info *********/
@@ -339,7 +319,7 @@ body.loaded {
 #player-panel {
     display: none;
     position: fixed;
-    z-index: 3;
+    z-index: 4;
     top: 3%;
     left: 1%;
 }
@@ -364,20 +344,48 @@ body.loaded {
     background-color: rgba(0.3, 0.3, 0.3, 0.5);
 }
 
-/********* à propos ********
-#tapis-apropos {
-    display: fixed;
-    z-index: 4;
-    bottom: 2%;
-    right: 1%;
+/********* à propos *********/
+#apropos {
+    display: none;
+    position: fixed;
+    z-index: 5;
+    bottom: 5%;
+    right: 5%;
+    padding: 0;
+    margin: 0;
 }
 
-#tapis-apropos p, a, a:hover, a:active, a:visited, a:focus {
+#apropos a,
+#apropos a:hover,
+#apropos a:active,
+#apropos a:visited,
+#apropos a:focus {
     font-family: 'Montserrat', sans-serif;
     font-weight: 200;
-	font-size: 2vw;
     color: lightgray;
-    line-height: 2vw;
     text-decoration: none;
 }
-*/
+@media screen and (orientation: landscape) and (max-width: 1024px) {
+#apropos a {
+    font-size: 6vh;
+    line-height: 6vh;
+}
+}
+@media screen and (orientation: portrait) and (max-width: 1024px) {
+#apropos a {
+    font-size: 6vh;
+    line-height: 6vh;
+}
+}
+@media screen and (orientation: landscape) and (max-width: 768px) {
+#apropos a {
+    font-size: 4vh;
+    line-height: 3vh;
+}
+}
+@media screen and (orientation: portrait) and (max-width: 768px) {
+#apropos a {
+    font-size: 3vh;
+    line-height: 3vh;
+}
+}

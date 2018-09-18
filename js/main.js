@@ -22,16 +22,30 @@ $(document).ready(function () {
         // get zoom and scroll position to reach
         var zoom = sessionStorage.getItem("zoom"),
             scrollLeft = sessionStorage.getItem("scrollLeft"),
-            scrollTop = sessionStorage.getItem("scrollTop");
+            scrollTop = sessionStorage.getItem("scrollTop"),
+            background = $('#background');
         
         //console.log('backgroundSetup: zoom = ', zoom);
         //console.log('backgroundSetup: scrollLeft = ', scrollLeft);
         //console.log('backgroundSetup: scrollTop = ', scrollTop);
         
-        $('#background').animate({zoom: zoom,
+        background.animate({zoom: zoom,
                            scrollLeft: scrollLeft,
                            scrollTop: scrollTop
                            }, 1000); // , $.bez([0.3, 0.75, 0.4, 1])
+        
+        if (zoom > 1.0) {
+            console.log('lock');
+            // lock scroll on background
+            background.removeClass('unlocked');
+            background.addClass('locked');
+        }
+        else {
+            console.log('unlock');
+            // unlock scroll on background
+            background.removeClass('locked');
+            background.addClass('unlocked');
+        }
     }
     
     function backgroundInit() {
@@ -96,6 +110,12 @@ $(document).ready(function () {
     $('.zone').on('click', function (e) {
         e.preventDefault();
         
+        // hide "a propos"
+        $('#apropos').hide();
+        
+        // clear last info panel
+        $('.info').fadeOut(1000);
+        
         // focus on the a zone of the background
         var image = $('#background > picture > img'),
             info = $(this).attr('info'),
@@ -104,18 +124,30 @@ $(document).ready(function () {
             scrollTop = $(this).attr('scrollTop') * image.height(),
             next = $(this).attr('next');
         
-        // store zoom and scroll position to reach
-        sessionStorage.setItem("zoom", zoom);
-        sessionStorage.setItem("scrollLeft", scrollLeft);
-        sessionStorage.setItem("scrollTop", scrollTop);
+        if (sessionStorage.getItem("current") != info)
+        {
+            // store zoom and scroll position to reach
+            sessionStorage.setItem("zoom", zoom);
+            sessionStorage.setItem("scrollLeft", scrollLeft);
+            sessionStorage.setItem("scrollTop", scrollTop);
         
-        // store next zone to go
-        sessionStorage.setItem("next", next);
+            // store next zone to go
+            sessionStorage.setItem("next", next);
         
-        backgroundSetup();
+            backgroundSetup();
         
-        $('#view').show();
-        $(info).fadeIn(1000);
+            $(info).fadeIn(1000);
+        
+            sessionStorage.setItem("current", info);
+        }
+        else {
+            
+            backgroundInit();
+            
+            sessionStorage.setItem("current", "none");
+        
+            $('#apropos').fadeIn(1000);
+        }
     });
 
     // insert "Retour" button
@@ -128,13 +160,16 @@ $(document).ready(function () {
     $('.entretien').after('<div class="suivant"><a href="">Suivant</a></div>');
     
     // zoom back
-    $('#view, .retour').on('click', function (e) {
+    $('.retour').on('click', function (e) {
         e.preventDefault();
         
         backgroundInit();
         
         $('.info').fadeOut(1000);
-        $('#view').hide();
+        
+        sessionStorage.setItem("current", "none");
+        
+        $('#apropos').fadeIn(1000);
     });
     
     // next
@@ -145,12 +180,7 @@ $(document).ready(function () {
         
         var next = sessionStorage.getItem("next");
         
-        if (next == "") {
-            $('.retour').trigger("click");
-        }
-        else {
-            $(next).trigger("click");
-        }
+        $(next).trigger("click");
     });
     
     // play
