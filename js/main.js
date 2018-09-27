@@ -35,13 +35,11 @@ $(document).ready(function () {
                            }, 1000); // , $.bez([0.3, 0.75, 0.4, 1])
         
         if (zoom > 1.0) {
-            console.log('lock');
             // lock scroll on background
             background.removeClass('unlocked');
             background.addClass('locked');
         }
         else {
-            console.log('unlock');
             // unlock scroll on background
             background.removeClass('locked');
             background.addClass('unlocked');
@@ -219,7 +217,7 @@ $(document).ready(function () {
         //console.log('label', label);
         
         // set player label
-        $('#player-label').text(label);
+        $('#player-label').text("À l'écoute : " + label);
     });
 
 });
