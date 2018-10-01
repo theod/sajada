@@ -84,7 +84,7 @@ body.loaded {
     z-index: 3;
     position: fixed;
     background-size: cover;
-    background-color: rgba(0.3, 0.3, 0.3, 0.5);
+    background-color: rgba(0.7, 0.3, 0.7, 0.7);
 }
 @media screen and (orientation: landscape) {
 .info {
@@ -111,40 +111,100 @@ body.loaded {
     font-weight: 300;
     color: lightgray;
     margin: 0% 0%;
-    padding: 10% 0% 0% 0%;
-	font-size: 7vh;
-    line-height: 7vh;
-}
-@media screen and (orientation: landscape) and (max-width: 1024px) {
-.info h1 {
-    margin: 0% 0%;
-    padding: 10% 0% 0% 0%;
-	font-size: 5vh;
-    line-height: 5vh;
-}
+    padding: 10% 0% 1% 0%;
+	font-size: 5.5vh;
+    line-height: 5.5vh;
 }
 @media screen and (orientation: portrait) and (max-width: 1024px) {
 .info h1 {
     margin: 0% 0%;
-    padding: 10% 0% 0% 0%;
+    padding: 5% 0% 1% 0%;
+	font-size: 4vh;
+    line-height: 4vh;
+}
+}
+@media screen and (orientation: landscape) and (max-width: 1024px) {
+.info h1 {
+    margin: 0% 0%;
+    padding: 10% 0% 1% 0%;
 	font-size: 5vh;
     line-height: 5vh;
 }
 }
-@media screen and (orientation: landscape) and (max-width: 768px) {
+@media screen and (orientation: portrait) and (max-width: 960px) {
 .info h1 {
     margin: 0% 0%;
-    padding: 5% 0% 0% 0%;
-	font-size: 7vh;
-    line-height: 7vh;
-}
-}
-@media screen and (orientation: portrait) and (max-width: 768px) {
-.info h1 {
-    margin: 0% 0%;
-    padding: 5% 0% 0% 0%;
+    padding: 5% 0% 1% 0%;
 	font-size: 4vh;
     line-height: 4vh;
+}
+}
+@media screen and (orientation: landscape) and (max-width: 960px) {
+.info h1 {
+    margin: 0% 0%;
+    padding: 10% 0% 1% 0%;
+	font-size: 5.5vh;
+    line-height: 5.5vh;
+}
+}
+@media screen and (orientation: portrait) and (max-width: 480px) {
+.info h1 {
+    margin: 0% 0%;
+    padding: 5% 0% 1% 0%;
+	font-size: 3.5vh;
+    line-height: 3.5vh;
+}
+}
+
+/********* info h2 *********/
+.info h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+    font-style: italic;
+    color: lightgray;
+    margin: 0% 0%;
+    padding: 0% 0% 0% 0%;
+	font-size: 4vh;
+    line-height: 4vh;
+}
+@media screen and (orientation: portrait) and (max-width: 1024px) {
+.info h2 {
+    margin: 0% 0%;
+    padding: 0% 0% 0% 0%;
+	font-size: 3vh;
+    line-height: 3vh;
+}
+}
+@media screen and (orientation: landscape) and (max-width: 1024px) {
+.info h2 {
+    margin: 0% 0%;
+    padding: 0% 0% 0% 0%;
+	font-size: 4vh;
+    line-height: 4vh;
+}
+}
+@media screen and (orientation: portrait) and (max-width: 960px) {
+.info h2 {
+    margin: 0% 0%;
+    padding: 0% 0% 0% 0%;
+	font-size: 3vh;
+    line-height: 3vh;
+}
+}
+@media screen and (orientation: landscape) and (max-width: 960px) {
+.info h2 {
+    margin: 0% 0%;
+    padding: 0% 0% 0% 0%;
+	font-size: 4.5vh;
+    line-height: 4.5vh;
+}
+}
+@media screen and (orientation: portrait) and (max-width: 480px) {
+.info h2 {
+    margin: 0% 0%;
+    padding: 0% 0% 0% 0%;
+	font-size: 2.3vh;
+    line-height: 2.3vh;
 }
 }
 
@@ -155,40 +215,47 @@ body.loaded {
     color: lightgray;
     margin: 0% 0%;
     padding: 10% 0%;
-	font-size: 5vh;
+	font-size: 4vh;
     line-height: 5vh;
-   
-}
-@media screen and (orientation: landscape) and (max-width: 1024px) {
-.info p {
-    margin: 0% 0%;
-    padding: 10% 0%;
-	font-size: 3vh;
-    line-height: 3vh;
-}
 }
 @media screen and (orientation: portrait) and (max-width: 1024px) {
-.info p {
-    margin: 0% 0%;
-    padding: 10% 0%;
-	font-size: 3vh;
-    line-height: 3vh;
-}
-}
-@media screen and (orientation: landscape) and (max-width: 768px) {
-.info p {
-    margin: 0% 0%;
-    padding: 10% 0%;
-	font-size: 5vh;
-    line-height: 5vh;
-}
-}
-@media screen and (orientation: portrait) and (max-width: 768px) {
 .info p {
     margin: 0% 0%;
     padding: 5% 0%;
 	font-size: 3vh;
     line-height: 3vh;
+}
+}
+@media screen and (orientation: landscape) and (max-width: 1024px) {
+.info p {
+    margin: 0% 0%;
+    padding: 10% 0%;
+	font-size: 4vh;
+    line-height: 4.5vh;
+}
+}
+@media screen and (orientation: portrait) and (max-width: 960px) {
+.info p {
+    margin: 0% 0%;
+    padding: 5% 0%;
+	font-size: 3vh;
+    line-height: 3vh;
+}
+}
+@media screen and (orientation: landscape) and (max-width: 960px) {
+.info p {
+    margin: 0% 0%;
+    padding: 10% 0%;
+	font-size: 4vh;
+    line-height: 5vh;
+}
+}
+@media screen and (orientation: portrait) and (max-width: 480px) {
+.info p {
+    margin: 0% 0%;
+    padding: 5% 0%;
+	font-size: 2.3vh;
+    line-height: 2.3vh;
 }
 }
 
@@ -206,31 +273,37 @@ body.loaded {
     text-decoration: none;
     margin: 0%;
     padding: 0%;
-    font-size: 4vh;
-    line-height: 4vh;
-}
-@media screen and (orientation: landscape) and (max-width: 1024px) {
-.retour a {
-    font-size: 4vh;
-    line-height: 4vh;
-}
+    font-size: 3.5vh;
+    line-height: 2.5vh;
 }
 @media screen and (orientation: portrait) and (max-width: 1024px) {
 .retour a {
-    font-size: 4vh;
-    line-height: 4vh;
+    font-size: 2.5vh;
+    line-height: 1.5vh;
 }
 }
-@media screen and (orientation: landscape) and (max-width: 768px) {
+@media screen and (orientation: landscape) and (max-width: 1024px) {
+.retour a {
+    font-size: 3.5vh;
+    line-height: 2.5vh;
+}
+}
+@media screen and (orientation: portrait) and (max-width: 960px) {
+.retour a {
+    font-size: 2.5vh;
+    line-height: 1.5vh;
+}
+}
+@media screen and (orientation: landscape) and (max-width: 960px) {
 .retour a {
     font-size: 4vh;
     line-height: 3vh;
 }
 }
-@media screen and (orientation: portrait) and (max-width: 768px) {
+@media screen and (orientation: portrait) and (max-width: 480px) {
 .retour a {
-    font-size: 2.5vh;
-    line-height: 1.5vh;
+    font-size: 2vh;
+    line-height: 1vh;
 }
 }
 
@@ -241,13 +314,21 @@ body.loaded {
 .entretien a:visited, 
 .entretien a:focus {
     font-family: 'Montserrat', sans-serif;
-    font-weight: 200;
+    font-weight: 300;
     color: lightgray;
     text-decoration: none;
     margin: 0%;
     padding: 0%;
     font-size: 4vh;
     line-height: 4vh;
+}
+@media screen and (orientation: portrait) and (max-width: 1024px) {
+.entretien a {
+    margin: 0%;
+    padding: 0%;
+    font-size: 3.5vh;
+    line-height: 3.5vh;
+}
 }
 @media screen and (orientation: landscape) and (max-width: 1024px) {
 .entretien a {
@@ -257,23 +338,7 @@ body.loaded {
     line-height: 4vh;
 }
 }
-@media screen and (orientation: portrait) and (max-width: 1024px) {
-.entretien a {
-    margin: 0%;
-    padding: 0%;
-    font-size: 4vh;
-    line-height: 4vh;
-}
-}
-@media screen and (orientation: landscape) and (max-width: 768px) {
-.entretien a {
-    margin: 0%;
-    padding: 0%;
-    font-size: 6vh;
-    line-height: 6vh;
-}
-}
-@media screen and (orientation: portrait) and (max-width: 768px) {
+@media screen and (orientation: portrait) and (max-width: 960px) {
 .entretien a {
     margin: 0%;
     padding: 0%;
@@ -281,11 +346,27 @@ body.loaded {
     line-height: 3.5vh;
 }
 }
+@media screen and (orientation: landscape) and (max-width: 960px) {
+.entretien a {
+    margin: 0%;
+    padding: 0%;
+    font-size: 5vh;
+    line-height: 5vh;
+}
+}
+@media screen and (orientation: portrait) and (max-width: 480px) {
+.entretien a {
+    margin: 0%;
+    padding: 0%;
+    font-size: 2.5vh;
+    line-height: 2.5vh;
+}
+}
 
 .entretien svg {
     width: 10%;
     height: auto;
-    margin: 2% 4% 2% 0%;
+    margin: -2% 4% 0% 0%;
     float: left;
 }
 
@@ -304,34 +385,40 @@ body.loaded {
     text-decoration: none;
     margin: 0%;
     padding: 0%;
-    font-size: 4vh;
-    line-height: 4vh;
-}
-@media screen and (orientation: landscape) and (max-width: 1024px) {
-.suivant a {
-    font-size: 4vh;
-    line-height: 2vh;
-}
+    font-size: 3.5vh;
+    line-height: 2.5vh;
 }
 @media screen and (orientation: portrait) and (max-width: 1024px) {
-.suivant a {
-    font-size: 4vh;
-    line-height: 2vh;
-}
-}
-@media screen and (orientation: landscape) and (max-width: 768px) {
-.suivant a {
-    font-size: 4vh;
-    line-height: 3vh;
-}
-}
-@media screen and (orientation: portrait) and (max-width: 768px) {
 .suivant a {
     font-size: 2.5vh;
     line-height: 1.5vh;
 }
 }
-    
+@media screen and (orientation: landscape) and (max-width: 1024px) {
+.suivant a {
+    font-size: 3.5vh;
+    line-height: 2.5vh;
+}
+}
+@media screen and (orientation: portrait) and (max-width: 960px) {
+.suivant a {
+    font-size: 2.5vh;
+    line-height: 1.5vh;
+}
+}
+@media screen and (orientation: landscape) and (max-width: 960px) {
+.suivant a {
+    font-size: 4vh;
+    line-height: 3vh;
+}
+}
+@media screen and (orientation: portrait) and (max-width: 480px) {
+.suivant a {
+    font-size: 2vh;
+    line-height: 1vh;
+}
+}
+
 /********* player *********/
 #player-panel {
     display: none;
@@ -353,9 +440,9 @@ body.loaded {
 #player-label {
     display: inline-block;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 200;
+    font-weight: 300;
     color: lightgray;
-    background-color: rgba(0.3, 0.3, 0.3, 0.5);
+    background-color: rgba(0.7, 0.3, 0.7, 0.7);
 	font-size: 3vh;
 }
 @media screen and (orientation: landscape) and (max-width: 1024px) {
@@ -363,17 +450,17 @@ body.loaded {
 	font-size: 3vh;
 }
 }
-@media screen and (orientation: portrait) and (max-width: 1024px) {
+@media screen and (orientation: portrait) and (max-width: 960px) {
 #player-label {
 	font-size: 3vh;
 }
 }
-@media screen and (orientation: landscape) and (max-width: 768px) {
+@media screen and (orientation: landscape) and (max-width: 960px) {
 #player-label {
-	font-size: 5vh;
+	font-size: 4vh;
 }
 }
-@media screen and (orientation: portrait) and (max-width: 768px) {
+@media screen and (orientation: portrait) and (max-width: 480px) {
 #player-label {
 	font-size: 3vh;
 }
@@ -408,19 +495,19 @@ body.loaded {
     line-height: 6vh;
 }
 }
-@media screen and (orientation: portrait) and (max-width: 1024px) {
+@media screen and (orientation: portrait) and (max-width: 960px) {
+#apropos a {
+    font-size: 3vh;
+    line-height: 3vh;
+}
+}
+@media screen and (orientation: landscape) and (max-width: 960px) {
 #apropos a {
     font-size: 6vh;
     line-height: 6vh;
 }
 }
-@media screen and (orientation: landscape) and (max-width: 768px) {
-#apropos a {
-    font-size: 4vh;
-    line-height: 3vh;
-}
-}
-@media screen and (orientation: portrait) and (max-width: 768px) {
+@media screen and (orientation: portrait) and (max-width: 480px) {
 #apropos a {
     font-size: 3vh;
     line-height: 3vh;
