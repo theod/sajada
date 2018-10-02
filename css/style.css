@@ -108,7 +108,8 @@ body.loaded {
     z-index: 4;
     position: fixed;
     background-size: cover;
-    background-color: rgba(0.7, 0.3, 0.7, 0.7);
+    background-color: rgb(20, 10, 20); /* fallback */
+    background-color: rgba(20, 10, 20, 0.8);
 }
 @media screen and (orientation: landscape) {
 .info {

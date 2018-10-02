@@ -21,15 +21,15 @@
         body.loaded {opacity: 1;-webkit-transition: opacity 2s;transition: opacity 2s;}
         #menu {z-index: 0;float: left;padding: 0;}
         #background {position: fixed;display: block;width: 100%;height: 100%;padding: 0;}
-        #menu img {z-index: 1;position: absolute;padding: 0;}
-        #menu svg {z-index: 2;position: relative;padding: 0;}
+        #background img {z-index: 1;position: absolute;padding: 0;}
+        #background svg {z-index: 2;position: relative;padding: 0;}
         #background .locked {overflow-x: hidden;overflow-y: hidden;}
         @media screen and (orientation: landscape) {
         #background .unlocked {overflow-x: hidden;overflow-y: visible;}
-        #menu img, svg {width: 100vw;height: auto;}}
+        #background img, svg {width: 100vw;height: auto;}}
         @media screen and (orientation: portrait){
         #background .unlocked {overflow-x: scroll;overflow-y: hidden;}
-        #menu img, svg {width: auto;height: 100vh;}}
+        #background img, svg {width: auto;height: 100vh;}}
         .focus {display: none;}
         #apropos {display: none;}
     </style>
@@ -78,61 +78,61 @@
             
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5000 5000">
                     <a id="tamarzit-zone" class="zone" focus="#tamarzit" next="#mourad-zone">
-                        <path d="M983,1609L1275,1609L1298,2072L991,2095L983,1609Z"/>
+                        <path d="M1022,1606L1302,1608L1320,2098L1023,2111L1022,1606Z"/>
                     </a>
                     <a id="mourad-zone" class="zone" focus="#mourad"next="#rachida-zone">
-                        <path d="M1295,1557L1700,1553L1728,2198L1525,2204L1500,2074L1303,2075L1295,1557Z"/>
+                        <path d="M1318,1587L1775,1585L1792,2280L1605,2287L1592,2094L1335,2098L1318,1587Z"/>
                     </a>
                     <a id="rachida-zone" class="zone" focus="#rachida"next="#touria-zone">
-                        <path d="M1707,1659L2065,1655L2083,2341L1848,2347L1848,2278L1728,2285L1707,1659Z"/>
+                        <path d="M1800,1664L2190,1663L2210,2381L1972,2382L1967,2324L1816,2324L1800,1664Z"/>
                     </a>
                     <a id="touria-zone" class="zone" focus="#touria"next="#maha-zone">
-                        <path d="M2060,1603L2500,1586L2500,2082L2245,2099L2242,2311L2094,2321L2060,1603Z"/>
+                        <path d="M2204,1598L2658,1588L2675,2107L2420,2109L2421,2336L2223,2337L2204,1598Z"/>
                     </a>
                     <a id="maha-zone" class="zone" focus="#maha"next="#chadia-zone">
-                        <path d="M2500,1633L2859,1620L2857.89,2270.99L2547,2263L2553,2104L2500,2085L2500,1633Z"/>
+                        <path d="M2670,1636L3049,1634L3061,2343L2775,2342L2769,2110L2677,2110L2670,1636Z"/>
                     </a>
                     <a id="chadia-zone" class="zone" focus="#chadia"next="#soulaima-zone">
-                        <path d="M2862,1610L3333,1602L3316,2341L2863,2353L2862,1610Z"/>
+                        <path d="M3062,1575L3566,1574L3563,2381L3074,2391L3062,1575Z"/>
                     </a>
                     <a id="soulaima-zone" class="zone" focus="#soulaima"next="#abdelaziz-zone">
-                        <path d="M3336,1608L3655,1594L3655,2249L3381.97,2242.42L3391,2123L3324.74,2118.58L3336,1608Z"/>
+                        <path d="M3581,1628L3939,1630L3939,2324L3597,2325L3603,2173L3580,2158L3581,1628Z"/>
                     </a>
                     <a id="abdelaziz-zone" class="zone" focus="#abdelaziz"next="#nouredine-zone">
-                        <path d="M1061,2103L1491,2098L1526,2883L1089,2897L1061,2103Z"/>
+                        <path d="M1108,2144L1581,2133L1595,2966L1122,2971L1108,2144Z"/>
                     </a>
                     <a id="nouredine-zone" class="zone" focus="#nouredine" next="#morabiti-zone">
-                        <path d="M1532,2293L1842,2293L1837,2788L1540,2794L1532,2293Z"/>
+                        <path d="M1623,2348L1951,2350L1948,2852L1640,2883L1623,2348Z"/>
                     </a>
                     <a id="morabiti-zone" class="zone" focus="#morabiti" next="#aziz-zone">
-                        <path d="M1866,2358L2254,2337L2288,3033L2095,3041L2092,2841L1884,2837L1866,2358Z"/>
+                        <path d="M2012,2406L2425,2404L2467,3149L2217,3153L2222,2885L2017,2874L2012,2406Z"/>
                     </a>
-                    <a id="aziz-zone" class="zone" focus="#aziz" next="#kamal-zone">
-                        <path d="M2244,2103L2541,2103L2559,2801L2279.81,2804L2244,2103Z"/>
+                    <a id="aziz-zone" class="zone" focus="#aziz" next="#adam-zone">
+                        <path d="M2437,2134L2753,2127L2769,2876L2465,2880L2437,2134Z"/>
                     </a>
                     <a id="adam-zone" class="zone" focus="#adam" next="#moulay-zaghloul-zone">
-                        <path d="M2567,2321L2842,2332L2843,2369L2947,2378L2934,2849L2678,2861L2685,2784L2574,2784L2567,2321Z"/>
+                        <path d="M2779,2381L3048,2384L3054,2417L3117,2421L3116,2902L2902,2908L2897,2875L2789,2862L2779,2381Z"/>
                     </a>
-                    <a id="moulay-zaghloul-zone" class="zone" focus="#moulay-zaghloul" next="#tamarzit-zone">
-                        <path d="M3325,2132L3380,2139L3375,2798L2966,2777L2957,2365L3319,2362L3325,2132Z"/>
+                    <a id="moulay-zaghloul-zone" class="zone" focus="#moulay-zaghloul" next="#kamal-zone">
+                        <path d="M3578,2420L3577,2858L3140,2854L3132,2414L3578,2420Z"/>
                     </a>
                     <a id="kamal-zone" class="zone" focus="#kamal" next="#adnane-zone">
-                        <path d="M3384,2322L3685,2315L3680,2742L3396,2749L3384,2322Z"/>
+                        <path d="M3598,2356L3962,2355L3929,2872L3596,2862L3598,2356Z"/>
                     </a>
                     <a id="adnane-zone" class="zone" focus="#adnane" next="#samia-zone">
-                        <path d="M1662,2854L2087,2846L2064,3534L1685,3541L1662,2854Z"/>
+                        <path d="M1731,2932L2194,2927L2197,3291L2156,3703L1777,3701L1731,2932Z"/>
                     </a>
                     <a id="samia-zone" class="zone" focus="#samia" next="#mohamed-zone">
-                        <path d="M2094,3070L2288,3065L2278,3419L2086,3407L2094,3070Z"/>
+                        <path d="M2213,3192L2391,3196L2405,3619L2188,3617L2213,3192Z"/>
                     </a>
-                    <a id="mohamed-zone" class="zone" focus="#mohamed" next="#zina1-zone">
-                        <path d="M2298,3442L2306,2810L2661,2804L2658,2892L2596,2895L2614,3449L2298,3442Z"/>
+                    <a id="mohamed-zone" class="zone" focus="#mohamed" next="#zina-zone">
+                        <path d="M2420,3627L2411,3183L2496,3167L2480,2902L2760,2897L2814,3645L2420,3627Z"/>
                     </a>
-                    <a id="zina-zone" class="zone" focus="#zina" next="#adam-zone">
-                        <path d="M2604,2900L2939,2886L2939,3531L2625,3527L2604,2900Z"/>
+                    <a id="zina-zone" class="zone" focus="#zina" next="#naima-zone">
+                        <path d="M2785,2933L3518,2877L3532,3617L2835,3655L2785,2933Z"/>
                     </a>
-                    <a id="naima-zone" class="zone" focus="#naima" next="#adam-zone">
-                        <path d="M3300,2814L3605,2784L3595,3428L3294,3421L3300,2814Z"/>
+                    <a id="naima-zone" class="zone" focus="#naima" next="#tamarzit-zone">
+                        <path d="M3598,2892L3842,2889L3828,3524L3552,3534L3532,3233L3535,2959L3596,2956L3598,2892Z"/>
                     </a>
                 </svg>
             </div>

@@ -39,6 +39,7 @@ $(document).ready(function () {
     function onOrientationChange() {
 
         //console.log("Orientation changed");
+        backgroundInit();
     }
     
     function attachToEvents() {
@@ -65,8 +66,12 @@ $(document).ready(function () {
     $('.zone').on('click', function (e) {
         e.preventDefault();
         
+            
+        var background = $('#background'),
+            apropos = $('#apropos');
+        
         // hide "a propos"
-        $('#apropos').hide();
+        apropos.hide();
         
         // clear last focus panel
         $('.focus').fadeOut(1000);
@@ -80,7 +85,7 @@ $(document).ready(function () {
             // store next focus to go
             sessionStorage.setItem("next", next);
         
-            $('#background').fadeOut(1000);
+            background.fadeOut(1000);
             $(focus).fadeIn(1000);
             
             // store current focus to go
@@ -90,8 +95,8 @@ $(document).ready(function () {
             
             sessionStorage.setItem("current", "none");
             
-            $('#background').fadeIn(1000);
-            $('#apropos').fadeIn(1000);
+            background.fadeIn(1000);
+            apropos.fadeIn(1000);
         }
     });
 
