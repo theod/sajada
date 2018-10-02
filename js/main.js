@@ -17,71 +17,28 @@ $(document).ready(function () {
     * Definitions
     *******************************/
     
-    function backgroundSetup() {
-        
-        // get zoom and scroll position to reach
-        var zoom = sessionStorage.getItem("zoom"),
-            scrollLeft = sessionStorage.getItem("scrollLeft"),
-            scrollTop = sessionStorage.getItem("scrollTop"),
-            background = $('#background');
-        
-        //console.log('backgroundSetup: zoom = ', zoom);
-        //console.log('backgroundSetup: scrollLeft = ', scrollLeft);
-        //console.log('backgroundSetup: scrollTop = ', scrollTop);
-        
-        background.animate({zoom: zoom,
-                           scrollLeft: scrollLeft,
-                           scrollTop: scrollTop
-                           }, 1000); // , $.bez([0.3, 0.75, 0.4, 1])
-        
-        if (zoom > 1.0) {
-            // lock scroll on background
-            background.removeClass('unlocked');
-            background.addClass('locked');
-        }
-        else {
-            // unlock scroll on background
-            background.removeClass('locked');
-            background.addClass('unlocked');
-        }
-    }
-    
     function backgroundInit() {
         
-        var image = $('#background > picture > img');
-        
-        // store zoom and scroll position to reach
-        sessionStorage.setItem("zoom", 1.0);
+        var image = $('#background > picture > img'),
+            background = $('#background');
         
         if ($(window).height() < $(window).width()) {
-            sessionStorage.setItem("scrollLeft", 0);
-            sessionStorage.setItem("scrollTop", (image.height() - $(window).height()) / 2);
+            background.animate({
+                    scrollLeft: 0,
+                    scrollTop: (image.height() - $(window).height()) / 2
+                }, 1000);
         } else {
-            sessionStorage.setItem("scrollLeft", (image.width() - $(window).width()) / 2);
-            sessionStorage.setItem("scrollTop", 0);
+            background.animate({
+                    scrollLeft: (image.height() - $(window).height()) / 2,
+                    scrollTop: 0
+                }, 1000);
         }
-        
-        backgroundSetup();
     }
     
     /** check orientation to display hint or not **/
     function onOrientationChange() {
 
         //console.log("Orientation changed");
-        var zoom = sessionStorage.getItem("zoom");
-        
-        if (zoom == 1.0) {
-            if ($(window).height() < $(window).width()) {
-                $('#background').scrollLeft(0);
-                sessionStorage.setItem("scrollLeft", 0);
-            } else {
-                $('#background').scrollTop(0);
-                sessionStorage.setItem("scrollTop", 0);
-            }
-            backgroundInit();
-        } else {
-            backgroundSetup();
-        }
     }
     
     function attachToEvents() {
@@ -111,39 +68,29 @@ $(document).ready(function () {
         // hide "a propos"
         $('#apropos').hide();
         
-        // clear last info panel
-        $('.info').fadeOut(1000);
+        // clear last focus panel
+        $('.focus').fadeOut(1000);
         
-        // focus on the a zone of the background
-        var image = $('#background > picture > img'),
-            info = $(this).attr('info'),
-            zoom = $(this).attr('zoom'),
-            scrollLeft = $(this).attr('scrollLeft') * image.width(),
-            scrollTop = $(this).attr('scrollTop') * image.height(),
+        // display new focus panel
+        var focus = $(this).attr('focus'),
             next = $(this).attr('next');
         
-        if (sessionStorage.getItem("current") != info)
+        if (sessionStorage.getItem("current") != focus)
         {
-            // store zoom and scroll position to reach
-            sessionStorage.setItem("zoom", zoom);
-            sessionStorage.setItem("scrollLeft", scrollLeft);
-            sessionStorage.setItem("scrollTop", scrollTop);
-        
-            // store next zone to go
+            // store next focus to go
             sessionStorage.setItem("next", next);
         
-            backgroundSetup();
-        
-            $(info).fadeIn(1000);
-        
-            sessionStorage.setItem("current", info);
+            $('#background').fadeOut(1000);
+            $(focus).fadeIn(1000);
+            
+            // store current focus to go
+            sessionStorage.setItem("current", focus);
         }
         else {
             
-            backgroundInit();
-            
             sessionStorage.setItem("current", "none");
-        
+            
+            $('#background').fadeIn(1000);
             $('#apropos').fadeIn(1000);
         }
     });
@@ -151,22 +98,21 @@ $(document).ready(function () {
     // insert "Retour" button
     $('.description').before('<div class="retour"><a href="">Retour</a></div>');
     
+    // insert "Suivant" button
+    $('.description').before('<div class="suivant"><a href="">Suivant</a></div>');
+    
     // insert Play button
     $('.entretien a').before('<svg viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" width="50" height="50"><g><polygon points="0,0 100,50 0,100" fill="#009EF8" stroke-width="0"></polygon></g></svg>');
-    
-    // insert "Suivant" button
-    $('.entretien').after('<div class="suivant"><a href="">Suivant</a></div>');
     
     // zoom back
     $('.retour').on('click', function (e) {
         e.preventDefault();
         
-        backgroundInit();
-        
-        $('.info').fadeOut(1000);
+        $('.focus').fadeOut(1000);
         
         sessionStorage.setItem("current", "none");
         
+        $('#background').fadeIn(1000);
         $('#apropos').fadeIn(1000);
     });
     
@@ -174,7 +120,7 @@ $(document).ready(function () {
     $('.suivant').on('click', function (e) {
         e.preventDefault();
         
-        $('.info').fadeOut(1000);
+        $('.focus').fadeOut(1000);
         
         var next = sessionStorage.getItem("next");
         
