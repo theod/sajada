@@ -266,12 +266,11 @@ body.loaded {
 .retour a:visited, 
 .retour a:focus {
     position: fixed;
-    right: 10px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 200;
     color: lightgray;
     text-decoration: none;
-    margin: 0%;
+    margin: 0 -3%;
     padding: 0%;
     font-size: 3.5vh;
     line-height: 2.5vh;
@@ -377,8 +376,7 @@ body.loaded {
 .suivant a:visited, 
 .suivant a:focus{
     position: fixed;
-    right: 10px;
-    bottom: 15px;
+    right: 2%;
     font-family: 'Montserrat', sans-serif;
     font-weight: 200;
     color: lightgray;
