@@ -188,6 +188,7 @@ $(document).ready(function () {
         setTimeout(function () {
             $('#background').fadeIn(500);
             $('#apropos').fadeIn(500);
+            backgroundInit();
         }, 500);
         
         setTimeout(function () {focusClear();}, 1000);
@@ -223,6 +224,7 @@ $(document).ready(function () {
         
         $('#about').fadeOut(1000);
         $('#apropos').fadeIn(1000);
+        backgroundInit();
     });
     
     // play
