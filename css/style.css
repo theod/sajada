@@ -79,25 +79,24 @@ body.loaded {
 }
 
 /********* focus *********/
-.focus {
-    display: none;
+#focus {
     width: 100%;
     height: 100%;
     padding: 0;
 }
-.focus img {
+#focus img {
     z-index: 3;
+    position: absolute;
     padding: 0;
 }
-
 @media screen and (orientation: landscape) {
-.focus img {
+#focus img {
     width: auto;
     height: 100vh;
 }
 }
 @media screen and (orientation: portrait) {
-.focus img {
+#focus img {
     width: 100vw;
     height: auto;
 }
@@ -113,10 +112,10 @@ body.loaded {
 }
 @media screen and (orientation: landscape) {
 .info {
-    width: 50vw;
+    width: 65vw;
     height: 100vh;
     top: 0vh;
-    left: 50vw;
+    left: 35vw;
     padding: 2.5% 5% 0% 5%;
 }
 }
@@ -284,54 +283,75 @@ body.loaded {
 }
 }
 
-/********* retour *********/
-.retour a, 
-.retour a:hover, 
-.retour a:active, 
-.retour a:visited, 
-.retour a:focus {
+/********* precedent *********/
+.precedent a, 
+.precedent a:hover, 
+.precedent a:active, 
+.precedent a:visited, 
+.precedent a:focus,
+.suivant a, 
+.suivant a:hover, 
+.suivant a:active, 
+.suivant a:visited, 
+.suivant a:focus {
     position: fixed;
     font-family: 'Montserrat', sans-serif;
     font-weight: 200;
     color: lightgray;
     text-decoration: none;
-    margin: 0 -3%;
-    padding: 0%;
     font-size: 3.5vh;
     line-height: 2.5vh;
 }
+.precedent a {
+    margin: 0 -3%;
+    padding: 0%;
+}
+.suivant a {
+    right: 2%;
+    margin: 0%;
+    padding: 0%;
+}
+
 @media screen and (orientation: portrait) and (max-width: 1024px) {
-.retour a {
+.precedent a,
+.suivant a {
     font-size: 2.5vh;
     line-height: 1.5vh;
 }
 }
 @media screen and (orientation: landscape) and (max-width: 1024px) {
-.retour a {
+.precedent a,
+.suivant a {
     font-size: 3.5vh;
     line-height: 2.5vh;
 }
 }
 @media screen and (orientation: portrait) and (max-width: 960px) {
-.retour a {
+.precedent a,
+.suivant a {
     font-size: 2.5vh;
     line-height: 1.5vh;
 }
 }
 @media screen and (orientation: landscape) and (max-width: 960px) {
-.retour a {
+.precedent a,
+.suivant a {
     font-size: 4vh;
     line-height: 3vh;
 }
 }
 @media screen and (orientation: portrait) and (max-width: 480px) {
-.retour a {
+.precedent a,
+.suivant a {
     font-size: 2vh;
     line-height: 1vh;
 }
 }
 
 /********* entretien *********/
+.entretien{
+    display: none;
+}
 .entretien a, 
 .entretien a:hover, 
 .entretien a:active, 
@@ -394,99 +414,21 @@ body.loaded {
     float: left;
 }
 
-/********* suivant *********/
-.suivant a, 
-.suivant a:hover, 
-.suivant a:active, 
-.suivant a:visited, 
-.suivant a:focus{
-    position: fixed;
-    right: 2%;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 200;
-    color: lightgray;
-    text-decoration: none;
-    margin: 0%;
-    padding: 0%;
-    font-size: 3.5vh;
-    line-height: 2.5vh;
-}
-@media screen and (orientation: portrait) and (max-width: 1024px) {
-.suivant a {
-    font-size: 2.5vh;
-    line-height: 1.5vh;
-}
-}
-@media screen and (orientation: landscape) and (max-width: 1024px) {
-.suivant a {
-    font-size: 3.5vh;
-    line-height: 2.5vh;
-}
-}
-@media screen and (orientation: portrait) and (max-width: 960px) {
-.suivant a {
-    font-size: 2.5vh;
-    line-height: 1.5vh;
-}
-}
-@media screen and (orientation: landscape) and (max-width: 960px) {
-.suivant a {
-    font-size: 4vh;
-    line-height: 3vh;
-}
-}
-@media screen and (orientation: portrait) and (max-width: 480px) {
-.suivant a {
-    font-size: 2vh;
-    line-height: 1vh;
-}
-}
-
 /********* player *********/
-#player-panel {
-    display: none;
-    position: fixed;
-    z-index: 5;
-    top: 2%;
-    left: 2%;
-}
 #player {
-    width: 5%;
+    display: none;
+    z-index: 5;
+    position: fixed;
+    bottom: 2%;
+    right: 2%;
+    width: 10%;
     height: auto;
     padding: 0%;
     margin: 0%;
 }
 #player svg {
-    width: 500%;
+    width: 100%;
     height: auto;
-}
-#player-label {
-    display: inline-block;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 300;
-    color: lightgray;
-    background-color: rgba(0.7, 0.3, 0.7, 0.7);
-	font-size: 3vh;
-}
-@media screen and (orientation: landscape) and (max-width: 1024px) {
-#player-label {
-	font-size: 3vh;
-}
-}
-@media screen and (orientation: portrait) and (max-width: 960px) {
-#player-label {
-	font-size: 3vh;
-}
-}
-@media screen and (orientation: landscape) and (max-width: 960px) {
-#player-label {
-	font-size: 4vh;
-}
-}
-@media screen and (orientation: portrait) and (max-width: 480px) {
-#player-label {
-	font-size: 3vh;
-}
 }
 
 /********* à propos *********/

@@ -30,7 +30,8 @@
         @media screen and (orientation: portrait){
         #background .unlocked {overflow-x: scroll;overflow-y: hidden;}
         #background img, svg {width: auto;height: 100vh;}}
-        .focus {display: none;}
+        #focus {display: none;}
+        .info {display: none;}
         #apropos {display: none;}
     </style>
       
@@ -39,6 +40,7 @@
   crossorigin="anonymous"></script>
     <script language="JavaScript" type="text/javascript" src="js/main.js"></script>
     <script language="JavaScript" type="text/javascript" src="js/player.js" defer></script>
+    <script language="JavaScript" type="text/javascript" src="js/swipe.min.js" defer></script>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -77,529 +79,354 @@
                 </picture>
             
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5000 5000">
-                    <a id="tamarzit-zone" class="zone" focus="#tamarzit" next="#mourad-zone">
+                    <a id="tamarzit-zone" class="zone" info="tamarzit" last="#naima-zone" next="#mourad-zone">
                         <path d="M1022,1606L1302,1608L1320,2098L1023,2111L1022,1606Z"/>
                     </a>
-                    <a id="mourad-zone" class="zone" focus="#mourad"next="#rachida-zone">
+                    <a id="mourad-zone" class="zone" info="mourad" last="#tamarzit-zone" next="#rachida-zone">
                         <path d="M1318,1587L1775,1585L1792,2280L1605,2287L1592,2094L1335,2098L1318,1587Z"/>
                     </a>
-                    <a id="rachida-zone" class="zone" focus="#rachida"next="#touria-zone">
+                    <a id="rachida-zone" class="zone" info="rachida" last="#mourad-zone" next="#touria-zone">
                         <path d="M1800,1664L2190,1663L2210,2381L1972,2382L1967,2324L1816,2324L1800,1664Z"/>
                     </a>
-                    <a id="touria-zone" class="zone" focus="#touria"next="#maha-zone">
+                    <a id="touria-zone" class="zone" info="touria" last="#rachida-zone" next="#maha-zone">
                         <path d="M2204,1598L2658,1588L2675,2107L2420,2109L2421,2336L2223,2337L2204,1598Z"/>
                     </a>
-                    <a id="maha-zone" class="zone" focus="#maha"next="#chadia-zone">
+                    <a id="maha-zone" class="zone" info="maha" last="#touria-zone" next="#chadia-zone">
                         <path d="M2670,1636L3049,1634L3061,2343L2775,2342L2769,2110L2677,2110L2670,1636Z"/>
                     </a>
-                    <a id="chadia-zone" class="zone" focus="#chadia"next="#soulaima-zone">
+                    <a id="chadia-zone" class="zone" info="chadia" last="#maha-zone" next="#soulaima-zone">
                         <path d="M3062,1575L3566,1574L3563,2381L3074,2391L3062,1575Z"/>
                     </a>
-                    <a id="soulaima-zone" class="zone" focus="#soulaima"next="#abdelaziz-zone">
+                    <a id="soulaima-zone" class="zone" info="soulaima" last="#chadia-zone" next="#abdelaziz-zone">
                         <path d="M3581,1628L3939,1630L3939,2324L3597,2325L3603,2173L3580,2158L3581,1628Z"/>
                     </a>
-                    <a id="abdelaziz-zone" class="zone" focus="#abdelaziz"next="#nouredine-zone">
+                    <a id="abdelaziz-zone" class="zone" info="abdelaziz" last="#soulaima-zone" next="#nouredine-zone">
                         <path d="M1108,2144L1581,2133L1595,2966L1122,2971L1108,2144Z"/>
                     </a>
-                    <a id="nouredine-zone" class="zone" focus="#nouredine" next="#morabiti-zone">
+                    <a id="nouredine-zone" class="zone" info="nouredine" last="#abdelaziz-zone" next="#morabiti-zone">
                         <path d="M1623,2348L1951,2350L1948,2852L1640,2883L1623,2348Z"/>
                     </a>
-                    <a id="morabiti-zone" class="zone" focus="#morabiti" next="#aziz-zone">
+                    <a id="morabiti-zone" class="zone" info="morabiti" last="#nouredine-zone" next="#aziz-zone">
                         <path d="M2012,2406L2425,2404L2467,3149L2217,3153L2222,2885L2017,2874L2012,2406Z"/>
                     </a>
-                    <a id="aziz-zone" class="zone" focus="#aziz" next="#adam-zone">
+                    <a id="aziz-zone" class="zone" info="aziz" last="#morabiti-zone" next="#adam-zone">
                         <path d="M2437,2134L2753,2127L2769,2876L2465,2880L2437,2134Z"/>
                     </a>
-                    <a id="adam-zone" class="zone" focus="#adam" next="#moulay-zaghloul-zone">
+                    <a id="adam-zone" class="zone" info="adam" last="#aziz-zone" next="#moulay-zaghloul-zone">
                         <path d="M2779,2381L3048,2384L3054,2417L3117,2421L3116,2902L2902,2908L2897,2875L2789,2862L2779,2381Z"/>
                     </a>
-                    <a id="moulay-zaghloul-zone" class="zone" focus="#moulay-zaghloul" next="#kamal-zone">
+                    <a id="moulay-zaghloul-zone" class="zone" info="moulay-zaghloul" last="#adam-zone" next="#kamal-zone">
                         <path d="M3578,2420L3577,2858L3140,2854L3132,2414L3578,2420Z"/>
                     </a>
-                    <a id="kamal-zone" class="zone" focus="#kamal" next="#adnane-zone">
+                    <a id="kamal-zone" class="zone" info="kamal" last="#moulay-zaghloul-zone" next="#adnane-zone">
                         <path d="M3598,2356L3962,2355L3929,2872L3596,2862L3598,2356Z"/>
                     </a>
-                    <a id="adnane-zone" class="zone" focus="#adnane" next="#samia-zone">
+                    <a id="adnane-zone" class="zone" info="adnane" last="#kamal-zone" next="#samia-zone">
                         <path d="M1731,2932L2194,2927L2197,3291L2156,3703L1777,3701L1731,2932Z"/>
                     </a>
-                    <a id="samia-zone" class="zone" focus="#samia" next="#mohamed-zone">
+                    <a id="samia-zone" class="zone" info="samia" last="#adnane-zone" next="#mohamed-zone">
                         <path d="M2213,3192L2391,3196L2405,3619L2188,3617L2213,3192Z"/>
                     </a>
-                    <a id="mohamed-zone" class="zone" focus="#mohamed" next="#zina-zone">
+                    <a id="mohamed-zone" class="zone" info="mohamed" last="#samia-zone" next="#zina-zone">
                         <path d="M2420,3627L2411,3183L2496,3167L2480,2902L2760,2897L2814,3645L2420,3627Z"/>
                     </a>
-                    <a id="zina-zone" class="zone" focus="#zina" next="#naima-zone">
+                    <a id="zina-zone" class="zone" info="zina" last="#mohamed-zone" next="#naima-zone">
                         <path d="M2785,2933L3518,2877L3532,3617L2835,3655L2785,2933Z"/>
                     </a>
-                    <a id="naima-zone" class="zone" focus="#naima" next="#tamarzit-zone">
+                    <a id="naima-zone" class="zone" info="naima" last="#zina-zone" next="#tamarzit-zone">
                         <path d="M3598,2892L3842,2889L3828,3524L3552,3534L3532,3233L3535,2959L3596,2956L3598,2892Z"/>
                     </a>
                 </svg>
             </div>
             
-            <!-- TAMARZIT !-->
-            <div id="tamarzit" class="focus">
-
-                <picture>
-                    <source srcset="images/zoom/horizontal/Tamarzit.png" media="(orientation: landscape)">
-                    <source srcset="images/zoom/vertical/Tamarzit.png" media="(orientation: portrait)">
-                    <img src="" alt="Background Info">
-                </picture>
+            <!-- FOCUS !-->
+            <div id="focus">
+                <img src="">
+            </div>
             
-                <div class="info">
-                    
-                    <div class="description">
-                        <h1>Tamarzit</h1>
-                        <h2>Marrakech, le 28 février 2018</h2>
-                        <p>Tamarzit Abd Essamad, 25 ans, est né et vit à Marrakech. Il étudie l'anglais à l'Université Cadi Ayyad de Marrakech et suit en parallèle une formation professionnelle d'électricien. Il travaille également comme vendeur dans un bazar de la place <i>Jemaa el Fna</i>.<br><br>Tamarzit n'a pas souhaité donner son tapis de prière.</p>
-                    </div>
+            <!-- TAMARZIT !-->
+            <div id="tamarzit" class="info">
 
-                    <div class="entretien" src="sounds/Tamarzit.mp3" label="entretien de Tamarzit">
-                        <a href="">Ecouter Tamarzit</a>
-                    </div>
+                <div class="description">
+                    <h1>Tamarzit</h1>
+                    <h2>Marrakech, le 28 février 2018</h2>
+                    <p>Tamarzit Abd Essamad, 25 ans, est né et vit à Marrakech. Il étudie l'anglais et suit en parallèle une formation d'électricien. Tamarzit est aussi vendeur dans un bazar de la place <i>Jemaa el Fna</i>.<br><br>Tamarzit n'a pas souhaité donner son tapis de prière.</p>
+                </div>
 
+                <div class="entretien" src="sounds/Tamarzit.mp3">
+                    <a href="">Ecouter Tamarzit</a>
                 </div>
                 
             </div>
                         
             <!-- MOURAD !-->
-            <div id="mourad" class="focus">
+            <div id="mourad" class="info">
+                
+                <div class="description">
+                    <h1>Mourad</h1> 
+                    <h2>Tanger, le 5 janvier 2018</h2>
+                    <p>Mourad Djellal a 54 ans. Il est né à Villepinte, en banlieue parisienne, et  vit aujourd'hui entre la France et le Maroc. Il est sans emploi.</p>
+                </div>
 
-                <picture>
-                    <source srcset="images/zoom/horizontal/Mourad.png" media="(orientation: landscape)">
-                    <source srcset="images/zoom/vertical/Mourad.png" media="(orientation: portrait)">
-                    <img src="" alt="Background Info">
-                </picture>
-            
-                <div class="info">
-                    
-                    <div class="description">
-                        <h1>Mourad</h1> 
-                        <h2>Tanger, le 5 janvier 2018</h2>
-                        <p>Mourad Djellal a 54 ans. Il est né à Villepinte, en banlieue parisienne, et  vit aujourd'hui entre la France et le Maroc. Il est sans emploi.</p>
-                    </div>
-
-                    <div class="entretien" src="sounds/Mourad.mp3" label="Mourad">
-                        <a href="">Ecouter Mourad</a>
-                    </div>
-
+                <div class="entretien" src="sounds/Mourad.mp3">
+                    <a href="">Ecouter Mourad</a>
                 </div>
                 
             </div>
                         
             <!-- RACHIDA !-->
-            <div id="rachida" class="focus">
+            <div id="rachida" class="info">
 
-                <picture>
-                    <source srcset="images/zoom/horizontal/Rachida.png" media="(orientation: landscape)">
-                    <source srcset="images/zoom/vertical/Rachida.png" media="(orientation: portrait)">
-                    <img src="" alt="Background Info">
-                </picture>
-            
-                <div class="info">
-                    
-                    <div class="description">
-                        <h1>Chida</h1>
-                        <h2>Aulnay-sous-Bois, le 12 janvier 2018</h2>
-                        <p>Rachida Djellal (« Chida ») a 71 ans. Elle est née à Oujda au Maroc et vit à Maghnia en Algérie. Elle est femme au foyer.<br><br>Rachida tenait à donner son tapis de prière mais n'a pas souhaité donner d’interview.</p>
-                    </div>
-
+                <div class="description">
+                    <h1>Chida</h1>
+                    <h2>Aulnay-sous-Bois, le 12 janvier 2018</h2>
+                    <p>Rachida Djellal (« Chida ») a 71 ans. Elle est née à Oujda au Maroc et vit à Maghnia en Algérie. Elle est femme au foyer.<br><br>Rachida tenait à donner son tapis de prière mais n'a pas souhaité donner d’interview.</p>
                 </div>
+                
+                <div class="entretien" src="no">
+                    <a href=""></a>
+                </div>
+
             </div>
             
             <!-- TOURIA !-->
-            <div id="touria" class="focus">
+            <div id="touria" class="info">
 
-                <picture>
-                    <source srcset="images/zoom/horizontal/Touria.png" media="(orientation: landscape)">
-                    <source srcset="images/zoom/vertical/Touria.png" media="(orientation: portrait)">
-                    <img src="" alt="Background Info">
-                </picture>
-            
-                <div class="info">
-                    
-                    <div class="description">
-                        <h1>Touria</h1>
-                        <h2>Marrakech, le 11 mars 2018</h2>
-                        <p>Touria Ikabal, 54 ans, est née et vit à Marrakech. Touria est écrivaine et traductrice spécialiste du soufisme. Elle a été députée au Parlement marocain de 2011 à 2015.</p>
-                    </div>
-
-                    <div class="entretien" src="sounds/Touria.mp3" label="Touria">
-                        <a href="">Ecouter Touria</a>
-                    </div>
-
+                <div class="description">
+                    <h1>Touria</h1>
+                    <h2>Marrakech, le 11 mars 2018</h2>
+                    <p>Touria Ikabal, 54 ans, est née et vit à Marrakech. Touria est écrivaine et traductrice spécialiste du soufisme. Elle a été députée au Parlement marocain de 2011 à 2015.</p>
                 </div>
+
+                <div class="entretien" src="sounds/Touria.mp3">
+                    <a href="">Ecouter Touria</a>
+                </div>
+
             </div>
             
             <!-- MAHA !-->
-            <div id="maha" class="focus">
+            <div id="maha" class="info">
+                
+                <div class="description">
+                    <h1>Maha</h1>
+                    <h2>Marrakech, le 6 mars 2018</h2>
+                    <p>Maha Elmadi a 44 ans. Elle est née et vit à Marrakech. Elle est directrice du <i>Dar Bellarj</i> - fondation pour la culture au Maroc.</p>
+                </div>
 
-                <picture>
-                    <source srcset="images/zoom/horizontal/Maha.png" media="(orientation: landscape)">
-                    <source srcset="images/zoom/vertical/Maha.png" media="(orientation: portrait)">
-                    <img src="" alt="Background Info">
-                </picture>
-            
-                <div class="info">
-                    
-                    <div class="description">
-                        <h1>Maha</h1>
-                        <h2>Marrakech, le 6 mars 2018</h2>
-                        <p>Maha Elmadi a 44 ans. Elle est née et vit à Marrakech. Elle est directrice du <i>Dar Bellarj</i> - fondation pour la culture au Maroc.</p>
-                    </div>
-
-                    <div class="entretien " src="sounds/Maha.mp3" label="entretien de Maha">
-                        <a href="">Ecouter l'entretien de Maha</a>
-                    </div>
-
+                <div class="entretien" src="sounds/Maha.mp3">
+                    <a href="">Ecouter l'entretien de Maha</a>
                 </div>
             
             </div>
             
             <!-- CHADIA !-->
-            <div id="chadia" class="focus">
+            <div id="chadia" class="info">
 
-                <picture>
-                    <source srcset="images/zoom/horizontal/Chadia.png" media="(orientation: landscape)">
-                    <source srcset="images/zoom/vertical/Chadia.png" media="(orientation: portrait)">
-                    <img src="" alt="Background Info">
-                </picture>
-            
-                <div class="info">
-                    
-                    <div class="description">
-                        <h1>Chadia</h1>
-                        <h2>Marrakech, le 26 février 2018</h2>
-                        <p>Chadia Najahi a 51 ans. Elle vit à Marrakech depuis sa naissance. Elle est femme de ménage et cuisinière au riad Flamingo.</p>
-                    </div>
-
-                    <div class="entretien" src="sounds/Chadia.mp3" label="Chadia">
-                        <a href="">Ecouter Chadia</a>
-                    </div>
-
+                <div class="description">
+                    <h1>Chadia</h1>
+                    <h2>Marrakech, le 26 février 2018</h2>
+                    <p>Chadia Najahi a 51 ans. Elle vit à Marrakech depuis sa naissance. Elle est femme de ménage et cuisinière au riad Flamingo.</p>
                 </div>
-            
-            </div>
-            
-            <!-- SOULEYMA !-->
-            <div id="soulaima" class="focus">
 
-                <picture>
-                    <source srcset="images/zoom/horizontal/Soulaima.png" media="(orientation: landscape)">
-                    <source srcset="images/zoom/vertical/Soulaima.png" media="(orientation: portrait)">
-                    <img src="" alt="Background Info">
-                </picture>
-            
-                <div class="info">
-                    
-                    <div class="description">
-                        <h1>Soulaima</h1>
-                        <h2>Marrakech, le 20 Mars 2018</h2>
-                        <p>Soulaima Laabili a 22 ans. Elle est née dans la médina de Marrakech, où elle vit encore aujourd’hui. Elle est étudiante en Master Economie de l'environnement et changement climatique à l'Université Cadi Ayyad de Marrakech.</p>
-                    </div>
-
-                    <div class="entretien" src="sounds/Soulaima.mp3" label="Soulaima">
-                        <a href="">Ecouter Soulaima</a>
-                    </div>
-
-                </div>
-            
-            </div>
-
-            <!-- ABDELAZIZ !-->
-            <div id="abdelaziz" class="focus">
-
-                <picture>
-                    <source srcset="images/zoom/horizontal/Abdelaziz.png" media="(orientation: landscape)">
-                    <source srcset="images/zoom/vertical/Abdelaziz.png" media="(orientation: portrait)">
-                    <img src="" alt="Background Info">
-                </picture>
-            
-                <div class="info">
-                    
-                    <div class="description">
-                        <h1>Don anonyme</h1>
-                        <h2>Bruxelles, le 3 avril 2018</h2>
-                        <p></p>
-                    </div>
-
-                    <div class="entretien" src="sounds/Abdelaziz.mp3" label=" un entretien anonyme">
-                        <a href="">Ecouter l'entretien</a>
-                    </div>
-
+                <div class="entretien" src="sounds/Chadia.mp3">
+                    <a href="">Ecouter Chadia</a>
                 </div>
                 
             </div>
             
-            <!-- NOUREDINE !-->
-            <div id="nouredine" class="focus">
+            <!-- SOULEYMA !-->
+            <div id="soulaima" class="info">
+ 
+                <div class="description">
+                    <h1>Soulaima</h1>
+                    <h2>Marrakech, le 20 Mars 2018</h2>
+                    <p>Soulaima Laabili a 22 ans. Elle est née dans la médina de Marrakech, où elle vit encore aujourd’hui. Elle est étudiante en Master Economie de l'environnement et changement climatique à l'Université Cadi Ayyad de Marrakech.</p>
+                </div>
 
-                <picture>
-                    <source srcset="images/zoom/horizontal/Nouredine.png" media="(orientation: landscape)">
-                    <source srcset="images/zoom/vertical/Nouredine.png" media="(orientation: portrait)">
-                    <img src="" alt="Background Info">
-                </picture>
+                <div class="entretien" src="sounds/Soulaima.mp3">
+                    <a href="">Ecouter Soulaima</a>
+                </div>
+
+            </div>
+
+            <!-- ABDELAZIZ !-->
+            <div id="abdelaziz" class="info">
+
+                <div class="description">
+                    <h1>Don anonyme</h1>
+                    <h2>Bruxelles, le 3 avril 2018</h2>
+                    <p></p>
+                </div>
+
+                <div class="entretien" src="sounds/Abdelaziz.mp3">
+                    <a href="">Ecouter l'entretien</a>
+                </div>
+
+            </div>
             
-                <div class="info">
-                    
-                    <div class="description">
-                        <h1>Nouredine</h1>
-                        <h2>Marrakech, le 31 Mars 2018</h2>
-                        <p>Nouredine Ezarraf a 26 ans et vit  à Aghmat, au pied du Haut Atlas, où il est né. Il est artiste et bibliothécaire.</p>
-                    </div>
+            <!-- NOUREDINE !-->
+            <div id="nouredine" class="info">
 
-                    <div class="entretien" src="sounds/Nouredine.mp3" label="Nouredine">
-                        <a href="">Ecouter Nouredine</a>
-                    </div>
+                <div class="description">
+                    <h1>Nouredine</h1>
+                    <h2>Marrakech, le 31 Mars 2018</h2>
+                    <p>Nouredine Ezarraf a 26 ans et vit  à Aghmat, au pied du Haut Atlas, où il est né. Il est artiste et bibliothécaire.</p>
+                </div>
 
+                <div class="entretien" src="sounds/Nouredine.mp3">
+                    <a href="">Ecouter Nouredine</a>
                 </div>
                 
             </div>
             
             <!-- MORABITI !-->
-            <div id="morabiti" class="focus">
+            <div id="morabiti" class="info">
 
-                <picture>
-                    <source srcset="images/zoom/horizontal/Morabiti.png" media="(orientation: landscape)">
-                    <source srcset="images/zoom/vertical/Morabiti.png" media="(orientation: portrait)">
-                    <img src="" alt="Background Info">
-                </picture>
-            
-                <div class="info">
-
-                    <div class="description">
-                        <h1>Mohamed</h1>
-                        <h2>Tahannaout, le 2 mars 2018.</h2>
-                        <p>Mohamed Morabiti, 50 ans, est né à Marrakech. Il est artiste contemporain et fondateur de la résidence d'artistes « Al Maquam » à Tahannaout, près de l'Atlas, où il vit et travaille.</p>
-                    </div>
-
-                    <div class="entretien" src="sounds/Morabiti.mp3" label="Mohamed">
-                        <a href="">Ecouter Mohamed</a>
-                    </div>
-
+                <div class="description">
+                    <h1>Mohamed</h1>
+                    <h2>Tahannaout, le 2 mars 2018.</h2>
+                    <p>Mohamed Morabiti, 50 ans, est né à Marrakech. Il est artiste contemporain et fondateur de la résidence d'artistes « Al Maquam » à Tahannaout, près de l'Atlas, où il vit et travaille.</p>
                 </div>
-                
+
+                <div class="entretien" src="sounds/Morabiti.mp3">
+                    <a href="">Ecouter Mohamed</a>
+                </div>
+
             </div>
  
             <!-- AZIZ !-->
-            <div id="aziz" class="focus">
+            <div id="aziz" class="info">
 
-                <picture>
-                    <source srcset="images/zoom/horizontal/Aziz.png" media="(orientation: landscape)">
-                    <source srcset="images/zoom/vertical/Aziz.png" media="(orientation: portrait)">
-                    <img src="" alt="Background Info">
-                </picture>
-            
-                <div class="info">
-                    
-                    <div class="description">
-                        <h1>Aziz</h1>
-                        <h2>Marrakech, le 14 février 2018</h2>
-                        <p>Abdel-Aziz Bouyabrine a 50 ans. Il est né à Marrakech, où il vit aujourd’hui. Il est responsable artistique et animateur au <i>Dar Bellarj</i> - fondation pour la culture au Maroc.</p>
-                    </div>
-
-                    <div class="entretien" src="sounds/Aziz.mp3" label="Aziz">
-                        <a href="">Ecouter Aziz</a>
-                    </div>
-
+                <div class="description">
+                    <h1>Aziz</h1>
+                    <h2>Marrakech, le 14 février 2018</h2>
+                    <p>Abdel-Aziz Bouyabrine a 50 ans. Il est né à Marrakech, où il vit aujourd’hui. Il est responsable artistique et animateur au <i>Dar Bellarj</i> - fondation pour la culture au Maroc.</p>
                 </div>
-                
+
+                <div class="entretien" src="sounds/Aziz.mp3">
+                    <a href="">Ecouter Aziz</a>
+                </div>
+
             </div>
             
             <!-- ADAM !-->
-            <div id="adam" class="focus">
-                
-                <picture>
-                    <source srcset="images/zoom/horizontal/Adam.png" media="(orientation: landscape)">
-                    <source srcset="images/zoom/vertical/Adam.png" media="(orientation: portrait)">
-                    <img src="" alt="Background Info">
-                </picture>
-            
-                <div class="info">
+            <div id="adam" class="info">
 
-                    <div class="description">
-                        <h1>Adam</h1> 
-                        <h2>Marrakech, le 15 mars 2018</h2>
-                        <p>Adam Najmi, 25 ans, est né à Casablanca et vit à Marrakech. Il est étudiant en Master Géorisques, Géomatique et Géoenvironement à la faculté des sciences Semlalia de Marrakech. Il est également veilleur de nuit dans un riad.<br><br>Adam n'avait pas de tapis de prière à donner.</p>
-                    </div>
-
-                    <div class="entretien " src="sounds/Adam.mp3" label="Adam">
-                        <a href="">Ecouter Adam</a>
-                    </div>
-
+                <div class="description">
+                    <h1>Adam</h1> 
+                    <h2>Marrakech, le 15 mars 2018</h2>
+                    <p>Adam Najmi, 25 ans, est né à Casablanca et vit à Marrakech. Il est étudiant en Master Géorisques à la faculté des sciences Semlalia de Marrakech, et veilleur de nuit dans un riad.
                 </div>
-                
+
+                <div class="entretien " src="sounds/Adam.mp3">
+                    <a href="">Ecouter Adam</a>
+                </div>
+
             </div>
               
             <!-- MOULAY-ZAGHLOUL !-->
-            <div id="moulay-zaghloul" class="focus">
+            <div id="moulay-zaghloul" class="info">
 
-                <picture>
-                    <source srcset="images/zoom/horizontal/Moulay.png" media="(orientation: landscape)">
-                    <source srcset="images/zoom/vertical/Moulay.png" media="(orientation: portrait)">
-                    <img src="" alt="Background Info">
-                </picture>
-            
-                <div class="info">
-                    
-                    <div class="description">
-                        <h1>Moulay</h1>
-                        <h2>Tamesloht, le 28 mars 2018</h2>
-                        <p>Moulay Zaghloul Essaïdi vit à Tamesloht. Il est Président de cette commune située en péripéhriede Marrakech.</p>
-                    </div>
-
-                    <div class="entretien" src="sounds/Moulay.mp3" label="Moulay">
-                        <a href="">Ecouter Moulay</a>
-                    </div>
-
+                <div class="description">
+                    <h1>Moulay</h1>
+                    <h2>Tamesloht, le 28 mars 2018</h2>
+                    <p>Moulay Zaghloul Essaïdi vit à Tamesloht. Il est Président de cette commune située en péripéhriede Marrakech.</p>
                 </div>
-            
+
+                <div class="entretien" src="sounds/Moulay.mp3">
+                    <a href="">Ecouter Moulay</a>
+                </div>
+
             </div>
             
             <!-- KAMAL !-->
-            <div id="kamal" class="focus">
+            <div id="kamal" class="info">
 
-                <picture>
-                    <source srcset="images/zoom/horizontal/Kamal.png" media="(orientation: landscape)">
-                    <source srcset="images/zoom/vertical/Kamal.png" media="(orientation: portrait)">
-                    <img src="" alt="Background Info">
-                </picture>
-            
-                <div class="info">
-                    
-                    <div class="description">
-                        <h1>Kamal</h1>
-                        <h2>Marrakech, le 18 mars 2018</h2>
-                        <p>Kamal Narjis a 25 ans. Il est né à Chefchaouen dans le Rif et vit dans la region de Marrakech-Safi, à Chichaoua. Il est clown, danseur et rappeur.<br><br>Kamal n'a pas souhaité donner son tapis de prière.</p>
-                    </div>
+                <div class="description">
+                    <h1>Kamal</h1>
+                    <h2>Marrakech, le 18 mars 2018</h2>
+                    <p>Kamal Narjis a 25 ans. Il est né à Chefchaouen dans le Rif et vit dans la region de Marrakech-Safi, à Chichaoua. Il est clown, danseur et rappeur.<br><br>Kamal n'a pas souhaité donner son tapis de prière.</p>
+                </div>
 
-                    <div class="entretien" src="sounds/Kamal.mp3" label="Kamal">
-                        <a href="">Ecouter Kamal</a>
-                    </div>
-
+                <div class="entretien" src="sounds/Kamal.mp3">
+                    <a href="">Ecouter Kamal</a>
                 </div>
                 
             </div>
   
             <!-- ADNANE !-->
-            <div id="adnane" class="focus">
+            <div id="adnane" class="info">
 
-                <picture>
-                    <source srcset="images/zoom/horizontal/Adnane.png" media="(orientation: landscape)">
-                    <source srcset="images/zoom/vertical/Adnane.png" media="(orientation: portrait)">
-                    <img src="" alt="Background Info">
-                </picture>
-            
-                <div class="info">
-                    
-                    <div class="description">
-                        <h1>Adnane</h1>
-                        <h2>Bruxelles, le 8 mai 2018</h2>
-                        <p>Adnane Lamarti a 23 ans. Il est né et vit à Bruxelles. Il est danseur, comédien et metteur en scène.</p>
-                    </div>
-
-                    <div class="entretien" src="sounds/Adnane.mp3" label="Adnane">
-                        <a href="">Ecouter Adnane</a>
-                    </div>
-
+                <div class="description">
+                    <h1>Adnane</h1>
+                    <h2>Bruxelles, le 8 mai 2018</h2>
+                    <p>Adnane Lamarti a 23 ans. Il est né et vit à Bruxelles. Il est danseur, comédien et metteur en scène.</p>
                 </div>
-                
+
+                <div class="entretien" src="sounds/Adnane.mp3">
+                    <a href="">Ecouter Adnane</a>
+                </div>
+
             </div>
   
             <!-- SAMIA !-->
-            <div id="samia" class="focus">
+            <div id="samia" class="info">
 
-                <picture>
-                    <source srcset="images/zoom/horizontal/Samia.png" media="(orientation: landscape)">
-                    <source srcset="images/zoom/vertical/Samia.png" media="(orientation: portrait)">
-                    <img src="" alt="Background Info">
-                </picture>
-            
-                <div class="info">
-                    
-                    <div class="description">
-                        <h1>Samia</h1>
-                        <h2>Villepinte, le 12 avril 2018</h2>
-                        <p>Samia Derriche, 43 ans, est née à Villepinte en banlieue parisienne, où elle vit aujourd'hui. Elle a fait ses études à Alger, où elle a vécu 15 ans entre 1980 et 1995. Samia est secrétaire d'administration dans un centre de rééducation neurologique.</p>
-                    </div>
-
-                    <div class="entretien" src="sounds/Samia.mp3" label="Samia">
-                        <a href="">Ecouter Samia</a>
-                    </div>
-
+                <div class="description">
+                    <h1>Samia</h1>
+                    <h2>Villepinte, le 12 avril 2018</h2>
+                    <p>Samia Derriche, 43 ans, est née à Villepinte en banlieue parisienne, où elle vit aujourd'hui. Elle a fait ses études à Alger, où elle a vécu 15 ans entre 1980 et 1995. Samia est secrétaire d'administration dans un centre de rééducation neurologique.</p>
                 </div>
-                
+
+                <div class="entretien" src="sounds/Samia.mp3">
+                    <a href="">Ecouter Samia</a>
+                </div>
+
             </div>
  
             <!-- MOHAMED !-->
-            <div id="mohamed" class="focus">
+            <div id="mohamed" class="info">
 
-                <picture>
-                    <source srcset="images/zoom/horizontal/Mohamed.png" media="(orientation: landscape)">
-                    <source srcset="images/zoom/vertical/Mohamed.png" media="(orientation: portrait)">
-                    <img src="" alt="Background Info">
-                </picture>
-            
-                <div class="info">
-                    
-                    <div class="description">
-                        <h1>Mohamed</h1>
-                        <h2>Bruxelles, le 4 avril 2018</h2>
-                        <p>Mohamed vend des légumes et des tapis de prière sur le boulevard d'Ypres à Bruxelles.<br><br>Il n'a pas souhaité donner d’interview.</p>
-                    </div>
-
+                <div class="description">
+                    <h1>Mohamed</h1>
+                    <h2>Bruxelles, le 4 avril 2018</h2>
+                    <p>Mohamed vend des légumes et des tapis de prière sur le boulevard d'Ypres à Bruxelles.<br><br>Il n'a pas souhaité donner d’interview.</p>
                 </div>
                 
+                <div class="entretien" src="no">
+                    <a href=""></a>
+                </div>
+
             </div>
                                                                
             <!-- ZINA !-->
-            <div id="zina" class="focus">
+            <div id="zina" class="info">
 
-                <picture>
-                    <source srcset="images/zoom/horizontal/Zina.png" media="(orientation: landscape)">
-                    <source srcset="images/zoom/vertical/Zina.png" media="(orientation: portrait)">
-                    <img src="" alt="Background Info">
-                </picture>
-            
-                <div class="info">
-                    
-                    <div class="description">
-                        <h1>Zina</h1>
-                        <h2>Paris, avril 2018</h2>
-                        <p>Zineb Drahmani («Zina») a 68 ans. Elle est née en  à Bousselam en petite Kabylie et vit à Paris. Elle  travaille par intermitance.<br><br>Zina a fait don de deux tapis de prière. Son précédent (le bleu) et celui qu'elle utilise au moment de notre rencontre.</p>
-                    </div>
-
-                    <div class="entretien" src="sounds/Zina.mp3" label="Zina">
-                        <a href="">Ecouter Zina</a>
-                    </div>
-
+                <div class="description">
+                    <h1>Zina</h1>
+                    <h2>Paris, avril 2018</h2>
+                    <p>Zineb Drahmani («Zina») a 68 ans. Elle est née en  à Bousselam en petite Kabylie et vit à Paris. Elle  travaille par intermitance.<br><br>Zina a fait don de deux tapis de prière. Son précédent (le bleu) et celui qu'elle utilise au moment de notre rencontre.</p>
                 </div>
-                
+
+                <div class="entretien" src="sounds/Zina.mp3">
+                    <a href="">Ecouter Zina</a>
+                </div>
+
             </div>
                        
             <!-- NAIMA !-->
-            <div id="naima" class="focus">
+            <div id="naima" class="info">
 
-                <picture>
-                    <source srcset="images/zoom/horizontal/Naima.png" media="(orientation: landscape)">
-                    <source srcset="images/zoom/vertical/Naima.png" media="(orientation: portrait)">
-                    <img src="" alt="Background Info">
-                </picture>
-            
-                <div class="info">
-                    
-                    <div class="description">
-                        <h1>Naima</h1>
-                        <h2>Marrakech, le 17 février 2018</h2>
-                        <p>Naima Agourram, 21 ans, est née à Tighdouine dans la région de Marrakech-Safi. Elle est étudiante en Master Gouvernance de projets solidaires à l'Université Cadi Ayyad de Marrakech, où elle vit.</p>
-                    </div>
-
-                    <div class="entretien" src="sounds/Naima.mp3" label="Naima">
-                        <a href="">Ecouter Naima</a>
-                    </div>
-
+                <div class="description">
+                    <h1>Naima</h1>
+                    <h2>Marrakech, le 17 février 2018</h2>
+                    <p>Naima Agourram, 21 ans, est née à Tighdouine dans la région de Marrakech-Safi. Elle est étudiante en Master Gouvernance de projets solidaires à l'Université Cadi Ayyad de Marrakech, où elle vit.</p>
                 </div>
-                
+
+                <div class="entretien" src="sounds/Naima.mp3">
+                    <a href="">Ecouter Naima</a>
+                </div>
+
             </div>
 
         </div>
@@ -608,15 +435,8 @@
       
     <!-- PLAYER !-->
     <div id="player-panel">
-        <div>
-            <div>
-                <div id="player-label">
-                    <p>Aucun entretien</p>
-                </div>
-                <div id="player" class="mediPlayer">
-                    <audio class="listen" preload="none" data-size="100" src=""></audio>
-                </div>
-            </div>
+        <div id="player" class="mediPlayer">
+            <audio class="listen" preload="none" data-size="100" src=""></audio>
         </div>
     </div>
       
