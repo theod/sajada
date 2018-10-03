@@ -209,6 +209,22 @@ $(document).ready(function () {
         $(next).trigger("click");
     });
     
+    // show about
+    $('#apropos').on('click', function (e) {
+        e.preventDefault();
+        
+        $('#apropos').hide(1000);
+        $('#about').fadeIn(1000);
+    });
+    
+    // quit about
+    $('#about').on('click', function (e) {
+        e.preventDefault();
+        
+        $('#about').fadeOut(1000);
+        $('#apropos').fadeIn(1000);
+    });
+    
     // play
     $('.entretien').on('click', function (e) {
         e.preventDefault();

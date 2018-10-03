@@ -472,36 +472,92 @@ body.loaded {
     font-weight: 200;
     color: lightgray;
     text-decoration: none;
-    font-size: 1em;
-    line-height: 2em;
+    font-size: 2em;
+    line-height: 0em;
 }
 @media screen and (orientation: landscape) and (max-width: 1300px) {
 #apropos a {
-    font-size: 1em;
-    line-height: 2em;
+    font-size: 2em;
+    line-height: 0em;
 }
 }
 @media screen and (orientation: landscape) and (max-width: 960px) {
 #apropos a {
     font-size: 1em;
-    line-height: 2em;
+    line-height: 0em;
 }
 }
 @media screen and (orientation: portrait) and (max-width: 1300px) {
 #apropos a {
-    font-size: 1em;
-    line-height: 2em;
+    font-size: 2em;
+    line-height: 0em;
 }
 }
 @media screen and (orientation: portrait) and (max-width: 768px) {
 #apropos a {
-    font-size: 1em;
-    line-height: 2em;
+    font-size: 1.1em;
+    line-height: 0em;
 }
 }
 @media screen and (orientation: portrait) and (max-width: 320px) {
 #apropos a {
+    font-size: 0.9em;
+    line-height: 0em;
+}
+}
+
+/********* about *********/
+#about {
+    z-index: 4;
+    position: absolute;
+    background-size: cover;
+    background-color: rgb(20, 10, 20); /* fallback */
+    background-color: rgba(20, 10, 20, 0.8);
+    width: 100%;
+    height: auto;
+    padding: 2% 2%;
+    overflow: scroll;
+}
+#about h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    color: lightgray;
+}
+#about h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+    color: lightgray;
+}
+#about p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+    color: lightgray;
+}
+@media screen and (orientation: landscape) {
+#about h1 {
+    padding: 0%;
+    font-size: 4em;
+}
+#about h2 {
+    padding: 2% 0%;
+    font-size: 1.5em;
+}
+#about p {
+    padding: 0%;
     font-size: 1em;
-    line-height: 2em;
+}
+}
+@media screen and (orientation: portrait) {
+#about h1 {
+    padding: 0%;
+    font-size: 4em;
+}
+#about h2 {
+    padding: 2% 0%;
+    font-size: 1.5em;
+}
+#about p {
+    padding: 0%;
+    font-size: 1em;
 }
 }
