@@ -172,8 +172,8 @@ body.loaded {
 @media screen and (orientation: portrait) and (max-width: 768px) {
 .info h1 {
     margin: 0% 0%;
-    padding: 5% 0% 0% 0%;
-	font-size: 4em;
+    padding: 10% 0% 0% 0%;
+	font-size: 2.5em;
     line-height: 1em;
 }
 }
@@ -181,7 +181,7 @@ body.loaded {
 .info h1 {
     margin: 0% 0%;
     padding: 5% 0% 0% 0%;
-	font-size: 2.5em;
+	font-size: 2.2em;
     line-height: 1em;
 }
 }
@@ -225,7 +225,7 @@ body.loaded {
 .info h2 {
     margin: 0% 0%;
     padding: 0% 0% 0% 0%;
-	font-size: 2.5em;
+	font-size: 1.4em;
     line-height: 1em;
 }
 }
@@ -233,7 +233,7 @@ body.loaded {
 .info h2 {
     margin: 0% 0%;
     padding: 0% 0% 0% 0%;
-	font-size: 1.2em;
+	font-size: 1.1em;
     line-height: 1em;
 }
 }
@@ -276,7 +276,7 @@ body.loaded {
 .info p {
     margin: 0% 0%;
     padding: 5% 0%;
-	font-size: 2.5em;
+	font-size: 1.4em;
     line-height: 1em;
 }
 }
@@ -284,7 +284,7 @@ body.loaded {
 .info p {
     margin: 0% 0%;
     padding: 5% 0%;
-	font-size: 1.2em;
+	font-size: 1.1em;
     line-height: 1em;
 }
 }
@@ -341,14 +341,14 @@ body.loaded {
 @media screen and (orientation: portrait) and (max-width: 768px) {
 .precedent a,
 .suivant a {
-    font-size: 2em;
+    font-size: 1.1em;
     line-height: 0em;
 }
 }
 @media screen and (orientation: portrait) and (max-width: 320px) {
 .precedent a,
 .suivant a {
-    font-size: 1em;
+    font-size: 0.9em;
     line-height: 0em;
 }
 }
