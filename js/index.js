@@ -9,8 +9,6 @@ $(document).ready(function () {
     * Main
     *******************************/
     
- /* SITE UNDER CONSTRUCTION : NO ACCESS
- 
     // remove loader on click
     $('#loader').on('click', function (e) {
         e.preventDefault();
@@ -30,6 +28,5 @@ $(document).ready(function () {
         window.location.href = "main.html";
 
     }, 3500);
-*/
     
 });
