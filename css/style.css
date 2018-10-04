@@ -4,21 +4,21 @@ Website: http://theod.fr
 -----------------------------------------------*/
 
 body {
-    background-color: black;
-    opacity: 0;
+    background-color: rgb(20,10,20);
     margin: 0;
-}
-body.loaded {
-    opacity: 1;
-    -webkit-transition: opacity 2s;
-    transition: opacity 2s;
 }
 
 /********* menu *********/
 #menu {
     z-index: 0;
+    opacity: 0;
     float: left;
     padding: 0;
+}
+#menu.loaded {
+    opacity: 1;
+    -webkit-transition: opacity 2s;
+    transition: opacity 2s;
 }
 #background {
     position: fixed;
@@ -213,7 +213,12 @@ body.loaded {
 .suivant a:hover, 
 .suivant a:active, 
 .suivant a:visited, 
-.suivant a:focus {
+.suivant a:focus,
+.fermer a, 
+.fermer a:hover, 
+.fermer a:active, 
+.fermer a:visited, 
+.fermer a:focus {
     position: fixed;
     font-family: 'Montserrat', sans-serif;
     font-weight: 200;
@@ -229,6 +234,11 @@ body.loaded {
     margin: 0%;
     padding: 0%;
 }
+.fermer a {
+    bottom: 4%;
+    margin: 0%;
+    padding: 0%;
+}
 @media screen and (orientation: landscape) {
 .precedent a, 
 .precedent a:hover, 
@@ -239,7 +249,12 @@ body.loaded {
 .suivant a:hover, 
 .suivant a:active, 
 .suivant a:visited, 
-.suivant a:focus {
+.suivant a:focus,
+.fermer a, 
+.fermer a:hover, 
+.fermer a:active, 
+.fermer a:visited, 
+.fermer a:focus {
     font-size: 2.5vw;
     line-height: 0em;
 }
@@ -254,7 +269,12 @@ body.loaded {
 .suivant a:hover, 
 .suivant a:active, 
 .suivant a:visited, 
-.suivant a:focus {
+.suivant a:focus,
+.fermer a, 
+.fermer a:hover, 
+.fermer a:active, 
+.fermer a:visited, 
+.fermer a:focus {
     font-size: 2.5vh;
     line-height: 0em;
 }
@@ -275,8 +295,8 @@ body.loaded {
 }
 @media screen and (orientation: landscape) {
 #player {
-    bottom: 2%;
-    right: 1%;
+    bottom: 2vh;
+    right: 2vw;
     width: 10%;
     height: auto;
  }   
@@ -287,8 +307,8 @@ body.loaded {
 }
 @media screen and (orientation: portrait) {
 #player {
-    bottom: 1%;
-    right: 2%;
+    bottom: 2vh;
+    right: 2vw;
     height: 10%;
     width: auto;
  }
@@ -340,7 +360,7 @@ body.loaded {
     background-color: rgb(20, 10, 20);
     width: 100%;
     height: auto;
-    padding: 2% 2%;
+    padding: 2% 10%;
     overflow: visible;
 }
 #about h1 {
@@ -384,5 +404,52 @@ body.loaded {
 #about p {
     padding: 0%;
     font-size: 2vh;
+}
+}
+
+/********* retournez à la visite *********/
+.retour {
+    position: absolute;
+}
+.retour a, 
+.retour a:hover, 
+.retour a:active, 
+.retour a:visited, 
+.retour a:focus {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+    color: lightgray;
+    text-decoration: none;
+}
+.retour a {
+    margin: 0%;
+    padding: 0%;
+}
+@media screen and (orientation: landscape) {
+.retour {
+    right: 2vw;
+    top: 5vh;
+}
+.retour a, 
+.retour a:hover, 
+.retour a:active, 
+.retour a:visited, 
+.retour a:focus {
+    font-size: 2.5vw;
+    line-height: 0em;
+}
+}
+@media screen and (orientation: portrait) {
+.retour {
+    right: 5vw;
+    top: 2vh;
+}
+.retour a, 
+.retour a:hover, 
+.retour a:active, 
+.retour a:visited, 
+.retour a:focus {
+    font-size: 2.5vh;
+    line-height: 0em;
 }
 }

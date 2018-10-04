@@ -17,9 +17,11 @@
     
     <style>
         /* Style that have to be loaded first */
-        body {background-color: black;opacity: 0;margin: 0;}
-        body.loaded {opacity: 1;-webkit-transition: opacity 2s;transition: opacity 2s;}
-        #menu {z-index: 0;float: left;padding: 0;}
+        body {background-color: rgb(20,10,20);margin: 0;}
+        #loader {z-index: -1;width: 100%;height: 100%;}
+        #loader img {z-index: -1;width: 50%;height: auto;position: absolute;top: 50%;left: 50%;-webkit-transform: translate(-50%,-50%);transform: translate(-50%,-50%);}
+        #menu {z-index: 0;opacity: 0;float: left;padding: 0;}
+        #menu.loaded {opacity: 1;-webkit-transition: opacity 2s;transition: opacity 2s;}
         #background {position: fixed;display: block;width: 100%;height: 100%;padding: 0;}
         #background img {z-index: 1;position: absolute;padding: 0;}
         #background svg {z-index: 2;position: relative;padding: 0;}
@@ -32,6 +34,7 @@
         #background img, svg {width: auto;height: 100vh;}}
         #focus {display: none;}
         .info {display: none;}
+        #player {display: none;}
         #apropos {display: none;}
         #about {display: none;}
     </style>
@@ -65,6 +68,11 @@
   </head>
 
   <body>
+      
+    <!-- LOADER !-->
+    <div id="loader">
+        <img src="images/loading.png"/>
+    </div>
     
     <!-- MENU !-->
     <div>
@@ -147,6 +155,9 @@
             
             <!-- TAMARZIT !-->
             <div id="tamarzit" class="info">
+                
+                <img src="images/zoom/horizontal/tamarzit.png" style="display: none;">
+                <img src="images/zoom/vertical/tamarzit.png" style="display: none;">
 
                 <div class="description">
                     <h1>Tamarzit</h1>
@@ -163,6 +174,9 @@
             <!-- MOURAD !-->
             <div id="mourad" class="info">
                 
+                <img src="images/zoom/horizontal/mourad.png" style="display: none;">
+                <img src="images/zoom/vertical/mourad.png" style="display: none;">
+                
                 <div class="description">
                     <h1>Mourad</h1> 
                     <h2>Tanger, le 5 janvier 2018</h2>
@@ -178,6 +192,9 @@
             <!-- RACHIDA !-->
             <div id="rachida" class="info">
 
+                <img src="images/zoom/horizontal/rachida.png" style="display: none;">
+                <img src="images/zoom/vertical/rachida.png" style="display: none;">
+                
                 <div class="description">
                     <h1>Chida</h1>
                     <h2>Aulnay-sous-Bois, le 12 janvier 2018</h2>
@@ -193,6 +210,9 @@
             <!-- TOURIA !-->
             <div id="touria" class="info">
 
+                <img src="images/zoom/horizontal/touria.png" style="display: none;">
+                <img src="images/zoom/vertical/touria.png" style="display: none;">
+                
                 <div class="description">
                     <h1>Touria</h1>
                     <h2>Marrakech, le 11 mars 2018</h2>
@@ -207,6 +227,9 @@
             
             <!-- MAHA !-->
             <div id="maha" class="info">
+                
+                <img src="images/zoom/horizontal/maha.png" style="display: none;">
+                <img src="images/zoom/vertical/maha.png" style="display: none;">
                 
                 <div class="description">
                     <h1>Maha</h1>
@@ -223,6 +246,9 @@
             <!-- CHADIA !-->
             <div id="chadia" class="info">
 
+                <img src="images/zoom/horizontal/chadia.png" style="display: none;">
+                <img src="images/zoom/vertical/chadia.png" style="display: none;">
+                
                 <div class="description">
                     <h1>Chadia</h1>
                     <h2>Marrakech, le 26 février 2018</h2>
@@ -238,6 +264,9 @@
             <!-- SOULEYMA !-->
             <div id="soulaima" class="info">
  
+                <img src="images/zoom/horizontal/soulaima.png" style="display: none;">
+                <img src="images/zoom/vertical/soulaima.png" style="display: none;">
+                
                 <div class="description">
                     <h1>Soulaima</h1>
                     <h2>Marrakech, le 20 Mars 2018</h2>
@@ -253,6 +282,9 @@
             <!-- ABDELAZIZ !-->
             <div id="abdelaziz" class="info">
 
+                <img src="images/zoom/horizontal/abdelaziz.png" style="display: none;">
+                <img src="images/zoom/vertical/abdelaziz.png" style="display: none;">
+                
                 <div class="description">
                     <h1>Don anonyme</h1>
                     <h2>Bruxelles, le 3 avril 2018</h2>
@@ -268,6 +300,9 @@
             <!-- NOUREDINE !-->
             <div id="nouredine" class="info">
 
+                <img src="images/zoom/horizontal/nouredine.png" style="display: none;">
+                <img src="images/zoom/vertical/nouredine.png" style="display: none;">
+                
                 <div class="description">
                     <h1>Nouredine</h1>
                     <h2>Marrakech, le 31 Mars 2018</h2>
@@ -283,6 +318,9 @@
             <!-- MORABITI !-->
             <div id="morabiti" class="info">
 
+                <img src="images/zoom/horizontal/morabiti.png" style="display: none;">
+                <img src="images/zoom/vertical/morabiti.png" style="display: none;">
+                
                 <div class="description">
                     <h1>Mohamed</h1>
                     <h2>Tahannaout, le 2 mars 2018.</h2>
@@ -298,6 +336,9 @@
             <!-- AZIZ !-->
             <div id="aziz" class="info">
 
+                <img src="images/zoom/horizontal/aziz.png" style="display: none;">
+                <img src="images/zoom/vertical/aziz.png" style="display: none;">
+                
                 <div class="description">
                     <h1>Aziz</h1>
                     <h2>Marrakech, le 14 février 2018</h2>
@@ -313,10 +354,13 @@
             <!-- ADAM !-->
             <div id="adam" class="info">
 
+                <img src="images/zoom/horizontal/adam.png" style="display: none;">
+                <img src="images/zoom/vertical/adam.png" style="display: none;">
+                
                 <div class="description">
                     <h1>Adam</h1> 
                     <h2>Marrakech, le 15 mars 2018</h2>
-                    <p>Adam Najmi, 25 ans, est né à Casablanca et vit à Marrakech. Il est étudiant en Master Géorisques à la faculté des sciences Semlalia de Marrakech, et veilleur de nuit dans un riad.
+                    <p>Adam Najmi, 25 ans, est né à Casablanca et vit à Marrakech. Il est étudiant en Master Géorisques à la faculté des sciences Semlalia de Marrakech, et veilleur de nuit dans un riad.<br><br>Adam n'avait pas de tapis de prière à donner</p>
                 </div>
 
                 <div class="entretien " src="sounds/Adam.mp3">
@@ -328,6 +372,9 @@
             <!-- MOULAY-ZAGHLOUL !-->
             <div id="moulay-zaghloul" class="info">
 
+                <img src="images/zoom/horizontal/moulay-zaghloul.png" style="display: none;">
+                <img src="images/zoom/vertical/moulay-zaghloul.png" style="display: none;">
+                
                 <div class="description">
                     <h1>Moulay</h1>
                     <h2>Tamesloht, le 28 mars 2018</h2>
@@ -343,6 +390,9 @@
             <!-- KAMAL !-->
             <div id="kamal" class="info">
 
+                <img src="images/zoom/horizontal/kamal.png" style="display: none;">
+                <img src="images/zoom/vertical/kamal.png" style="display: none;">
+                
                 <div class="description">
                     <h1>Kamal</h1>
                     <h2>Marrakech, le 18 mars 2018</h2>
@@ -358,6 +408,9 @@
             <!-- ADNANE !-->
             <div id="adnane" class="info">
 
+                <img src="images/zoom/horizontal/adnane.png" style="display: none;">
+                <img src="images/zoom/vertical/adnane.png" style="display: none;">
+                
                 <div class="description">
                     <h1>Adnane</h1>
                     <h2>Bruxelles, le 8 mai 2018</h2>
@@ -373,6 +426,9 @@
             <!-- SAMIA !-->
             <div id="samia" class="info">
 
+                <img src="images/zoom/horizontal/samia.png" style="display: none;">
+                <img src="images/zoom/vertical/samia.png" style="display: none;">
+                
                 <div class="description">
                     <h1>Samia</h1>
                     <h2>Villepinte, le 12 avril 2018</h2>
@@ -388,6 +444,9 @@
             <!-- MOHAMED !-->
             <div id="mohamed" class="info">
 
+                <img src="images/zoom/horizontal/mohamed.png" style="display: none;">
+                <img src="images/zoom/vertical/mohamed.png" style="display: none;">
+                
                 <div class="description">
                     <h1>Mohamed</h1>
                     <h2>Bruxelles, le 4 avril 2018</h2>
@@ -403,6 +462,9 @@
             <!-- ZINA !-->
             <div id="zina" class="info">
 
+                <img src="images/zoom/horizontal/zina.png" style="display: none;">
+                <img src="images/zoom/vertical/zina.png" style="display: none;">
+                
                 <div class="description">
                     <h1>Zina</h1>
                     <h2>Paris, avril 2018</h2>
@@ -418,6 +480,9 @@
             <!-- NAIMA !-->
             <div id="naima" class="info">
 
+                <img src="images/zoom/horizontal/naima.png" style="display: none;">
+                <img src="images/zoom/vertical/naima.png" style="display: none;">
+                
                 <div class="description">
                     <h1>Naima</h1>
                     <h2>Marrakech, le 17 février 2018</h2>
@@ -449,9 +514,12 @@
     <div id="about">
 
         <div>
+            <div class="retour"><a href="">Fermer</a></div>
+            
             <h1>Sajada / le lien</h1>
             <h2>J'entame une collection. Une collection de tapis de prière et de témoignages.<br>A l'origine de ma recherche, je me suis demandé ce qu'était cet objet : à quoi sert-il ? Est-il nécessaire à la prière ? Est-il lui-même sacré, ou permet-il seulement d’accéder au sacré ?<br><br>Une des fonctions du tapis de prière serait de distinguer deux espaces. Mais lesquels ? On me parle de profane et de sacré, d'intérieur et d'extérieur, d’infiniment grand dans l’infiniment petit, d’élévation, de déplacement. C'est un objet transitionnel, à la fois banal et précieux, à mi-chemin entre ici et ailleurs. Et c'est cette fonction que je cherche à interroger et à mettre en commun.<br><br>Le tapis de prière (sajada en arabe) fait partie du décor de mon adolescence et il est encore très présent autour de moi, autour de nous. Je n’ai personnellement jamais foulé son espace, franchi ses limites. Alors, j’ai posé des questions. Et j’ai demandé à chaque personne que j’ai rencontrée de me donner son tapis de prière, ou un parmi les siens. Beaucoup l'ont fait, certains ont préféré le garder, d'autres encore me l'ont offert sans vouloir en dire plus.<br><br>De toutes ces rencontres, il reste des voix et des objets.</h2>
             <p>Sajada / le lien est conçu et réalisé par Salim Djaferi, avec l'aide de Clément Papachristou pour la dramaturgie, Myriam Pruvot pour la mise en onde et Théo de la Hogue à la régie numérique. Photographie de Thomas jean henri. Le projet est produit par les Halles, dans le cadre d’un échange Marrakech/Bruxelles coordonné par Les Halles et Awaln’art, avec le soutien de la Promotion de Bruxelles à la Fédération Wallonie Bruxelles et de la Cocof.<br><br>contact@sajadalelien.org</p>
+        
         </div>
 
     </div>

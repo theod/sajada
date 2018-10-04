@@ -74,7 +74,8 @@ function attachToEvents() {
 
 $(window).load(function() {
 
-    $("body").addClass('loaded');
+    $('#menu').addClass('loaded');
+    $('#loader').fadeOut(1000);
     
     // center the background
     backgroundInit();
@@ -157,11 +158,11 @@ $(document).ready(function () {
     // insert "Suivant" button
     $('.description').before('<div class="suivant"><a href="">Suivant</a></div>');
     
-    // insert Play button
-    $('.entretien a').before('<svg viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" width="50" height="50"><g><polygon points="0,0 100,50 0,100" fill="#EEEEEE" stroke-width="0"></polygon></g></svg>');
+    // insert "Fermer" button
+    $('.description').after('<div class="fermer"><a href="">Fermer</a></div>');
     
     // go back to menu and stop player
-    $('#focus').on('click', function (e) {
+    $('#focus, .fermer').on('click', function (e) {
         e.preventDefault();
         
         // hide player panel
@@ -214,7 +215,7 @@ $(document).ready(function () {
     $('#apropos').on('click', function (e) {
         e.preventDefault();
         
-        $('#apropos').hide(1000);
+        $('#apropos').hide();
         $('#about').fadeIn(1000);
     });
     
