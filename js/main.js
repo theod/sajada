@@ -3,8 +3,86 @@
 
 /* note : to edit bezier parameters got to http://cubic-bezier.com */
 
+/******************************
+* Definitions
+*******************************/
+
+function backgroundInit() {
+
+    var image = $('#background > picture > img'),
+        background = $('#background');
+
+    if ($(window).height() < $(window).width()) {
+        background.animate({
+                scrollLeft: 0,
+                scrollTop: (image.height() - $(window).height()) / 2
+            }, 1000);
+    } else {
+        background.animate({
+                scrollLeft: (image.width() - $(window).width()) / 2,
+                scrollTop: 0
+            }, 1000);
+    }
+}
+
+function focusInit() {
+
+    var current = sessionStorage.getItem("current");
+
+    if ($(window).width() < 1250) {
+
+        $('#focus > img').attr('src', "images/zoom/half/"+current+".png");
+
+    } else {
+
+        $('#focus > img').attr('src', "images/zoom/full/"+current+".png");
+
+    }
+}
+
+function focusClear() {
+
+    $('#focus > img').attr('src', "");
+}
+
+/** check orientation to display hint or not **/
+function onOrientationChange() {
+
+    //console.log("Orientation changed");
+    if (sessionStorage.getItem("current") == "none") {
+
+        backgroundInit();
+
+    } else {
+
+        focusInit();
+
+    }
+}
+
+function attachToEvents() {
+
+    // attach to orientation change 
+    var query = window.matchMedia("(orientation:landscape)");
+
+    query.addListener(onOrientationChange);
+}
+
+/******************************
+* Main
+*******************************/
+
 $(window).load(function() {
-    $("body").addClass('loaded');
+
+    $('#loader').fadeOut(1000);
+    
+    setTimeout(function () {
+        
+        $('#menu').addClass('loaded');
+        
+        // center the background
+        backgroundInit();
+    }, 1000);
 });
 
 $(document).ready(function () {
@@ -12,173 +90,156 @@ $(document).ready(function () {
     "use strict";
     
     sessionStorage.clear();
-    
-    /******************************
-    * Definitions
-    *******************************/
-    
-    function backgroundSetup() {
-        
-        // get zoom and scroll position to reach
-        var zoom = sessionStorage.getItem("zoom"),
-            scrollLeft = sessionStorage.getItem("scrollLeft"),
-            scrollTop = sessionStorage.getItem("scrollTop"),
-            background = $('#background');
-        
-        //console.log('backgroundSetup: zoom = ', zoom);
-        //console.log('backgroundSetup: scrollLeft = ', scrollLeft);
-        //console.log('backgroundSetup: scrollTop = ', scrollTop);
-        
-        background.animate({zoom: zoom,
-                           scrollLeft: scrollLeft,
-                           scrollTop: scrollTop
-                           }, 1000); // , $.bez([0.3, 0.75, 0.4, 1])
-        
-        if (zoom > 1.0) {
-            // lock scroll on background
-            background.removeClass('unlocked');
-            background.addClass('locked');
-        }
-        else {
-            // unlock scroll on background
-            background.removeClass('locked');
-            background.addClass('unlocked');
-        }
-    }
-    
-    function backgroundInit() {
-        
-        var image = $('#background > picture > img');
-        
-        // store zoom and scroll position to reach
-        sessionStorage.setItem("zoom", 1.0);
-        
-        if ($(window).height() < $(window).width()) {
-            sessionStorage.setItem("scrollLeft", 0);
-            sessionStorage.setItem("scrollTop", (image.height() - $(window).height()) / 2);
-        } else {
-            sessionStorage.setItem("scrollLeft", (image.width() - $(window).width()) / 2);
-            sessionStorage.setItem("scrollTop", 0);
-        }
-        
-        backgroundSetup();
-    }
-    
-    /** check orientation to display hint or not **/
-    function onOrientationChange() {
+    sessionStorage.setItem("current", "none");
 
-        //console.log("Orientation changed");
-        var zoom = sessionStorage.getItem("zoom");
-        
-        if (zoom == 1.0) {
-            if ($(window).height() < $(window).width()) {
-                $('#background').scrollLeft(0);
-                sessionStorage.setItem("scrollLeft", 0);
-            } else {
-                $('#background').scrollTop(0);
-                sessionStorage.setItem("scrollTop", 0);
-            }
-            backgroundInit();
-        } else {
-            backgroundSetup();
-        }
-    }
-    
-    function attachToEvents() {
-
-        // attach to orientation change 
-        var query = window.matchMedia("(orientation:landscape)");
-        
-        query.addListener(onOrientationChange);
-    }
-    
-    /******************************
-    * Main
-    *******************************/
-    
-    // center the background
-    backgroundInit();
-    
     // attach functions to events
     attachToEvents();
     
+    // show hint after 5s if no interaction
+    var noClick = true;
+    setTimeout(function () {
+        if (noClick) {
+            $('#conseil').fadeIn(1000);
+        }
+    }, 5000);
+    
     $('#player').mediaPlayer();
+    
+    var focused = false;
 
-    // zoom into a part of the background
+    // focus on a part of the background
     $('.zone').on('click', function (e) {
         e.preventDefault();
+        
+        // prevent double-click
+        if (focused)
+            return;
+        
+        focused = true;
+        
+        noClick = false;
         
         // hide "a propos"
         $('#apropos').hide();
         
-        // clear last info panel
-        $('.info').fadeOut(1000);
+        // hide "conseil"
+        $('#conseil').fadeOut(1000);
         
-        // focus on the a zone of the background
-        var image = $('#background > picture > img'),
-            info = $(this).attr('info'),
-            zoom = $(this).attr('zoom'),
-            scrollLeft = $(this).attr('scrollLeft') * image.width(),
-            scrollTop = $(this).attr('scrollTop') * image.height(),
+        // clear last info panel
+        $('.info').fadeOut(500);
+        
+        // hide focus image
+        $('#focus').fadeOut(500);
+        
+        // prepare info panel
+        var info = $(this).attr('info'),
+            last = $(this).attr('last'),
             next = $(this).attr('next');
         
-        if (sessionStorage.getItem("current") != info)
-        {
-            // store zoom and scroll position to reach
-            sessionStorage.setItem("zoom", zoom);
-            sessionStorage.setItem("scrollLeft", scrollLeft);
-            sessionStorage.setItem("scrollTop", scrollTop);
-        
-            // store next zone to go
-            sessionStorage.setItem("next", next);
-        
-            backgroundSetup();
-        
-            $(info).fadeIn(1000);
-        
-            sessionStorage.setItem("current", info);
-        }
-        else {
-            
-            backgroundInit();
-            
-            sessionStorage.setItem("current", "none");
-        
-            $('#apropos').fadeIn(1000);
-        }
-    });
+        // show focus and info panel
+        setTimeout(function () {
 
-    // insert "Retour" button
-    $('.description').before('<div class="retour"><a href="">Retour</a></div>');
+            // store last info to go
+            sessionStorage.setItem("last", last);
+
+            // store next info to go
+            sessionStorage.setItem("next", next);
+
+            // store current info to go
+            sessionStorage.setItem("current", info);
+
+            // hide background
+            $('#background').fadeOut(500);
+
+            // load appropriate focus image
+            focusInit();
+
+            // show focus and info panel and start inerview
+            setTimeout(function () {
+                $('#focus').fadeIn(500);
+                $('#'+info).fadeIn(500);
+                $('#'+info).find('.entretien').trigger("click");
+            }, 500);
+
+        }, 500);
+    });
     
-    // insert Play button
-    $('.entretien a').before('<svg viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" width="50" height="50"><g><polygon points="0,0 100,50 0,100" fill="#009EF8" stroke-width="0"></polygon></g></svg>');
+    // insert "Fermer" button
+    $('.description').before('<div class="fermer"><a href="">X</a></div>');
+    
+    // insert "Précédent" button
+    $('.description').after('<div class="precedent"><a href="">Précédent</a></div>');
     
     // insert "Suivant" button
-    $('.entretien').after('<div class="suivant"><a href="">Suivant</a></div>');
+    $('.description').after('<div class="suivant"><a href="">Suivant</a></div>');
     
-    // zoom back
-    $('.retour').on('click', function (e) {
+    // go back to menu and stop player
+    $('#focus, .fermer').on('click', function (e) {
         e.preventDefault();
         
-        backgroundInit();
+        // hide player panel
+        $('#player').hide();
         
-        $('.info').fadeOut(1000);
+        // get player controls
+        // if playing, stop the player
+        var controls = $('#player').find('.controls'),
+            status = $('#player').find('svg').attr('class');
+        
+        status = status.replace('playable', '').trim();
+        //console.log('status', status);
+        
+        // if playing, click on player to stop
+        if (status == 'playing') {
+            controls.click();
+        }
+        
+        $('.info').fadeOut(500);
+        $('#focus').fadeOut(500);
         
         sessionStorage.setItem("current", "none");
         
-        $('#apropos').fadeIn(1000);
+        setTimeout(function () {
+            $('#background').fadeIn(500);
+            $('#apropos').fadeIn(500);
+            backgroundInit();
+        }, 500);
+        
+        setTimeout(function () {focusClear(); focused = false;}, 1000);
+    });
+    
+    // last
+    $('.precedent').on('click', function (e) {
+        e.preventDefault();
+        
+        focused = false;
+        var last = sessionStorage.getItem("last");
+        $(last).trigger("click");
     });
     
     // next
     $('.suivant').on('click', function (e) {
         e.preventDefault();
         
-        $('.info').fadeOut(1000);
-        
+        focused = false;
         var next = sessionStorage.getItem("next");
-        
         $(next).trigger("click");
+    });
+    
+    // show about
+    $('#apropos').on('click', function (e) {
+        e.preventDefault();
+        
+        $('#apropos').hide();
+        $('#about').fadeIn(1000);
+    });
+    
+    // quit about
+    $('#about').on('click', function (e) {
+        e.preventDefault();
+        
+        $('#about').fadeOut(1000);
+        $('#apropos').fadeIn(1000);
+        backgroundInit();
     });
     
     // play
@@ -203,21 +264,41 @@ $(document).ready(function () {
         var src = $(this).attr('src'),
             audio = $('#player').find('audio');
         
-        audio.attr('src', src);
-        //console.log('src', src);
+        if (src != "no") {
+            
+            audio.attr('src', src);
+            //console.log('src', src);
         
-        // click on player to play
-        controls.click();
+            // click on player to play
+            controls.click();
         
-        // show player panel
-        $('#player-panel').fadeIn(1000);
-        
-        // get label
-        var label = $(this).attr('label');
-        //console.log('label', label);
-        
-        // set player label
-        $('#player-label').text("À l'écoute : " + label);
+            // show player
+            $('#player').fadeIn(1000);
+            
+        } else {
+            // hide player
+            $('#player').hide();
+        }
     });
+    
+	// swipe
+	$("#focus").swipe( {
+		// generic swipe handler for all directions
+        swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+			if (direction == "left") {
+                var next = sessionStorage.getItem("next");
+                $(next).trigger("click");
+			}
+			if (direction == "right") {
+                var last = sessionStorage.getItem("last");
+                $(last).trigger("click");
+			}			
+			if (direction == "up") {
+                $('#focus').trigger("click");
+			}
+		},
+        // gefault is 75px, set to 0 for demo so any distance triggers swipe
+        threshold:75
+	});
 
 });
