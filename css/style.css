@@ -27,7 +27,17 @@ body {
     background-color: rgba(20, 10, 20, 0.8);
     margin: 0%;
 }
-@media screen and (orientation: landscape) {
+@media screen and (orientation: landscape) and (min-width: 1280px) {
+#conseil {
+    left: 0%;
+    bottom: 0%;
+}
+#conseil p {
+    font-size: 2vw;
+    padding: 1% 2.5%;
+}
+}
+@media screen and (orientation: landscape) and (max-width: 1280px) {
 #conseil {
     left: 0%;
     bottom: 0%;
@@ -131,7 +141,7 @@ body {
     overflow: hidden;
     padding: 0;
 }
-@media screen and (orientation: landscape) {
+@media screen and (orientation: landscape) and (min-aspect-ratio: 2/1) {
 #focus {
     width: 100%;
     height: auto;
@@ -139,6 +149,18 @@ body {
 #focus img {
     width: auto;
     height: 125%;
+    left: -10%;
+}    
+}
+@media screen and (orientation: landscape) and (max-aspect-ratio: 2/1) {
+#focus {
+    width: 100%;
+    height: auto;
+}
+#focus img {
+    width: auto;
+    height: 125%;
+    left: -15%;
 }
 }
 @media screen and (orientation: portrait) {
@@ -185,16 +207,23 @@ body {
     color: lightgray;
     margin: 0% 0%;
 }
-@media screen and (orientation: landscape) {
+@media screen and (orientation: landscape) and (min-width: 1280px) {
 .info h1 {
-    padding: 5% 0% 0% 0%;
+    padding: 5% 0% 1% 0%;
+	font-size: 3vw;
+    line-height: 1em;
+}
+}
+@media screen and (orientation: landscape) and (max-width: 1280px) {
+.info h1 {
+    padding: 5% 0% 1% 0%;
 	font-size: 5vw;
     line-height: 1em;
 }
 }
 @media screen and (orientation: portrait) {
 .info h1 {
-    padding: 6% 0% 0% 0%;
+    padding: 6% 0% 1% 0%;
 	font-size: 5vh;
     line-height: 1em;
 }
@@ -208,7 +237,14 @@ body {
     color: lightgray;
     margin: 0% 0%;
 }
-@media screen and (orientation: landscape) {
+@media screen and (orientation: landscape) and (min-width: 1280px) {
+.info h2 {
+    padding: 0% 0% 0% 0%;
+	font-size: 1.5vw;
+    line-height: 1em;
+}
+}
+@media screen and (orientation: landscape) and (max-width: 1280px) {
 .info h2 {
     padding: 0% 0% 0% 0%;
 	font-size: 2.6vw;
@@ -231,7 +267,14 @@ body {
     margin: 0% 0%;
     padding: 10% 0%;
 }
-@media screen and (orientation: landscape) {
+@media screen and (orientation: landscape) and (min-width: 1280px) {
+.info p {
+    padding: 5% 13% 5% 0%;
+	font-size: 1.5vw;
+    line-height: 1.1em;
+}
+}
+@media screen and (orientation: landscape) and (max-width: 1280px) {
 .info p {
     padding: 5% 13% 5% 0%;
 	font-size: 2.6vw;
@@ -284,7 +327,27 @@ body {
     margin: 0%;
     padding: 0% 4% 0% 0%;
 }
-@media screen and (orientation: landscape) {
+@media screen and (orientation: landscape) and (min-width: 1280px) {
+.precedent a, 
+.precedent a:hover, 
+.precedent a:active, 
+.precedent a:visited, 
+.precedent a:focus,
+.suivant a, 
+.suivant a:hover, 
+.suivant a:active, 
+.suivant a:visited, 
+.suivant a:focus,
+.fermer a, 
+.fermer a:hover, 
+.fermer a:active, 
+.fermer a:visited, 
+.fermer a:focus {
+    font-size: 1.3vw;
+    line-height: 0em;
+} 
+}
+@media screen and (orientation: landscape) and (max-width: 1280px) {
 .precedent a, 
 .precedent a:hover, 
 .precedent a:active, 
@@ -338,25 +401,37 @@ body {
     padding: 0%;
     margin: 0%;
 }
-@media screen and (orientation: landscape) {
+@media screen and (orientation: landscape) and (min-width: 1280px) {
 #player {
     bottom: 2vh;
-    right: 25vw;
-    width: 10%;
+    right: 27vw;
+    width: 10vh;
     height: auto;
  }   
+#player svg {
+    width: 100%;
+    height: auto;
+}
+}
+@media screen and (orientation: landscape) and (max-width: 1280px) {
+#player {
+    bottom: 2vh;
+    right: 27vw;
+    width: 15vh;
+    height: auto;
 }
 #player svg {
     width: 100%;
     height: auto;
 }
+}
 @media screen and (orientation: portrait) {
 #player {
     bottom: 2vh;
     right: 40vw;
-    height: 10%;
+    height: 15vw;
     width: auto;
- }
+}
 #player svg {
     height: 100%;
     width: auto;
@@ -384,7 +459,13 @@ body {
     color: lightgray;
     text-decoration: none;
 }
-@media screen and (orientation: landscape) {
+@media screen and (orientation: landscape) and (min-width: 1280px) {
+#apropos a {
+    font-size: 2vw;
+    line-height: 0em;
+}
+}
+@media screen and (orientation: landscape) and (max-width: 1280px) {
 #apropos a {
     font-size: 3vw;
     line-height: 0em;
@@ -425,7 +506,21 @@ body {
     color: lightgray;
     text-align: justify;
 }
-@media screen and (orientation: landscape) {
+@media screen and (orientation: landscape) and (min-width: 1280px) {
+#about h1 {
+    padding: 0%;
+    font-size: 4vw;
+}
+#about h2 {
+    padding: 2% 0%;
+    font-size: 2vw;
+}
+#about p {
+    padding: 0%;
+    font-size: 1vw;
+}
+}
+@media screen and (orientation: landscape) and (max-width: 1280px) {
 #about h1 {
     padding: 0%;
     font-size: 6vw;
@@ -469,7 +564,21 @@ body {
     color: lightgray;
     text-decoration: none;
 }
-@media screen and (orientation: landscape) {
+@media screen and (orientation: landscape) and (min-width: 1280px) {
+.retour {
+    right: 0%;
+    top: 5vh;
+}
+.retour a, 
+.retour a:hover, 
+.retour a:active, 
+.retour a:visited, 
+.retour a:focus {
+    font-size: 2vw;
+    line-height: 0em;
+}   
+}
+@media screen and (orientation: landscape) and (max-width: 1280px) {
 .retour {
     right: 0%;
     top: 5vh;

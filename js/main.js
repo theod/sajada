@@ -72,6 +72,8 @@ function attachToEvents() {
 * Main
 *******************************/
 
+var noClick = true;
+
 $(window).load(function() {
 
     $('#loader').fadeOut(1000);
@@ -82,6 +84,14 @@ $(window).load(function() {
         
         // center the background
         backgroundInit();
+        
+        // show hint after 5s if no interaction
+        setTimeout(function () {
+            if (noClick) {
+                $('#conseil').fadeIn(1000);
+            }
+        }, 5000);
+        
     }, 1000);
 });
 
@@ -94,14 +104,6 @@ $(document).ready(function () {
 
     // attach functions to events
     attachToEvents();
-    
-    // show hint after 5s if no interaction
-    var noClick = true;
-    setTimeout(function () {
-        if (noClick) {
-            $('#conseil').fadeIn(1000);
-        }
-    }, 5000);
     
     $('#player').mediaPlayer();
     
@@ -131,6 +133,9 @@ $(document).ready(function () {
         // hide focus image
         $('#focus').fadeOut(500);
         
+        // hide player
+        $('#player').fadeOut(500);
+        
         // prepare info panel
         var info = $(this).attr('info'),
             last = $(this).attr('last'),
@@ -159,6 +164,7 @@ $(document).ready(function () {
                 $('#focus').fadeIn(500);
                 $('#'+info).fadeIn(500);
                 $('#'+info).find('.entretien').trigger("click");
+                $('#player').fadeIn(500);
             }, 500);
 
         }, 500);
@@ -174,7 +180,7 @@ $(document).ready(function () {
     $('.description').after('<div class="suivant"><a href="">Suivant</a></div>');
     
     // go back to menu and stop player
-    $('#focus, .fermer').on('click', function (e) {
+    $('.fermer, #focus').on('click', function (e) {
         e.preventDefault();
         
         // hide player panel
@@ -283,18 +289,20 @@ $(document).ready(function () {
     
 	// swipe
 	$("#focus").swipe( {
-		// generic swipe handler for all directions
+        // generic swipe handler for all directions
         swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
 			if (direction == "left") {
+                focused = false;
                 var next = sessionStorage.getItem("next");
                 $(next).trigger("click");
 			}
 			if (direction == "right") {
+                focused = false;
                 var last = sessionStorage.getItem("last");
                 $(last).trigger("click");
 			}			
 			if (direction == "up") {
-                $('#focus').trigger("click");
+                $('.fermer').trigger("click");
 			}
 		},
         // gefault is 75px, set to 0 for demo so any distance triggers swipe
